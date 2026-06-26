@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Ambassadors National Youth Summit 8.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300..700&family=Playfair+Display:ital,wght@1,700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -24,6 +24,7 @@
         body, html {
             width: 100vw;
             height: 100vh;
+            height: 100dvh; /* Forces accurate calculations on dynamic mobile menu UI */
             overflow: hidden;
             background-color: var(--black);
             color: var(--white);
@@ -538,7 +539,7 @@
         }
         .scene.active#scene-8 .stamp-sub { opacity: 0.45; transform: translate3d(0, 10px, 0) scale(1); filter: blur(0); }
 
-        /* ----- SCENE 9: DATE / TIME GRID (Updated Date/Time Details) ----- */
+        /* ----- SCENE 9: DATE / TIME GRID ----- */
         #scene-9 { background: var(--red); }
         .split-grid {
             display: grid;
@@ -558,7 +559,7 @@
         #scene-9 h2 { font-weight: 300; font-size: 2.2vw; color: var(--white); transform: translate3d(0, 20px, 0); opacity: 0; transition: all 0.6s var(--easing) 0.12s; letter-spacing: 5px; }
         .scene.active#scene-9 h1, .scene.active#scene-9 h2 { transform: translate3d(0, 0, 0); opacity: 1; }
 
-        /* ----- SCENE 10: NEW BRUTALIST VENUE SCENE (Ugly SVG map replaced) ----- */
+        /* ----- SCENE 10: VENUE BILLBOARD SCENE (Redesigned & High-Impact) ----- */
         #scene-10 { background: var(--black); }
         .loc-billboard-wrap {
             position: relative;
@@ -1043,10 +1044,10 @@
                     osc.type = type;
                     osc.frequency.setValueAtTime(freqStart, audioCtx.currentTime);
                     osc.frequency.exponentialRampToValueAtTime(freqEnd, audioCtx.currentTime + duration);
-                    
+
                     gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
                     gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-                    
+
                     osc.connect(gainNode);
                     gainNode.connect(audioCtx.destination);
                     osc.start();
@@ -1062,10 +1063,10 @@
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(900, audioCtx.currentTime);
                     osc.frequency.exponentialRampToValueAtTime(2000, audioCtx.currentTime + 0.08);
-                    
+
                     gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
                     gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-                    
+
                     osc.connect(gainNode);
                     gainNode.connect(audioCtx.destination);
                     osc.start();
@@ -1172,7 +1173,7 @@
             // --- SCENE RUNNER ---
             function showNextScene() {
                 const prev = currentScene - 1;
-                
+
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
                     scenes[prev].classList.remove('chromatic-glitch');
@@ -1185,7 +1186,7 @@
                 }
 
                 const randomTransition = transitions[Math.floor(Math.random() * transitions.length)];
-                
+
                 // Sound sweeps
                 if (randomTransition === 'transition-whip') playSweep(400, 100, 0.4, 'triangle');
                 if (randomTransition === 'transition-slam') playSweep(150, 45, 0.6, 'sawtooth');
