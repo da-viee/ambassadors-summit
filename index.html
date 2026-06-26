@@ -24,7 +24,7 @@
         body, html {
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* Forces accurate calculations on dynamic mobile menu UI */
+            height: 100dvh; /* Dynamic viewport calculations for mobile menu layers */
             overflow: hidden;
             background-color: var(--black);
             color: var(--white);
@@ -137,6 +137,52 @@
             position: relative;
             z-index: 10;
             will-change: transform;
+        }
+
+        /* ─── START SCREEN OVERLAY ─── */
+        #start-overlay {
+            position: fixed;
+            inset: 0;
+            background: #000000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s var(--easing), visibility 0.8s var(--easing);
+        }
+        #start-overlay.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .start-btn {
+            background: transparent;
+            border: 2px solid var(--bright-red);
+            color: var(--white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: min(4vw, 24px);
+            padding: 1.5rem 4rem;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--easing);
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.2);
+        }
+        .start-btn:hover {
+            background: var(--bright-red);
+            color: var(--black);
+            box-shadow: 0 0 50px rgba(255, 0, 51, 0.6);
+            transform: scale(1.05);
+        }
+        .start-hint {
+            margin-top: 1.5rem;
+            font-size: min(2vw, 12px);
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
         }
 
         /* ─── CHROMATIC NEON GLITCH TEXT ─── */
@@ -559,7 +605,7 @@
         #scene-9 h2 { font-weight: 300; font-size: 2.2vw; color: var(--white); transform: translate3d(0, 20px, 0); opacity: 0; transition: all 0.6s var(--easing) 0.12s; letter-spacing: 5px; }
         .scene.active#scene-9 h1, .scene.active#scene-9 h2 { transform: translate3d(0, 0, 0); opacity: 1; }
 
-        /* ----- SCENE 10: VENUE BILLBOARD SCENE (Redesigned & High-Impact) ----- */
+        /* ----- SCENE 10: VENUE BILLBOARD SCENE ----- */
         #scene-10 { background: var(--black); }
         .loc-billboard-wrap {
             position: relative;
