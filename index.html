@@ -24,7 +24,7 @@
         body, html {
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* Dynamic viewport calculations for mobile menu layers */
+            height: 100dvh; /* Dynamic calculations to lock out mobile address bars */
             overflow: hidden;
             background-color: var(--black);
             color: var(--white);
@@ -55,8 +55,8 @@
             inset: 0;
             background-size: 50px 50px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
             z-index: 2;
             pointer-events: none;
             animation: grid-drift 15s linear infinite;
@@ -71,10 +71,10 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%);
+                linear-gradient(45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%);
             background-size: 60px 60px;
             background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
             pointer-events: none;
@@ -143,13 +143,13 @@
         #start-overlay {
             position: fixed;
             inset: 0;
-            background: #000000;
-            z-index: 10000;
+            background: var(--black);
+            z-index: 100000;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s var(--easing), visibility 0.8s var(--easing);
+            transition: opacity 0.6s var(--easing), visibility 0.6s var(--easing);
         }
         #start-overlay.fade-out {
             opacity: 0;
@@ -162,26 +162,25 @@
             color: var(--white);
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: min(4vw, 24px);
-            padding: 1.5rem 4rem;
+            font-size: min(3.5vw, 22px);
+            padding: 1.5rem 3.5rem;
             letter-spacing: 0.3em;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.4s var(--easing);
             box-shadow: 0 0 30px rgba(255, 0, 51, 0.2);
+            text-transform: uppercase;
         }
         .start-btn:hover {
             background: var(--bright-red);
             color: var(--black);
             box-shadow: 0 0 50px rgba(255, 0, 51, 0.6);
-            transform: scale(1.05);
+            transform: scale3d(1.05, 1.05, 1);
         }
         .start-hint {
             margin-top: 1.5rem;
-            font-size: min(2vw, 12px);
-            letter-spacing: 0.2em;
-            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            color: rgba(255, 255, 255, 0.4);
             text-transform: uppercase;
         }
 
@@ -323,6 +322,46 @@
         @keyframes technical-float {
             0% { transform: translate3d(0, -10px, 0) rotate(0deg); }
             100% { transform: translate3d(0, 10px, 0) rotate(3deg); }
+        }
+
+        /* ----- VIDEO CANVAS PLACEHOLDER ----- */
+        .video-placeholder-container {
+            width: 75vw;
+            height: 45vh;
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            background: #000000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .video-placeholder-badge {
+            position: absolute;
+            top: 15px; left: 15px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--bright-red);
+            letter-spacing: 0.15em;
+        }
+        .video-placeholder-crop {
+            position: absolute;
+            width: 20px; height: 20px;
+            border-color: rgba(255,255,255,0.4);
+            border-style: solid;
+        }
+        .video-placeholder-crop.tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .video-placeholder-crop.tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .video-placeholder-crop.bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .video-placeholder-crop.br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+        .video-narrative-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: min(3vw, 22px);
+            line-height: 1.4;
+            max-width: 80%;
+            text-align: center;
+            letter-spacing: -0.01em;
         }
 
         /* ----- SCENE 1: WHAT IF ONE ROOM ----- */
@@ -669,8 +708,11 @@
             transform: translate3d(0, 0, 0) rotate(180deg);
         }
 
-        /* ----- SCENE 11: GRANTS ----- */
-        #scene-11 { background: var(--red); }
+        /* ----- SCENE 11: VIDEO PLACEHOLDER (1:08-1:17) ----- */
+        #scene-11 { background: var(--black); }
+
+        /* ----- SCENE 12: GRANTS ----- */
+        #scene-12 { background: var(--red); }
         .prize-bg-wrap {
             position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
             opacity: 0.05; color: var(--black); font-size: 18vw; font-family: 'Anton', sans-serif;
@@ -695,8 +737,8 @@
         }
         .scene.active .prize-sub { opacity: 1; transform: translate3d(0, 0, 0); }
 
-        /* ----- SCENE 12: LAPTOPS ----- */
-        #scene-12 { background: var(--black); overflow: hidden; }
+        /* ----- SCENE 13: LAPTOPS ----- */
+        #scene-13 { background: var(--black); overflow: hidden; }
         .s12-dots {
             position: absolute; inset: 0;
             background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
@@ -719,11 +761,11 @@
             clip-path: inset(0 100% 0 0);
             transition: clip-path 1.2s var(--fast-easing) 0.6s;
         }
-        .scene.active#scene-12 .s12-outline { transform: scale(1); opacity: 1; }
-        .scene.active#scene-12 .s12-solid { clip-path: inset(0 0% 0 0); }
+        .scene.active#scene-13 .s12-outline { transform: scale(1); opacity: 1; }
+        .scene.active#scene-13 .s12-solid { clip-path: inset(0 0% 0 0); }
 
-        /* ----- SCENE 13: CASH SCRAMBLE ----- */
-        #scene-13 { background: var(--white); overflow: hidden; }
+        /* ----- SCENE 14: CASH SCRAMBLE ----- */
+        #scene-14 { background: var(--white); overflow: hidden; }
         .s13-ghost {
             position: absolute; font-size: 32vw; font-family: 'Anton', sans-serif;
             color: rgba(0,0,0,0.05); letter-spacing: -0.05em;
@@ -741,72 +783,84 @@
             transition: transform 0.6s var(--fast-easing) 0.05s, opacity 0.3s ease 0.05s;
             min-width: 50vw; text-align: left; margin-left: 2vw;
         }
-        .scene.active#scene-13 .s13-currency,
-        .scene.active#scene-13 .s13-word { transform: translate3d(0, 0, 0); opacity: 1; }
+        .scene.active#scene-14 .s13-currency,
+        .scene.active#scene-14 .s13-word { transform: translate3d(0, 0, 0); opacity: 1; }
         .s13-underline {
             height: 6px; background: var(--black); width: 0;
             transition: width 0.7s var(--fast-easing) 0.5s; z-index: 5; position: relative;
             margin-top: 1rem;
         }
-        .scene.active#scene-13 .s13-underline { width: 70%; }
+        .scene.active#scene-14 .s13-underline { width: 70%; }
 
-        /* ----- SCENE 14: THE NIGHTTIME CTA OUTRO ----- */
-        #scene-14 {
+        /* ----- SCENE 15: VIDEO PLACEHOLDER (1:17-1:26) ----- */
+        #scene-15 { background: var(--black); }
+
+        /* ----- SCENE 16: ONE DECISION (1:26-1:29) ----- */
+        #scene-16 { background: var(--white); color: var(--black); }
+        .s16-circle {
+            position: absolute;
+            width: 30vw; height: 30vw;
+            background: var(--bright-red);
+            border-radius: 50%;
+            z-index: 1;
+            transform: scale(0);
+            transition: transform 0.8s var(--elastic) 0.1s;
+        }
+        .scene.active#scene-16 .s16-circle {
+            transform: scale(1);
+            animation: pulse-s16-circle 2s infinite alternate 1s;
+        }
+        @keyframes pulse-s16-circle {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 51, 0.4); }
+            100% { transform: scale(1.1); box-shadow: 0 0 60px rgba(255, 0, 51, 0.8); }
+        }
+        .s16-text {
+            position: relative; z-index: 10;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: min(8vw, 6vh);
+            text-align: center;
+            line-height: 1;
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+            transition: all 0.6s var(--fast-easing) 0.4s;
+        }
+        .s16-accent {
+            font-family: 'Anton', sans-serif;
+            font-size: min(15vw, 12vh);
+            color: var(--white);
+            display: block;
+            margin-top: 1vh;
+            -webkit-text-stroke: 2px var(--black);
+            text-shadow: 4px 4px 0 var(--black);
+        }
+        .scene.active#scene-16 .s16-text {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* ----- SCENE 17: SWISS STACCATO PART 2 (1:29-1:33) ----- */
+        #scene-17 { background: var(--black); }
+
+        /* ----- SCENE 18: MASSIVE RE-TITLE CARD (1:34-1:36) ----- */
+        #scene-18 { background: var(--white); color: var(--black); }
+        .s18-cross {
+            position: absolute;
+            font-family: 'Space Mono', monospace;
+            font-size: 8vw;
+            color: var(--bright-red);
+            opacity: 0.15;
+            animation: rotate-s18-cross 8s linear infinite;
+        }
+        @keyframes rotate-s18-cross { to { transform: rotate(360deg); } }
+
+        /* ----- SCENE 19: THE NIGHTTIME CTA OUTRO (1:39-1:40) ----- */
+        #scene-19 {
             background: radial-gradient(circle at center, #0e0205 0%, #020208 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        .night-glow-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 2rem;
-        }
-        .cta-summit-title {
-            font-family: 'Anton', sans-serif;
-            font-size: 5vw;
-            color: var(--white);
-            letter-spacing: -0.02em;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-        .cta-summit-edition {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 300;
-            font-size: 1.8vw;
-            color: var(--red);
-            letter-spacing: 0.4em;
-            margin-bottom: 2.5rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background: var(--white);
-            color: var(--black);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5vw;
-            letter-spacing: 0.2em;
-            padding: 1.2rem 3.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s var(--easing);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            animation: button-ambient 2s infinite alternate;
-        }
-        @keyframes button-ambient {
-            0% { box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
-            100% { box-shadow: 0 15px 35px rgba(255, 0, 51, 0.3); }
-        }
-        .cta-button:hover {
-            transform: translate3d(0, -5px, 0);
-            background: var(--bright-red);
-            color: var(--white);
         }
 
         /* Responsive Configuration Rules */
@@ -838,10 +892,21 @@
             .prize-wireframe { width: 70vw; height: 70vw; }
             .loc-banner h1 { font-size: 11vw; }
             .loc-city { font-size: 8vw; }
+            .video-placeholder-container { width: 90vw; height: 35vh; }
+            .video-narrative-text { font-size: 4.5vw; }
+            .s16-circle { width: 60vw; height: 60vw; }
+            .s16-text { font-size: 10vw; }
+            .s16-accent { font-size: 16vw; }
         }
     </style>
 </head>
 <body>
+
+    <!-- START IMMERSIVE EXPERIENTIAL OVERLAY -->
+    <div id="start-overlay">
+        <button class="start-btn" id="start-action">Enter Immersive Experience</button>
+        <p class="start-hint">Tap screen to activate audio &amp; fullscreen</p>
+    </div>
 
     <div class="noise"></div>
     <div class="tech-grid-overlay"></div>
@@ -955,8 +1020,7 @@
                     <h2>WEST AFRICA TIME</h2>
                 </div>
             </div>
-        </div>Oriental Hotel, Lagos
-
+        </div>
 
         <!-- SCENE 10: VENUE BILLBOARD SCENE (Redesigned & High-Impact) -->
         <div class="scene" id="scene-10">
@@ -973,8 +1037,20 @@
             </div>
         </div>
 
-        <!-- SCENE 11: GRANTS -->
+        <!-- NEW SCENE 11: VIDEO PLACEHOLDER (1:08-1:17) -->
         <div class="scene" id="scene-11">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">VIDEO CANVAS (1:08 - 1:17)</div>
+                <p class="video-narrative-text">POWERFUL CONVERSATIONS &bull; TRANSFORMATIONAL INSIGHTS &bull; HIGH-LEVEL NETWORKING &bull; UNLOCK YOUR NEXT LEVEL</p>
+            </div>
+        </div>
+
+        <!-- SCENE 12: GRANTS -->
+        <div class="scene" id="scene-12">
             <!-- Technical Shield Object Wireframe -->
             <svg class="prize-wireframe floating-blueprint" style="right: 5%;" viewBox="0 0 100 100">
                 <polygon points="50,12 85,28 85,65 50,88 15,65 15,28" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none" />
@@ -988,8 +1064,8 @@
             <div class="prize-sub">AMBASSADORS SUMMIT 8.0 &nbsp;•&nbsp; FINANCIAL SUPPORT</div>
         </div>
 
-        <!-- SCENE 12: LAPTOPS -->
-        <div class="scene" id="scene-12">
+        <!-- SCENE 13: LAPTOPS -->
+        <div class="scene" id="scene-13">
             <div class="s12-dots"></div>
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">GEAR</div>
             <!-- Technical Open Laptop Blueprint Outline -->
@@ -1006,8 +1082,8 @@
             <div class="prize-sub" style="color:rgba(255,255,255,0.3);">AMBASSADORS SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 13: CASH SCRAMBLE -->
-        <div class="scene" id="scene-13">
+        <!-- SCENE 14: CASH SCRAMBLE -->
+        <div class="scene" id="scene-14">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.035);">MILLIONS</div>
             <!-- Isometric Cash stack Wireframe Blueprint -->
             <svg class="prize-wireframe floating-blueprint" style="right: 8%; opacity:0.25;" viewBox="0 0 100 100">
@@ -1027,8 +1103,49 @@
             <div class="prize-sub" style="color:rgba(0,0,0,0.4); margin-top:2vh;">AMBASSADORS SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 14: THE NIGHTTIME CTA OUTRO -->
-        <div class="scene" id="scene-14">
+        <!-- NEW SCENE 15: VIDEO PLACEHOLDER (1:17-1:26) -->
+        <div class="scene" id="scene-15">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">VIDEO CANVAS (1:17 - 1:26)</div>
+                <p class="video-narrative-text">WIN BUSINESS GRANTS &bull; CASH PRIZES &bull; LAPTOPS &bull; SMARTPHONES &bull; EXCITING REWARDS</p>
+            </div>
+        </div>
+
+        <!-- NEW SCENE 16: ONE DECISION (1:26-1:29) -->
+        <div class="scene" id="scene-16">
+            <div class="s16-circle"></div>
+            <div class="s16-text">
+                YOUR FUTURE BEGINS WITH
+                <span class="s16-accent">ONE DECISION</span>
+            </div>
+        </div>
+
+        <!-- NEW SCENE 17: SWISS STACCATO PART 2 (1:29-1:33) -->
+        <div class="scene" id="scene-17">
+            <div class="s5-plus" style="top:10%; left:12%;">+</div>
+            <div class="s5-plus" style="bottom:10%; right:12%;">+</div>
+            <h1 class="s5-phrase" id="s17-p1">ONE SUMMIT.</h1>
+            <h1 class="s5-phrase" id="s17-p2" style="color:var(--bright-red);">ONE PLATFORM.</h1>
+            <h1 class="s5-phrase" id="s17-p3" style="color:transparent;-webkit-text-stroke:2px white;">ONE TO RISE.</h1>
+            <div class="s5-flash-bar" id="s17-bar"></div>
+        </div>
+
+        <!-- NEW SCENE 18: THE AMBASSADORS SUMMIT 8.0 (1:34-1:36) -->
+        <div class="scene" id="scene-18">
+            <div class="chess-pattern"></div>
+            <div class="s18-cross" style="top:15%; left:10%;">+</div>
+            <div class="s18-cross" style="bottom:15%; right:10%;">+</div>
+            <div class="word-wrap"><h1 class="w1" style="font-size: 8vw;">THE AMBASSADORS</h1></div>
+            <div class="word-wrap"><h1 class="w2" style="font-size: 11vw;">SUMMIT</h1></div>
+            <div class="word-wrap"><h1 class="w3" style="font-size: 15vw; color: var(--red);">8.0</h1></div>
+        </div>
+
+        <!-- SCENE 19: THE NIGHTTIME CTA OUTRO (1:39-1:40) -->
+        <div class="scene" id="scene-19">
             <div class="night-glow-wrap">
                 <h1 class="cta-summit-title">AMBASSADORS NATIONAL YOUTH SUMMIT</h1>
                 <h2 class="cta-summit-edition"> 8.0</h2>
@@ -1045,23 +1162,32 @@
             const glowBall1 = document.getElementById('ambient-flare-1');
             const glowBall2 = document.getElementById('ambient-flare-2');
             const progressFill = document.getElementById('progress-fill');
+            const startOverlay = document.getElementById('start-overlay');
+            const startAction = document.getElementById('start-action');
+            
             let currentScene = 0;
+            let presentationStarted = false;
 
             const sceneDurations = [
                 2300, // 1: What if one room
                 2500, // 2: Can CHANGE your future
-                2100, // 3: Staccato (Adjusted to finish cleanly upon exactly 3 single beats)
+                2100, // 3: Staccato 1 (exactly 3 single beats)
                 2700, // 4: Ambassadors National Youth Summit 8.0
                 2200, // 5: AM Video Text
                 2200, // 6: SUMMIT Video Text
                 2200, // 7: 8.0 Video Text
                 2400, // 8: Scan-line Portrait
                 2700, // 9: Date Split Grid
-                2800, // 10: Location Blueprint Map (New Location Scene)
-                2400, // 11: Grants
-                2500, // 12: Laptops
-                2800, // 13: Cash Scramble
-                4500  // 14: Nighttime CTA Outro
+                2800, // 10: Location Blueprint Map
+                4000, // 11: Video Frame (1:08-1:17)
+                2400, // 12: Grants
+                2500, // 13: Laptops
+                2800, // 14: Cash Scramble
+                4000, // 15: Video Frame (1:17-1:26)
+                3000, // 16: One Decision (1:26-1:29)
+                2100, // 17: Staccato 2 (1:29-1:33)
+                2600, // 18: Summit 8.0 Title Card (1:34-1:36)
+                4500  // 19: Nighttime CTA Outro (1:39-1:40)
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -1077,10 +1203,6 @@
                     audioEnabled = true;
                 } catch(e) {}
             }
-
-            // Silent user interaction hooks to auto-activate Web Audio without UI pills
-            document.body.addEventListener('touchstart', initAudio, { once: true });
-            document.body.addEventListener('click', initAudio, { once: true });
 
             function playSweep(freqStart, freqEnd, duration, type = 'sine') {
                 if (!audioEnabled || !audioCtx) return;
@@ -1120,6 +1242,55 @@
                 } catch(e) {}
             }
 
+            // ─── FULLSCREEN CONTROL SYSTEM ───
+            function requestFullscreen(element) {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
+                    element.webkitRequestFullscreen();
+                } else if (element.mozRequestFullScreen) { /* Firefox */
+                    element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) { /* IE/Edge */
+                    element.msRequestFullscreen();
+                }
+            }
+
+            function exitFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            // Double Tap / Double Click Gesture to exit fullscreen
+            let lastTap = 0;
+            document.body.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 400 && tapLength > 0) {
+                    if (document.fullscreenElement || document.webkitFullscreenElement) {
+                        exitFullscreen();
+                    } else {
+                        requestFullscreen(document.documentElement);
+                    }
+                    e.preventDefault();
+                }
+                lastTap = currentTime;
+            });
+
+            document.body.addEventListener('dblclick', () => {
+                if (document.fullscreenElement || document.webkitFullscreenElement) {
+                    exitFullscreen();
+                } else {
+                    requestFullscreen(document.documentElement);
+                }
+            });
+
             // ─── VARIABLE FONT MORPH SYSTEM (Scene 2) ───
             const changeTarget = document.getElementById('change-font-target');
             let fontWeightInterval = null;
@@ -1141,22 +1312,21 @@
                 changeTarget.style.fontWeight = '300';
             }
 
-            // --- STACCATO CONFIG ---
+            // --- STACCATO MODULES (Scene 3 & Scene 17) ---
             const phrases = ['s5-p1', 's5-p2', 's5-p3'];
             const flashBar = document.getElementById('s5-bar');
             let staccatoTimeouts = [];
 
             function startStaccato() {
-                // Clear previous active states
                 phrases.forEach(id => document.getElementById(id).classList.remove('visible'));
                 staccatoTimeouts.forEach(t => clearTimeout(t));
                 staccatoTimeouts = [];
 
-                // Phrase 1 (0ms)
+                // Step 1
                 document.getElementById(phrases[0]).classList.add('visible');
                 playGlitchTick();
 
-                // Phrase 2 (700ms)
+                // Step 2
                 staccatoTimeouts.push(setTimeout(() => {
                     document.getElementById(phrases[0]).classList.remove('visible');
                     document.getElementById(phrases[1]).classList.add('visible');
@@ -1170,7 +1340,7 @@
                     setTimeout(() => container.classList.remove('transition-glitch'), 100);
                 }, 700));
 
-                // Phrase 3 (1400ms)
+                // Step 3
                 staccatoTimeouts.push(setTimeout(() => {
                     document.getElementById(phrases[1]).classList.remove('visible');
                     document.getElementById(phrases[2]).classList.add('visible');
@@ -1188,6 +1358,50 @@
             function stopStaccato() {
                 staccatoTimeouts.forEach(t => clearTimeout(t));
                 phrases.forEach(id => document.getElementById(id).classList.remove('visible'));
+            }
+
+            const phrases2 = ['s17-p1', 's17-p2', 's17-p3'];
+            const flashBar2 = document.getElementById('s17-bar');
+            let staccatoTimeouts2 = [];
+
+            function startStaccato2() {
+                phrases2.forEach(id => document.getElementById(id).classList.remove('visible'));
+                staccatoTimeouts2.forEach(t => clearTimeout(t));
+                staccatoTimeouts2 = [];
+
+                document.getElementById(phrases2[0]).classList.add('visible');
+                playGlitchTick();
+
+                staccatoTimeouts2.push(setTimeout(() => {
+                    document.getElementById(phrases2[0]).classList.remove('visible');
+                    document.getElementById(phrases2[1]).classList.add('visible');
+                    playGlitchTick();
+                    if (flashBar2) {
+                        flashBar2.classList.remove('fire');
+                        void flashBar2.offsetWidth;
+                        flashBar2.classList.add('fire');
+                    }
+                    container.classList.add('transition-glitch');
+                    setTimeout(() => container.classList.remove('transition-glitch'), 100);
+                }, 700));
+
+                staccatoTimeouts2.push(setTimeout(() => {
+                    document.getElementById(phrases2[1]).classList.remove('visible');
+                    document.getElementById(phrases2[2]).classList.add('visible');
+                    playGlitchTick();
+                    if (flashBar2) {
+                        flashBar2.classList.remove('fire');
+                        void flashBar2.offsetWidth;
+                        flashBar2.classList.add('fire');
+                    }
+                    container.classList.add('transition-glitch');
+                    setTimeout(() => container.classList.remove('transition-glitch'), 100);
+                }, 1400));
+            }
+
+            function stopStaccato2() {
+                staccatoTimeouts2.forEach(t => clearTimeout(t));
+                phrases2.forEach(id => document.getElementById(id).classList.remove('visible'));
             }
 
             // --- TEXT SCRAMBLER ---
@@ -1218,6 +1432,7 @@
 
             // --- SCENE RUNNER ---
             function showNextScene() {
+                if (!presentationStarted) return;
                 const prev = currentScene - 1;
 
                 if (prev >= 0) {
@@ -1225,6 +1440,7 @@
                     scenes[prev].classList.remove('chromatic-glitch');
                     if (prev === 1) stopFontCycling();
                     if (prev === 2) stopStaccato();
+                    if (prev === 16) stopStaccato2();
                 }
 
                 if (currentScene >= scenes.length) {
@@ -1238,6 +1454,9 @@
                 if (randomTransition === 'transition-slam') playSweep(150, 45, 0.6, 'sawtooth');
                 if (randomTransition === 'transition-zoom') playSweep(800, 200, 0.3, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
+
+                // Specific Sub Sweep on "One Decision"
+                if (currentScene === 15) playSweep(120, 35, 1.2, 'sawtooth');
 
                 // Clear prior flare transitions on GPU
                 glowBall1.classList.remove('flare-active');
@@ -1264,7 +1483,8 @@
 
                 if (currentScene === 1) startFontCycling();
                 if (currentScene === 2) startStaccato();
-                if (currentScene === 12) startCashScramble(); // index 12 is Scene 13
+                if (currentScene === 13) startCashScramble(); // index 13 is Scene 14
+                if (currentScene === 16) startStaccato2();
 
                 setTimeout(() => {
                     currentScene++;
@@ -1272,7 +1492,14 @@
                 }, duration);
             }
 
-            setTimeout(() => showNextScene(), 200);
+            // TRIGGER EXPERIENCE ENTRY
+            startAction.addEventListener('click', () => {
+                initAudio();
+                requestFullscreen(document.documentElement);
+                startOverlay.classList.add('fade-out');
+                presentationStarted = true;
+                setTimeout(() => { showNextScene(); }, 400);
+            });
         });
     </script>
 </body>
