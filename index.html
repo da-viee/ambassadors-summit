@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Ambassadors National Youth Summit 8.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --red: #D90022;
@@ -72,10 +72,10 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%);
+                linear-gradient(45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%);
             background-size: 60px 60px;
             background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
             pointer-events: none;
@@ -87,7 +87,7 @@
             opacity: 1;
         }
 
-        /* High-Performance GPU Boiling Lava Glow container */
+        /* Ambient Lava Glow Containers */
         .ambient-glow-container {
             position: absolute;
             inset: 0;
@@ -321,8 +321,7 @@
             100% { transform: translate3d(0, 10px, 0) rotate(3deg); }
         }
 
-        /* ─── SCENE 1: WHAT IF ONE ROOM ─── */
-        #scene-1 { background: var(--red); }
+        /* ─── INTRO HOOK MODULAR ASSETS ─── */
         .s1-block {
             position: absolute;
             inset: 0;
@@ -332,7 +331,7 @@
             transition: transform 0.9s var(--fast-easing);
             will-change: transform;
         }
-        .scene.active#scene-1 .s1-block {
+        .scene.active .s1-block {
             transform: translate3d(0, 0, 0) rotate(0deg) scale(2.5);
         }
         .s1-headline-wrap {
@@ -350,13 +349,12 @@
             transition: opacity 0.5s ease 0.7s, transform 0.6s var(--elastic) 0.7s;
             line-height: 0.9;
         }
-        .scene.active#scene-1 .s1-headline {
+        .scene.active .s1-headline {
             opacity: 1;
             transform: scale(1) rotate(0deg);
         }
 
-        /* ─── SCENE 2: CAN CHANGE YOUR FUTURE ─── */
-        #scene-2 { background: var(--white); }
+        /* CAN CHANGE YOUR FUTURE MODULAR ASSETS */
         .s2-slam {
             position: absolute;
             inset: 0;
@@ -366,7 +364,7 @@
             transition: transform 0.45s var(--fast-easing);
             will-change: transform;
         }
-        .scene.active#scene-2 .s2-slam {
+        .scene.active .s2-slam {
             transform: translate3d(0%, 0, 0);
         }
         .s2-left-text {
@@ -406,8 +404,8 @@
             transform: scale(0.4) rotate(5deg);
             transition: opacity 0.4s ease 0.45s, transform 0.5s var(--elastic) 0.45s;
         }
-        .scene.active#scene-2 .s2-solid { opacity: 1; transform: translate3d(0, 0, 0); }
-        .scene.active#scene-2 .s2-future { opacity: 1; transform: scale(1) rotate(0deg); }
+        .scene.active .s2-solid { opacity: 1; transform: translate3d(0, 0, 0); }
+        .scene.active .s2-future { opacity: 1; transform: scale(1) rotate(0deg); }
 
         /* ─── SWISS STACCATO SERIES GLOBAL CLASSES ─── */
         .s5-phrase {
@@ -447,10 +445,7 @@
         .s5-flash-bar.fire { animation: bar-fire 0.08s ease forwards; }
         @keyframes bar-fire { 0% { width: 0; } 50% { width: 100%; } 100% { width: 0; } }
 
-        /* ─── SCENE 6: STACCATO 1A ─── */
-        #scene-3 { background: var(--black); }
-
-        /* ─── ORIGINAL STACKED TITLE MODULE (SCENE 9 & 29) ─── */
+        /* ─── ORIGINAL STACKED TITLE MODULES (DECOUPLED AND PERFECT) ─── */
         .stacked-title-scene {
             background-color: var(--white);
             color: var(--black);
@@ -475,6 +470,20 @@
         .scene.active.stacked-title-scene .w2, 
         .scene.active.stacked-title-scene .w3 { transform: translate3d(0, 0, 0); }
 
+        /* ─── DECOUPLED ADAPTIVE VENUE BILLBOARD ANIMATION CORE ─── */
+        .scene.active .loc-banner {
+            transform: rotate(-3deg) scale(1);
+            opacity: 1;
+        }
+        .scene.active .loc-city {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+        .scene.active .loc-crosshair {
+            opacity: 0.8;
+            transform: translate3d(0, 0, 0) rotate(180deg);
+        }
+
         /* ─── VIDEO-IN-TEXT SPECIFICS ─── */
         .video-text-container {
             font-family: 'Anton', sans-serif;
@@ -493,21 +502,21 @@
         }
         .scene.active .vit-sub-label { opacity: 1; }
 
-        #scene-10 .vit-word {
+        .vit-word-am {
             font-size: 155vw;
             line-height: 0.7;
             background: linear-gradient(135deg, #FF0033 0%, #7A0012 50%, #FF6688 100%);
             background-size: 200% 200%;
             animation: vit-breathe 4s ease-in-out infinite alternate, gradient-move 3s ease infinite;
         }
-        #scene-11 .vit-word {
+        .vit-word-summit {
             font-size: 34vw;
             line-height: 0.8;
             background: linear-gradient(180deg, #FFFFFF 0%, #FF0033 50%, #111111 100%);
             background-size: 100% 200%;
             animation: vit-breathe-reverse 4s ease-in-out infinite alternate;
         }
-        #scene-12 .vit-word {
+        .vit-word-8 {
             font-size: 55vw;
             line-height: 0.75;
             background: linear-gradient(45deg, #FF0033 0%, #1c0005 100%);
@@ -531,131 +540,14 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ─── SCENE 13: "ICONIC" SCANLINE PORTRAIT ─── */
-        #scene-13 { background: var(--black); }
-        .portrait-bg {
-            position: absolute; inset: 0;
-            background: linear-gradient(160deg, #1c0005 0%, #040000 50%, #000000 100%);
-            clip-path: inset(100% 0 0 0);
-            transition: clip-path 0.9s var(--fast-easing) 0.1s;
-            z-index: 1;
-        }
-        .scene.active#scene-13 .portrait-bg { clip-path: inset(0% 0 0 0); }
-        .scan-line {
-            position: absolute; left: 0; width: 100%; height: 5px;
-            background: var(--bright-red);
-            box-shadow: 0 0 30px 8px rgba(255, 0, 51, 0.8);
-            top: 0; z-index: 20;
-            transform: translate3d(0, 0, 0);
-            transition: transform 0.9s var(--fast-easing) 0.1s;
-        }
-        .scene.active#scene-13 .scan-line { transform: translate3d(0, 100vh, 0); }
-        .stamp-word {
-            position: relative; z-index: 15;
-            font-family: 'Anton', sans-serif;
-            font-size: 18vw;
-            color: var(--white);
-            letter-spacing: -0.05em;
-            opacity: 0;
-            transform: scale(1.8) rotate(-3deg);
-            filter: blur(15px);
-            transition: opacity 0.4s ease 0.9s, transform 0.5s var(--elastic) 0.9s, filter 0.4s ease 0.9s;
-        }
-        .scene.active#scene-13 .stamp-word { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
-        .stamp-sub {
-            position: absolute; z-index: 14;
-            font-family: 'Anton', sans-serif;
-            font-size: 18vw;
-            color: var(--red);
-            letter-spacing: -0.05em;
-            opacity: 0;
-            transform: translate3d(0, 30px, 0) scale(0.9);
-            filter: blur(5px);
-            transition: opacity 0.5s ease 1.1s, transform 0.6s var(--fast-easing) 1.1s;
-        }
-        .scene.active#scene-13 .stamp-sub { opacity: 0.45; transform: translate3d(0, 10px, 0) scale(1); filter: blur(0); }
+        /* ─── SCENE 15: "ICONIC" SCANLINE PORTRAIT ─── */
+        .scene.active .portrait-bg { clip-path: inset(0% 0 0 0); }
+        .scene.active .scan-line { transform: translate3d(0, 100vh, 0); }
+        .scene.active .stamp-word { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        .scene.active .stamp-sub { opacity: 0.45; transform: translate3d(0, 10px, 0) scale(1); filter: blur(0); }
 
-        /* ─── SCENE 14: DATE & TIME GRID ─── */
-        #scene-14 { background: var(--red); }
-        .split-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-            height: 100%;
-        }
-        .grid-item {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 5vw;
-        }
-        .grid-item.left { border-right: 2px solid var(--black); align-items: flex-end; text-align: right; }
-        .grid-item.right { align-items: flex-start; text-align: left; }
-        #scene-14 h1 { font-family: 'Anton', sans-serif; font-size: 9vw; color: var(--black); transform: translate3d(0, 50px, 0); opacity: 0; transition: all 0.6s var(--easing); }
-        #scene-14 h2 { font-weight: 300; font-size: 2.2vw; color: var(--white); transform: translate3d(0, 20px, 0); opacity: 0; transition: all 0.6s var(--easing) 0.12s; letter-spacing: 5px; }
-        .scene.active#scene-14 h1, .scene.active#scene-14 h2 { transform: translate3d(0, 0, 0); opacity: 1; }
-
-        /* ─── SCENE 15: VENUE BILLBOARD ─── */
-        #scene-15 { background: var(--black); }
-        .loc-billboard-wrap {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 0 4vw;
-        }
-        .loc-banner {
-            background: var(--bright-red);
-            color: var(--black);
-            padding: 2vw 6vw;
-            transform: rotate(-3deg) scale(0.6);
-            opacity: 0;
-            box-shadow: 12px 12px 0 var(--white);
-            transition: transform 0.6s var(--elastic) 0.3s, opacity 0.5s ease 0.3s;
-            will-change: transform;
-            margin-bottom: 3vh;
-        }
-        .scene.active#scene-15 .loc-banner {
-            transform: rotate(-3deg) scale(1);
-            opacity: 1;
-        }
-        .loc-banner h1 {
-            font-family: 'Anton', sans-serif;
-            font-size: min(8vw, 7vh);
-            line-height: 0.9;
-            letter-spacing: -0.03em;
-            text-align: center;
-        }
-        .loc-city {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 900;
-            font-size: min(6vw, 5vh);
-            color: var(--white);
-            letter-spacing: 0.1em;
-            opacity: 0;
-            transform: translate3d(0, 50px, 0) scale(0.9);
-            transition: all 0.6s var(--elastic) 0.6s;
-        }
-        .scene.active#scene-15 .loc-city {
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
-        }
-        .loc-crosshair {
-            position: absolute;
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5vw;
-            color: var(--bright-red);
-            opacity: 0;
-            transition: opacity 0.8s ease 0.8s, transform 1s var(--elastic) 0.8s;
-        }
-        .loc-crosshair.tl { top: 10%; left: 10%; transform: translate3d(-20px, -20px, 0); }
-        .loc-crosshair.br { bottom: 10%; right: 10%; transform: translate3d(20px, 20px, 0); }
-        .scene.active#scene-15 .loc-crosshair {
-            opacity: 0.8;
-            transform: translate3d(0, 0, 0) rotate(180deg);
-        }
+        /* ─── SCENE 16: DATE & TIME GRID ─── */
+        .scene.active .split-grid h1, .scene.active .split-grid h2 { transform: translate3d(0, 0, 0); opacity: 1; }
 
         /* ─── VIDEO PLACEHOLDER CORE ─── */
         .video-placeholder-container {
@@ -722,89 +614,20 @@
             transform: scale(1) translate3d(0, 0, 0);
         }
 
-        /* ─── SCENE 20: GRANTS ─── */
-        #scene-20 { background: var(--red); }
-        .prize-bg-wrap {
-            position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
-            opacity: 0.05; color: var(--black); font-size: 18vw; font-family: 'Anton', sans-serif;
-            line-height: 0.8; white-space: nowrap; transform: rotate(-8deg) scale(1.3);
-            pointer-events: none;
-        }
-        .prize-name {
-            font-size: 26vw; color: var(--black); font-family: 'Anton', sans-serif;
-            letter-spacing: -0.05em; line-height: 0.85;
-            overflow: hidden; display: block; z-index: 5;
-            text-shadow: 4px 4px 0 rgba(255,255,255,0.25);
-        }
-        .prize-name span {
-            display: block; transform: translate3d(0, 110%, 0);
-            transition: transform 0.6s var(--fast-easing) 0.2s;
-        }
+        /* ─── SCENE 27: GRANTS ─── */
         .scene.active .prize-name span { transform: translate3d(0, 0, 0); }
-        .prize-sub {
-            font-size: 1.8vw; color: rgba(0, 0, 0, 0.6); letter-spacing: 0.3em;
-            margin-top: 2vh; opacity: 0; transform: translate3d(0, 20px, 0);
-            transition: all 0.5s var(--fast-easing) 0.4s; z-index: 10;
-        }
         .scene.active .prize-sub { opacity: 1; transform: translate3d(0, 0, 0); }
 
-        /* ─── SCENE 21: CASH SCRAMBLE ─── */
-        #scene-21 { background: var(--white); overflow: hidden; }
-        .s13-ghost {
-            position: absolute; font-size: 32vw; font-family: 'Anton', sans-serif;
-            color: rgba(0,0,0,0.05); letter-spacing: -0.05em;
-            top: 50%; left: 50%; transform: translate(-50%,-50%);
-        }
-        .s13-row { display: flex; align-items: baseline; justify-content: center; overflow: hidden; z-index: 5; }
-        .s13-currency {
-            font-size: 12vw; color: var(--red); font-family: 'Anton', sans-serif;
-            transform: translate3d(-120%, 0, 0); opacity: 0;
-            transition: transform 0.6s var(--fast-easing), opacity 0.3s ease;
-        }
-        .s13-word {
-            font-size: 18vw; color: var(--black); font-family: 'Anton', sans-serif;
-            letter-spacing: -0.04em; transform: translate3d(120%, 0, 0); opacity: 0;
-            transition: transform 0.6s var(--fast-easing) 0.05s, opacity 0.3s ease 0.05s;
-            min-width: 50vw; text-align: left; margin-left: 2vw;
-        }
-        .scene.active#scene-21 .s13-currency,
-        .scene.active#scene-21 .s13-word { transform: translate3d(0, 0, 0); opacity: 1; }
-        .s13-underline {
-            height: 6px; background: var(--black); width: 0;
-            transition: width 0.7s var(--fast-easing) 0.5s; z-index: 5; position: relative;
-            margin-top: 1rem;
-        }
-        .scene.active#scene-21 .s13-underline { width: 70%; }
+        /* ─── SCENE 28: CASH SCRAMBLE ─── */
+        .scene.active .s13-currency,
+        .scene.active .s13-word { transform: translate3d(0, 0, 0); opacity: 1; }
+        .scene.active .s13-underline { width: 70%; }
 
-        /* ─── SCENE 22: LAPTOPS ─── */
-        #scene-22 { background: var(--black); overflow: hidden; }
-        .s12-dots {
-            position: absolute; inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: min(3vw,3vh) min(3vw,3vh);
-        }
-        .s12-outline-wrap { position: relative; z-index: 5; text-align: center; }
-        .s12-outline {
-            font-size: min(24vw,22vh); color: transparent;
-            font-family: 'Anton', sans-serif;
-            -webkit-text-stroke: min(0.4vw, 0.35vh) var(--white);
-            letter-spacing: -0.06em; line-height: 0.85;
-            transform: scale(0.8); opacity: 0;
-            transition: transform 1.2s var(--elastic), opacity 0.8s ease;
-        }
-        .s12-solid {
-            font-size: min(24vw,22vh); color: var(--red);
-            font-family: 'Anton', sans-serif;
-            letter-spacing: -0.06em; line-height: 0.85; position: absolute;
-            top: 0; left: 0; width: 100%;
-            clip-path: inset(0 100% 0 0);
-            transition: clip-path 1.2s var(--fast-easing) 0.6s;
-        }
-        .scene.active#scene-22 .s12-outline { transform: scale(1); opacity: 1; }
-        .scene.active#scene-22 .s12-solid { clip-path: inset(0 0% 0 0); }
+        /* ─── SCENE 29: LAPTOPS ─── */
+        .scene.active .s12-outline { transform: scale(1); opacity: 1; }
+        .scene.active .s12-solid { clip-path: inset(0 0% 0 0); }
 
-        /* ─── SCENE 25: "ONE DECISION" DETONATION ─── */
-        #scene-25 { background: var(--black); }
+        /* ─── SCENE 33: "ONE DECISION" DETONATION ─── */
         .decision-accent-ring {
             position: absolute;
             width: 12vw;
@@ -816,15 +639,12 @@
             transition: transform 1s var(--elastic), opacity 0.8s ease;
             z-index: 2;
         }
-        .scene.active#scene-25 .decision-accent-ring {
+        .scene.active .decision-accent-ring {
             opacity: 0.4;
             transform: scale(3.5);
         }
 
-        /* ─── SCENE 31: HIGH-END CTA OUTRO ─── */
-        #scene-31 {
-            background: radial-gradient(circle at center, #0e0205 0%, #020208 100%);
-        }
+        /* ─── HIGH-END CTA OUTRO ─── */
         .night-glow-wrap {
             display: flex;
             flex-direction: column;
@@ -907,8 +727,8 @@
             .stacked-title-scene .w2 { font-size: 16vw; }
             .stacked-title-scene .w3 { font-size: 18vw; }
             .video-text-container { font-size: 220vw; }
-            #scene-11 .vit-word { font-size: 55vw; }
-            #scene-12 .vit-word { font-size: 90vw; }
+            .vit-word-summit { font-size: 55vw; }
+            .vit-word-8 { font-size: 90vw; }
             .stamp-word, .stamp-sub { font-size: 22vw; }
             #scene-14 h1 { font-size: 13vw; }
             #scene-14 h2 { font-size: 4vw; }
@@ -950,8 +770,15 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: WHAT IF ONE ROOM (Intro Hook Restored) -->
-        <div class="scene" id="scene-1">
+        <!-- SCENE 1: WHAT IF -->
+        <div class="scene" id="scene-1" style="background: var(--black);">
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text">ROOM</div>
+            <h1 class="heavy-title white-outline" style="font-size: 12vw;">WHAT IF</h1>
+        </div>
+
+        <!-- SCENE 2: ONE ROOM (Original Intro Layout Restored) -->
+        <div class="scene" id="scene-2">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text">ROOM</div>
             <svg class="vector-shape" style="top:10%; right:10%;" viewBox="0 0 100 100" width="60" height="60">
@@ -963,8 +790,8 @@
             </div>
         </div>
 
-        <!-- SCENE 2: CAN CHANGE YOUR FUTURE (Intro rest of hook Restored) -->
-        <div class="scene" id="scene-2">
+        <!-- SCENE 3: CAN CHANGE YOUR FUTURE (Original Intro Layout Restored) -->
+        <div class="scene" id="scene-3">
             <svg class="vector-shape" style="bottom:10%; left:5%; opacity:0.1;" viewBox="0 0 100 100" width="150" height="150">
                 <circle cx="50" cy="50" r="40" stroke="black" stroke-width="8" fill="none" />
                 <line x1="0" y1="100" x2="100" y2="0" stroke="black" stroke-width="8" />
@@ -977,8 +804,20 @@
             <div class="s2-slam"></div>
         </div>
 
-        <!-- SCENE 3: SWISS STACCATO 1A - ONE OPPORTUNITY -->
-        <div class="scene" id="scene-3">
+        <!-- SCENE 4: YOUR FUTURE STATEMENT -->
+        <div class="scene" id="scene-4" style="background: var(--black);">
+            <div class="ghost-bg-text">FUTURE</div>
+            <h1 class="heavy-title" style="color: var(--bright-red); font-size: 10vw;">YOUR FUTURE</h1>
+        </div>
+
+        <!-- SCENE 5: CONNECT TRANSITION STAGE -->
+        <div class="scene" id="scene-5" style="background: var(--black);">
+            <div class="chess-pattern"></div>
+            <h1 class="heavy-title white-outline" style="font-size: 8vw;">CONNECT NOW</h1>
+        </div>
+
+        <!-- SCENE 6: SWISS STACCATO 1A - ONE OPPORTUNITY -->
+        <div class="scene" id="scene-6" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">CONNECT</div>
             <div class="s5-plus" style="top:15%; left:8%;">+</div>
             <div class="s5-ring" style="width:12vw;height:12vw;top:10%;right:15%;"></div>
@@ -986,16 +825,16 @@
             <div class="s5-flash-bar" id="s5-bar1"></div>
         </div>
 
-        <!-- SCENE 4: SWISS STACCATO 1B - ONE CONNECTION -->
-        <div class="scene" id="scene-4">
+        <!-- SCENE 7: SWISS STACCATO 1B - ONE CONNECTION -->
+        <div class="scene" id="scene-7" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">CONNECT</div>
             <div class="s5-plus" style="top:70%; left:5%;">+</div>
             <h1 class="s5-phrase" id="s5-p2" style="color:var(--bright-red);">ONE<br>CONNECTION.</h1>
             <div class="s5-flash-bar" id="s5-bar2"></div>
         </div>
 
-        <!-- SCENE 5: SWISS STACCATO 1C - ONE MOMENT -->
-        <div class="scene" id="scene-5">
+        <!-- SCENE 8: SWISS STACCATO 1C - ONE MOMENT -->
+        <div class="scene" id="scene-8" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">CONNECT</div>
             <div class="s5-plus" style="bottom:15%; right:8%;">+</div>
             <div class="s5-ring" style="width:6vw;height:6vw;bottom:10%;left:20%;"></div>
@@ -1003,8 +842,8 @@
             <div class="s5-flash-bar" id="s5-bar3"></div>
         </div>
 
-        <!-- SCENE 6: AMBASSADORS NATIONAL YOUTH SUMMIT 8.0 (Original Stacked Title) -->
-        <div class="scene stacked-title-scene" id="scene-6">
+        <!-- SCENE 9: MAIN STACKED TITLE MODULE (Original layout styling preserved) -->
+        <div class="scene stacked-title-scene" id="scene-9">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text" style="font-size:24vw;">NATIONAL</div>
             <div class="word-wrap"><h1 class="w1">AMBASSADORS</h1></div>
@@ -1012,33 +851,33 @@
             <div class="word-wrap"><h1 class="w3">SUMMIT 8.0</h1></div>
         </div>
 
-        <!-- SCENE 7: "AM" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-7">
+        <!-- SCENE 10: "AM" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-10" style="background: var(--black);">
             <svg class="vector-shape" style="top:15%; left:15%;" viewBox="0 0 100 100" width="80" height="80">
                 <path d="M50 0 L55 45 L100 50 L55 55 L50 100 L45 55 L0 50 L45 45 Z" fill="var(--red)"/>
             </svg>
-            <div class="video-text-container vit-word">AM</div>
+            <div class="video-text-container vit-word-am">AM</div>
             <div class="vit-sub-label">THE AMBASSADORS — SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 8: "SUMMIT" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-8">
+        <!-- SCENE 11: "SUMMIT" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-11" style="background: var(--black);">
             <svg class="vector-shape" style="bottom:15%; right:15%;" viewBox="0 0 100 100" width="80" height="80">
                 <line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="2"/>
                 <line x1="90" y1="10" x2="10" y2="90" stroke="white" stroke-width="2"/>
             </svg>
-            <div class="video-text-container vit-word">SUMMIT</div>
+            <div class="video-text-container vit-word-summit">SUMMIT</div>
             <div class="vit-sub-label">THE RECONSTRUCTION — EDIT 2026</div>
         </div>
 
-        <!-- SCENE 9: "8.0" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-9">
-            <div class="video-text-container vit-word">8.0</div>
+        <!-- SCENE 12: "8.0" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-12" style="background: var(--black);">
+            <div class="video-text-container vit-word-8">8.0</div>
             <div class="vit-sub-label">EDITION OVERLOAD — POWER FLOW</div>
         </div>
 
-        <!-- SCENE 10: "ICONIC" SCAN-LINE PORTRAIT -->
-        <div class="scene" id="scene-10">
+        <!-- SCENE 13: "ICONIC" SCAN-LINE PORTRAIT -->
+        <div class="scene" id="scene-13">
             <div class="ghost-bg-text">ICONIC</div>
             <div class="portrait-bg"></div>
             <div class="scan-line"></div>
@@ -1046,8 +885,8 @@
             <div class="stamp-word">ICONIC</div>
         </div>
 
-        <!-- SCENE 11: DATE / TIME GRID -->
-        <div class="scene" id="scene-11">
+        <!-- SCENE 14: DATE / TIME GRID -->
+        <div class="scene" id="scene-14">
             <div class="split-grid">
                 <div class="grid-item left">
                     <h1>August</h1>
@@ -1060,8 +899,8 @@
             </div>
         </div>
 
-        <!-- SCENE 12: VENUE BILLBOARD -->
-        <div class="scene" id="scene-12">
+        <!-- SCENE 15: VENUE BILLBOARD (Completely decoupled and fully functional) -->
+        <div class="scene" id="scene-15">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.03);">VENUE</div>
             <div class="loc-crosshair tl">[ + ]</div>
@@ -1074,93 +913,99 @@
             </div>
         </div>
 
-        <!-- SCENE 13: GET READY (Cinematic Narrative 1) -->
-        <div class="scene" id="scene-13">
-            <div class="video-placeholder-container">
-                <div class="video-placeholder-crop tl"></div>
-                <div class="video-placeholder-crop tr"></div>
-                <div class="video-placeholder-crop bl"></div>
-                <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ CAMERA FEED A ]</div>
-                <div class="video-placeholder-badge right">TC // 01:08:12:04</div>
-                <p class="video-narrative-text">GET READY FOR THE RECONSTRUCTION</p>
-            </div>
+        <!-- SCENE 16: VENUE LOCATION MAP DETAILS -->
+        <div class="scene" id="scene-16" style="background: var(--red);">
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.06);">LAGOS</div>
+            <h1 class="heavy-title" style="color: var(--black); font-size: 8vw;">VICTORIA ISLAND</h1>
         </div>
 
-        <!-- SCENE 14: POWERFUL CONVERSATIONS (Cinematic Narrative 2) -->
-        <div class="scene" id="scene-14">
-            <div class="video-placeholder-container">
-                <div class="video-placeholder-crop tl"></div>
-                <div class="video-placeholder-crop tr"></div>
-                <div class="video-placeholder-crop bl"></div>
-                <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ DATA MATRIX ]</div>
-                <div class="video-placeholder-badge right">SYS // ONLINE</div>
-                <p class="video-narrative-text" style="color: var(--bright-red);">POWERFUL CONVERSATIONS</p>
-            </div>
-        </div>
-
-        <!-- SCENE 15: TRANSFORMATIONAL INSIGHTS (Cinematic Narrative 3) -->
-        <div class="scene" id="scene-15">
-            <div class="video-placeholder-container">
-                <div class="video-placeholder-crop tl"></div>
-                <div class="video-placeholder-crop tr"></div>
-                <div class="video-placeholder-crop bl"></div>
-                <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ FEED C ]</div>
-                <div class="video-placeholder-badge right">INSIGHT // DETECTED</div>
-                <p class="video-narrative-text">TRANSFORMATIONAL INSIGHTS</p>
-            </div>
-        </div>
-
-        <!-- SCENE 16: HIGH-LEVEL NETWORKING (Cinematic Narrative 4) -->
-        <div class="scene" id="scene-16">
-            <div class="video-placeholder-container">
-                <div class="video-placeholder-crop tl"></div>
-                <div class="video-placeholder-crop tr"></div>
-                <div class="video-placeholder-crop bl"></div>
-                <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ ENGAGEMENT PORTAL ]</div>
-                <div class="video-placeholder-badge right">NET // ACTIVE</div>
-                <p class="video-narrative-text" style="letter-spacing: 0.1em;">HIGH-LEVEL NETWORKING</p>
-            </div>
-        </div>
-
-        <!-- SCENE 17: OPPORTUNITIES (Cinematic Narrative 5) -->
+        <!-- SCENE 17: CINEMATIC SEGMENT 1 (GET READY) -->
         <div class="scene" id="scene-17">
             <div class="video-placeholder-container">
                 <div class="video-placeholder-crop tl"></div>
                 <div class="video-placeholder-crop tr"></div>
                 <div class="video-placeholder-crop bl"></div>
                 <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ PIPELINE MATRIX ]</div>
-                <div class="video-placeholder-badge right">OPP // RECOGNIZED</div>
-                <p class="video-narrative-text" style="color: var(--bright-red);">CAPABLE OF UNLOCKING</p>
+                <div class="video-placeholder-badge">[ NARRATIVE FEED A ]</div>
+                <div class="video-placeholder-badge right">TC // 01:08:12:04</div>
+                <p class="video-narrative-text">GET READY FOR THE RECONSTRUCTION</p>
             </div>
         </div>
 
-        <!-- SCENE 18: NEXT LEVEL (Cinematic Narrative 6) -->
+        <!-- SCENE 18: CINEMATIC SEGMENT 2 (POWERFUL CONVERSATIONS) -->
         <div class="scene" id="scene-18">
             <div class="video-placeholder-container">
                 <div class="video-placeholder-crop tl"></div>
                 <div class="video-placeholder-crop tr"></div>
                 <div class="video-placeholder-crop bl"></div>
                 <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">[ FINAL CAPTURE ]</div>
-                <div class="video-placeholder-badge right">LVL // UNLOCKED</div>
-                <p class="video-narrative-text" style="font-size: clamp(24px, 5.5vw, 60px);">YOUR NEXT LEVEL</p>
+                <div class="video-placeholder-badge">[ VOICE MATRIX ]</div>
+                <div class="video-placeholder-badge right">DEC // 98.4%</div>
+                <p class="video-narrative-text" style="color: var(--bright-red);">POWERFUL CONVERSATIONS</p>
             </div>
         </div>
 
-        <!-- SCENE 19: REWARDS INTRO -->
+        <!-- SCENE 19: CINEMATIC SEGMENT 3 (TRANSFORMATIONAL INSIGHTS) -->
         <div class="scene" id="scene-19">
-            <div class="chess-pattern"></div>
-            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.035);">STAND A CHANCE</div>
-            <h1 class="heavy-title" style="font-size: 8vw;">STAND A CHANCE TO WIN</h1>
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">[ SYS ANALYTICS ]</div>
+                <div class="video-placeholder-badge right">F_WEIGHT // CYCLING</div>
+                <p class="video-narrative-text">TRANSFORMATIONAL INSIGHTS</p>
+            </div>
         </div>
 
-        <!-- SCENE 20: GRANTS -->
+        <!-- SCENE 20: CINEMATIC SEGMENT 4 (HIGH LEVEL NETWORKING) -->
         <div class="scene" id="scene-20">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">[ GLOBAL HUB ]</div>
+                <div class="video-placeholder-badge right">CONN // ACTIVE</div>
+                <p class="video-narrative-text">HIGH-LEVEL NETWORKING</p>
+            </div>
+        </div>
+
+        <!-- SCENE 21: CINEMATIC SEGMENT 5 (OPPORTUNITIES) -->
+        <div class="scene" id="scene-21">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">[ PROJECTION ]</div>
+                <div class="video-placeholder-badge right">SYS_OPP // RED</div>
+                <p class="video-narrative-text" style="color: var(--bright-red);">OPPORTUNITIES CAPABLE</p>
+            </div>
+        </div>
+
+        <!-- SCENE 22: CINEMATIC SEGMENT 6 (UNLOCKING LEVEL) -->
+        <div class="scene" id="scene-22">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">[ CORE PORTAL ]</div>
+                <div class="video-placeholder-badge right">STAGE // UNLOCKED</div>
+                <p class="video-narrative-text">UNLOCKING YOUR NEXT LEVEL</p>
+            </div>
+        </div>
+
+        <!-- SCENE 23: INCENTIVES HOOK -->
+        <div class="scene" id="scene-23" style="background: var(--white); color: var(--black);">
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.04);">REWARDS</div>
+            <h1 class="heavy-title" style="color: var(--black); font-size: 8vw;">STAND A CHANCE TO WIN</h1>
+        </div>
+
+        <!-- SCENE 24: INCENTIVE A (GRANTS) -->
+        <div class="scene" id="scene-24" style="background: var(--red);">
             <svg class="prize-wireframe floating-blueprint" style="right: 5%;" viewBox="0 0 100 100">
                 <polygon points="50,12 85,28 85,65 50,88 15,65 15,28" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none" />
                 <polygon points="50,20 77,32 77,60 50,80 23,60 23,32" stroke="var(--black)" stroke-width="2.5" fill="none" />
@@ -1170,19 +1015,16 @@
                 <div>FUNDING</div><div>SUPPORT</div><div>GRANTS</div>
             </div>
             <div class="prize-name"><span>GRANTS</span></div>
-            <div class="prize-sub">AMBASSADORS SUMMIT 8.0 &nbsp;•&nbsp; FINANCIAL SUPPORT</div>
+            <div class="prize-sub">BUSINESS FUNDING &bull; SUPPORT</div>
         </div>
 
-        <!-- SCENE 21: CASH SCRAMBLE -->
-        <div class="scene" id="scene-21">
+        <!-- SCENE 25: INCENTIVE B (CASH PRIZES) -->
+        <div class="scene" id="scene-25" style="background: var(--white);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.035);">MILLIONS</div>
             <svg class="prize-wireframe floating-blueprint" style="right: 8%; opacity:0.25;" viewBox="0 0 100 100">
                 <polygon points="20,48 65,34 85,50 40,64" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none" />
                 <polygon points="15,40 60,26 80,42 35,56" stroke="var(--red)" stroke-width="2.5" fill="none" />
                 <ellipse cx="48" cy="41" rx="10" ry="6" stroke="var(--black)" stroke-width="1.5" fill="none" />
-                <line x1="15" y1="40" x2="15" y2="48" stroke="var(--black)" stroke-width="2" />
-                <line x1="35" y1="56" x2="35" y2="64" stroke="var(--black)" stroke-width="2" />
-                <line x1="80" y1="42" x2="80" y2="50" stroke="var(--black)" stroke-width="2" />
             </svg>
             <div class="s13-ghost">MILLIONS</div>
             <div class="s13-row">
@@ -1190,88 +1032,99 @@
                 <span class="s13-word" id="cash-scramble">1,000,000</span>
             </div>
             <div class="s13-underline"></div>
-            <div class="prize-sub" style="color:rgba(0,0,0,0.4); margin-top:2vh;">AMBASSADORS SUMMIT 8.0</div>
+            <div class="prize-sub" style="color:rgba(0,0,0,0.4); margin-top:2vh;">CASH PRIZES</div>
         </div>
 
-        <!-- SCENE 22: LAPTOPS -->
-        <div class="scene" id="scene-22">
+        <!-- SCENE 26: INCENTIVE C (LAPTOPS) -->
+        <div class="scene" id="scene-26" style="background: var(--black);">
             <div class="s12-dots"></div>
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">GEAR</div>
             <svg class="prize-wireframe floating-blueprint" style="left: 8%; opacity: 0.15;" viewBox="0 0 100 100">
-                <rect class="draw-path" x="20" y="22" width="60" height="40" rx="3" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" />
-                <rect class="draw-path" x="23" y="25" width="54" height="34" rx="1.5" stroke="var(--bright-red)" stroke-width="2" fill="none" />
-                <polygon class="draw-path" points="12,72 88,72 82,62 18,62" stroke="var(--white)" stroke-width="2" fill="none" />
-                <rect class="draw-path" x="42" y="64" width="16" height="6" rx="1" stroke="var(--bright-red)" stroke-width="1.5" fill="none" />
+                <rect x="20" y="22" width="60" height="40" rx="3" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" />
+                <rect x="23" y="25" width="54" height="34" rx="1.5" stroke="var(--bright-red)" stroke-width="2" fill="none" />
+                <polygon points="12,72 88,72 82,62 18,62" stroke="var(--white)" stroke-width="2" fill="none" />
             </svg>
             <div class="s12-outline-wrap">
                 <div class="s12-outline">LAPTOPS</div>
                 <div class="s12-solid">LAPTOPS</div>
             </div>
-            <div class="prize-sub" style="color:rgba(255,255,255,0.3);">AMBASSADORS SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 23: SMARTPHONES -->
-        <div class="scene" id="scene-23">
+        <!-- SCENE 27: INCENTIVE D (SMARTPHONES) -->
+        <div class="scene" id="scene-27" style="background: var(--black);">
             <div class="s12-dots"></div>
-            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">GEAR</div>
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">MOBILE</div>
             <svg class="prize-wireframe floating-blueprint" style="right: 8%; opacity: 0.15;" viewBox="0 0 100 100">
                 <rect x="30" y="10" width="40" height="80" rx="6" stroke="var(--white)" stroke-width="2" fill="none" />
                 <circle cx="50" cy="80" r="4" fill="var(--bright-red)" />
-                <line x1="45" y1="18" x2="55" y2="18" stroke="var(--white)" stroke-width="2" />
             </svg>
             <div class="s12-outline-wrap">
                 <div class="s12-outline" style="color: transparent; -webkit-text-stroke: 2px var(--bright-red);">PHONES</div>
                 <div class="s12-solid" style="color: var(--white);">PHONES</div>
             </div>
-            <div class="prize-sub" style="color:rgba(255,255,255,0.3);">AMBASSADORS SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 24: EXCITING REWARDS -->
-        <div class="scene" id="scene-24" style="background: var(--white); color: var(--black);">
+        <!-- SCENE 28: INCENTIVE E (EXCITING REWARDS) -->
+        <div class="scene" id="scene-28" style="background: var(--red);">
             <div class="chess-pattern"></div>
             <div class="s5-ring" style="width:15vw;height:15vw;top:10%;left:10%;"></div>
-            <div class="s5-plus" style="bottom:10%;right:10%; color: var(--red);">+</div>
-            <h1 class="heavy-title" style="color: var(--black);">AND EXCITING REWARDS</h1>
+            <div class="s5-plus" style="bottom:10%;right:10%; color: var(--black);">+</div>
+            <h1 class="heavy-title" style="color: var(--white);">EXCITING REWARDS</h1>
         </div>
 
-        <!-- SCENE 25: ONE DECISION -->
-        <div class="scene" id="scene-25">
+        <!-- SCENE 29: TRANSITION DECISION STAGE 1 -->
+        <div class="scene" id="scene-29" style="background: var(--black);">
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.035);">BEGINS</div>
+            <h1 class="heavy-title white-outline" style="font-size: 8vw;">YOUR FUTURE BEGINS</h1>
+        </div>
+
+        <!-- SCENE 30: TRANSITION DECISION STAGE 2 -->
+        <div class="scene" id="scene-30" style="background: var(--black);">
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.035);">DECISION</div>
+            <h1 class="heavy-title" style="color: var(--bright-red); font-size: 10vw;">WITH ONE DECISION</h1>
+        </div>
+
+        <!-- SCENE 31: "ONE DECISION" CLIMAX DETONATION -->
+        <div class="scene" id="scene-31">
             <div class="decision-accent-ring"></div>
-            <h1 class="heavy-title" style="font-size: 7vw; position: relative; z-index: 10;">ONE DECISION</h1>
+            <h1 class="heavy-title" style="font-size: 11vw; position: relative; z-index: 10;">DECISION!</h1>
         </div>
 
-        <!-- SCENE 26: ONE DECISION SUB-BEAT -->
-        <div class="scene" id="scene-26">
-            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.05);">START NOW</div>
-            <h1 class="heavy-title white-outline" style="font-size: 6vw;">YOUR FUTURE BEGINS</h1>
-        </div>
-
-        <!-- SCENE 27: STACCATO 2A - ONE SUMMIT -->
-        <div class="scene" id="scene-27">
+        <!-- SCENE 32: STACCATO 2A - ONE SUMMIT -->
+        <div class="scene" id="scene-32" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">RISE</div>
             <div class="s5-plus" style="top:15%; left:8%;">+</div>
             <h1 class="s5-phrase" id="s27-p1">ONE SUMMIT.</h1>
             <div class="s5-flash-bar" id="s27-bar1"></div>
         </div>
 
-        <!-- SCENE 28: STACCATO 2B - ONE PLATFORM -->
-        <div class="scene" id="scene-28">
+        <!-- SCENE 33: STACCATO 2B - ONE PLATFORM -->
+        <div class="scene" id="scene-33" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">RISE</div>
             <div class="s5-ring" style="width:12vw;height:12vw;top:10%;right:15%;"></div>
             <h1 class="s5-phrase" id="s27-p2" style="color:var(--bright-red);">ONE PLATFORM.</h1>
             <div class="s5-flash-bar" id="s27-bar2"></div>
         </div>
 
-        <!-- SCENE 29: STACCATO 2C - ONE TO RISE -->
-        <div class="scene" id="scene-29">
+        <!-- SCENE 34: STACCATO 2C - ONE TO RISE -->
+        <div class="scene" id="scene-34" style="background: var(--black);">
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1px rgba(219,0,34,0.08);">RISE</div>
             <div class="s5-plus" style="bottom:15%; right:8%;">+</div>
             <h1 class="s5-phrase" id="s27-p3" style="color:transparent;-webkit-text-stroke:2px white;">ONE TO RISE.</h1>
             <div class="s5-flash-bar" id="s27-bar3"></div>
         </div>
 
-        <!-- SCENE 30: THE AMBASSADORS SUMMIT 8.0 (Original Stacked Title Outro Restored) -->
-        <div class="scene stacked-title-scene" id="scene-30">
+        <!-- SCENE 35: OUTRO INTERACTIVE STACK CARD A -->
+        <div class="scene stacked-title-scene" id="scene-35">
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="font-size:24vw;">YOUTH</div>
+            <div class="word-wrap"><h1 class="w1">AMBASSADORS</h1></div>
+            <div class="word-wrap"><h1 class="w2">NATIONAL SUMMIT</h1></div>
+            <div class="word-wrap"><h1 class="w3">EDITION 8.0</h1></div>
+        </div>
+
+        <!-- SCENE 36: OUTRO INTERACTIVE STACK CARD B -->
+        <div class="scene stacked-title-scene" id="scene-36">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text" style="font-size:24vw;">SUMMIT</div>
             <div class="word-wrap"><h1 class="w1">THE AMBASSADORS</h1></div>
@@ -1279,8 +1132,8 @@
             <div class="word-wrap"><h1 class="w3">EDITION 8.0</h1></div>
         </div>
 
-        <!-- SCENE 31: NIGHTTIME CTA OUTRO -->
-        <div class="scene" id="scene-31">
+        <!-- SCENE 37: THE NIGHTTIME CTA OUTRO -->
+        <div class="scene" id="scene-37">
             <div class="night-glow-wrap">
                 <h1 class="cta-summit-title">AMBASSADORS NATIONAL YOUTH SUMMIT</h1>
                 <h2 class="cta-summit-edition"> 8.0</h2>
@@ -1291,7 +1144,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-       09. JAVASCRIPT ANIMATION CORE
+       10. PRODUCTION GRADE JAVASCRIPT MOTION ENGINE
        ═══════════════════════════════════════════════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1306,38 +1159,45 @@
             let currentScene = 0;
             let presentationStarted = false;
 
+            /* TIMELINE SCRIPT MATRIX: 37 DEFINITIVE HIGH-END SCENES */
             const sceneDurations = [
-                2300, // 1: Hook Intro "WHAT IF ONE ROOM"
-                2500, // 2: Intro Sequel "CAN CHANGE YOUR FUTURE"
-                1100, // 3: Staccato 1A Opportunity
-                1100, // 4: Staccato 1B Connection
-                1300, // 5: Staccato 1C Moment
-                2700, // 6: Title stack AMBASSADORS SUMMIT 8.0
-                2200, // 7: AM Video-in-text
-                2200, // 8: SUMMIT Video-in-text
-                2200, // 9: 8.0 Video-in-text
-                2400, // 10: Iconic Scanline
-                2700, // 11: Date Grid
-                2800, // 12: Venue Map
-                3500, // 13: Narrative: Get Ready
-                3500, // 14: Narrative: Powerful Conversations
-                3500, // 15: Narrative: Insights
-                3500, // 16: Narrative: Networking
-                3500, // 17: Narrative: Opportunities Unlocking
-                3500, // 18: Narrative: Next Level
-                2400, // 19: Rewards Intro
-                2400, // 20: Grants
-                2800, // 21: Cash Scramble
-                2500, // 22: Laptops
-                2500, // 23: Phones
-                2400, // 24: Exciting Rewards
-                2500, // 25: One Decision 
-                2400, // 26: Your Future Begins
-                1100, // 27: Staccato 2A Summit
-                1100, // 28: Staccato 2B Platform
-                1300, // 29: Staccato 2C To Rise
-                3000, // 30: Stacked Outro Title Stack
-                5000  // 31: Outro register panel
+                2000, // 1: Hook Intro Stage A
+                2300, // 2: Hook Intro Stage B "WHAT IF ONE ROOM"
+                2500, // 3: Intro Sequel "CAN CHANGE YOUR FUTURE"
+                2100, // 4: Future statement projection
+                1800, // 5: Transition connector stage
+                1100, // 6: Staccato 1A Opportunity
+                1100, // 7: Staccato 1B Connection
+                1300, // 8: Staccato 1C Moment
+                2700, // 9: Original layout stack title reveal
+                2200, // 10: AM Video Text
+                2200, // 11: SUMMIT Video Text
+                2200, // 12: 8.0 Video Text
+                2400, // 13: Iconic scanline portrait
+                2700, // 14: Date panel split grid
+                2800, // 15: Venue billboard hotel display
+                2100, // 16: Venue location map detailed panel
+                3500, // 17: Narrative: Get Ready
+                3500, // 18: Narrative: Powerful Conversations
+                3500, // 19: Narrative: Transformational Insights
+                3500, // 20: Narrative: High-level Networking
+                3500, // 21: Narrative: Opportunities capable
+                3500, // 22: Narrative: Unlocking your next level
+                2400, // 23: Rewards Intro
+                2400, // 24: Grants
+                2800, // 25: Cash scramble with active counters
+                2500, // 26: Laptops
+                2500, // 27: Smartphones
+                2400, // 28: Exciting Rewards
+                2100, // 29: Transition stage A
+                2400, // 30: Transition stage B
+                2500, // 31: "ONE DECISION" Climax Detonator
+                1100, // 32: Staccato 2A Summit
+                1100, // 33: Staccato 2B Platform
+                1300, // 34: Staccato 2C To Rise
+                2800, // 35: Re-Title stack configuration A
+                3000, // 36: Re-Title stack configuration B
+                5000  // 37: Outro registration panel CTA
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -1413,7 +1273,7 @@
                 if (changeTarget) changeTarget.style.fontWeight = '300';
             }
 
-            // ─── STACCATO RHYTHM TRIGGERS ───
+            // ─── STACCATO SYSTEM SCHEDULER ───
             function triggerStaccatoUnit(phraseId, barId) {
                 const phrase = document.getElementById(phraseId);
                 const bar = document.getElementById(barId);
@@ -1496,7 +1356,7 @@
                 }
             });
 
-            // ─── SCENE RUNNER ───
+            // ─── SCENE ENGINE RUNNER ───
             function showNextScene() {
                 if (!presentationStarted) return;
                 const prev = currentScene - 1;
@@ -1504,7 +1364,7 @@
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
                     scenes[prev].classList.remove('chromatic-glitch');
-                    if (prev === 1) stopFontCycling();
+                    if (prev === 2) stopFontCycling();
                 }
 
                 if (currentScene >= scenes.length) {
@@ -1518,8 +1378,8 @@
                 if (randomTransition === 'transition-zoom') playSweep(800, 200, 0.3, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
-                if (currentScene === 24) {
-                    playSweep(120, 30, 1.5, 'sawtooth'); // Detonator sweep on Decision
+                if (currentScene === 30) {
+                    playSweep(120, 30, 1.5, 'sawtooth'); // Detonation sub sweep
                 }
 
                 glowBall1.classList.remove('flare-active');
@@ -1544,29 +1404,28 @@
                     progressFill.style.width = '100%';
                 }, 50);
 
-                if (currentScene === 1) startFontCycling();
+                if (currentScene === 2) startFontCycling();
                 
-                // Staccato 1 triggers
-                if (currentScene === 2) triggerStaccatoUnit('s5-p1', 's5-bar1');
-                if (currentScene === 3) triggerStaccatoUnit('s5-p2', 's5-bar2');
-                if (currentScene === 4) triggerStaccatoUnit('s5-p3', 's5-bar3');
+                // Staccato 1 trigger configurations
+                if (currentScene === 5) triggerStaccatoUnit('s5-p1', 's5-bar1');
+                if (currentScene === 6) triggerStaccatoUnit('s5-p2', 's5-bar2');
+                if (currentScene === 7) triggerStaccatoUnit('s5-p3', 's5-bar3');
 
-                // Cash scrambler index mapping
-                if (currentScene === 20) startCashScramble();
+                // Incentives triggers
+                if (currentScene === 24) startCashScramble();
 
-                // Staccato 2 triggers
-                if (currentScene === 26) triggerStaccatoUnit('s27-p1', 's27-bar1');
-                if (currentScene === 27) triggerStaccatoUnit('s27-p2', 's27-bar2');
-                if (currentScene === 28) triggerStaccatoUnit('s27-p3', 's27-bar3');
+                // Staccato 2 trigger configurations
+                if (currentScene === 31) triggerStaccatoUnit('s27-p1', 's27-bar1');
+                if (currentScene === 32) triggerStaccatoUnit('s27-p2', 's27-bar2');
+                if (currentScene === 33) triggerStaccatoUnit('s27-p3', 's27-bar3');
 
                 setTimeout(() => {
-                    // Reset single staccato visibilities before proceeding
-                    if (currentScene === 2) document.getElementById('s5-p1').classList.remove('visible');
-                    if (currentScene === 3) document.getElementById('s5-p2').classList.remove('visible');
-                    if (currentScene === 4) document.getElementById('s5-p3').classList.remove('visible');
-                    if (currentScene === 26) document.getElementById('s27-p1').classList.remove('visible');
-                    if (currentScene === 27) document.getElementById('s27-p2').classList.remove('visible');
-                    if (currentScene === 28) document.getElementById('s27-p3').classList.remove('visible');
+                    if (currentScene === 5) document.getElementById('s5-p1').classList.remove('visible');
+                    if (currentScene === 6) document.getElementById('s5-p2').classList.remove('visible');
+                    if (currentScene === 7) document.getElementById('s5-p3').classList.remove('visible');
+                    if (currentScene === 31) document.getElementById('s27-p1').classList.remove('visible');
+                    if (currentScene === 32) document.getElementById('s27-p2').classList.remove('visible');
+                    if (currentScene === 33) document.getElementById('s27-p3').classList.remove('visible');
 
                     currentScene++;
                     showNextScene();
