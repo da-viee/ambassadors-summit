@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Ambassadors National Youth Summit 8.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Playfair+Display:ital,wght@1,700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ═══════════════════════════════════════════════════════════════
            01. DESIGN SYSTEM VARIABLES & CUSTOM EASINGS
-           Developed for cinematic, high-contrast, brutalist presentation layers.
            ═══════════════════════════════════════════════════════════════ */
         :root {
-            /* Primary Brand Colorways */
             --red: #D90022;
             --bright-red: #FF0033;
             --black: #000000;
@@ -19,28 +17,21 @@
             --off-white: #F4F4F5;
             --dark-gray: #0D0D11;
             
-            /* High-Contrast Neon Glitch Offsets */
             --neon-cyan: #00FFFF;
             --neon-magenta: #FF00FF;
-            --neon-green: #39FF14;
-            --neon-yellow: #FFE600;
 
-            /* Advanced Mathematical Easing library */
+            /* Advanced Mathematical Easing Library */
             --ease-spotify: cubic-bezier(0.83, 0, 0.17, 1);
             --ease-snap:    cubic-bezier(0.19, 1, 0.22, 1);
             --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
             --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
             --ease-fluid: cubic-bezier(0.76, 0, 0.24, 1);
             
-            /* Spatial & Motion Properties */
-            --transition-speed: 0.4s;
-            --camera-depth: 1000px;
+            --camera-depth: 1200px;
         }
 
         /* ═══════════════════════════════════════════════════════════════
            02. GLOBAL PERFORMANCE CORE & HARDWARE ACCELERATION
-           Optimized to lock out browser menus and enable fluid 60fps rendering.
            ═══════════════════════════════════════════════════════════════ */
         * { 
             margin: 0; 
@@ -53,17 +44,16 @@
         body, html {
             width: 100vw;
             height: 100vh;
-            height: 100dvh; /* Accurate mobile viewport calculations */
+            height: 100dvh;
             overflow: hidden;
             background-color: var(--black);
             color: var(--white);
             font-family: 'Space Grotesk', sans-serif;
-            cursor: none; /* Immersive digital display feel */
+            cursor: none;
             user-select: none;
             -webkit-user-select: none;
         }
 
-        /* Hardware-Accelerated 3D Presentation Container */
         #slideshow-container {
             width: 100%;
             height: 100%;
@@ -79,7 +69,7 @@
             animation: whip-pan-animation 0.45s var(--ease-spotify) both;
         }
         @keyframes whip-pan-animation {
-            0% { transform: translate3d(100vw, 0, 0) scale3d(1.5, 1, 1); opacity: 0; }
+            0% { transform: translate3d(100vw, 0, 0) scale3d(1.4, 1, 1); opacity: 0; }
             100% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); opacity: 1; }
         }
 
@@ -87,8 +77,8 @@
             animation: glitch-flash-animation 0.35s steps(2) both;
         }
         @keyframes glitch-flash-animation {
-            0% { transform: translate3d(12px, -6px, 0) scale3d(0.98, 1.02, 1); }
-            50% { transform: translate3d(-12px, 6px, 0) scale3d(1.02, 0.98, 1); }
+            0% { transform: translate3d(15px, -8px, 0) scale3d(0.97, 1.03, 1); }
+            50% { transform: translate3d(-15px, 8px, 0) scale3d(1.03, 0.97, 1); }
             100% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
         }
 
@@ -96,24 +86,22 @@
             animation: zoom-snap-animation 0.5s var(--ease-elastic) both;
         }
         @keyframes zoom-snap-animation {
-            0% { transform: scale3d(0.2, 0.2, 1) rotate(-5deg); opacity: 0; }
+            0% { transform: scale3d(0.3, 0.3, 1) rotate(-8deg); opacity: 0; }
             100% { transform: scale3d(1, 1, 1) rotate(0deg); opacity: 1; }
         }
 
         .transition-slam {
-            animation: gravity-slam-animation 0.42s var(--ease-snap) both;
+            animation: gravity-slam-animation 0.45s var(--ease-snap) both;
         }
         @keyframes gravity-slam-animation {
             0% { transform: translate3d(0, -100vh, 0); }
-            65% { transform: translate3d(0, 3vh, 0); }
+            60% { transform: translate3d(0, 4vh, 0); }
             100% { transform: translate3d(0, 0, 0); }
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           03. PROCEDURAL PROCEDURAL GRAPHICS & BACKDROP VIGNETTES
-           Industrial patterns, noise algorithms, and moving radial flaring.
+           03. PROCEDURAL BACKGROUND VIGNETTES
            ═══════════════════════════════════════════════════════════════ */
-        /* Film Grain/Noise Algorithm */
         .noise {
             position: fixed;
             top: 0; left: 0;
@@ -130,34 +118,32 @@
             100% { transform: translate3d(3%, -3%, 0); }
         }
 
-        /* Moving Structural Grid Overlay */
         .tech-grid-overlay {
             position: absolute;
             inset: 0;
-            background-size: 60px 60px;
+            background-size: 50px 50px;
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
             z-index: 2;
             pointer-events: none;
-            animation: background-grid-drift 20s linear infinite;
+            animation: background-grid-drift 25s linear infinite;
         }
         @keyframes background-grid-drift {
             0% { background-position: 0px 0px; }
-            100% { background-position: 120px 120px; }
+            100% { background-position: 100px 100px; }
         }
 
-        /* Neo-Brutalist Checkerboard ("Chess Pattern") */
         .chess-pattern {
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%);
-            background-size: 80px 80px;
-            background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
             pointer-events: none;
             z-index: 1;
             opacity: 0;
@@ -167,7 +153,6 @@
             opacity: 1;
         }
 
-        /* Boiling Lava Gradient Backdrop */
         .ambient-glow-container {
             position: absolute;
             inset: 0;
@@ -177,44 +162,42 @@
         }
         .glow-ball {
             position: absolute;
-            width: 100vw;
-            height: 100vw;
+            width: 90vw;
+            height: 90vw;
             border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.28;
+            filter: blur(140px);
+            opacity: 0.25;
             will-change: transform;
         }
         .glow-ball-1 {
             background: var(--red);
-            top: -15%; left: -15%;
-            animation: drift-ball-1-loop 14s ease-in-out infinite alternate;
+            top: -10%; left: -10%;
+            animation: drift-ball-1-loop 12s ease-in-out infinite alternate;
         }
         .glow-ball-2 {
             background: var(--bright-red);
-            bottom: -15%; right: -15%;
-            animation: drift-ball-2-loop 14s ease-in-out infinite alternate;
+            bottom: -10%; right: -10%;
+            animation: drift-ball-2-loop 12s ease-in-out infinite alternate;
         }
         @keyframes drift-ball-1-loop {
             0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(30vw, 20vh, 0) scale(1.3); }
+            100% { transform: translate3d(20vw, 15vh, 0) scale(1.3); }
         }
         @keyframes drift-ball-2-loop {
             0% { transform: translate3d(0, 0, 0) scale(1.3); }
-            100% { transform: translate3d(-30vw, -20vh, 0) scale(0.85); }
+            100% { transform: translate3d(-20vw, -15vh, 0) scale(0.85); }
         }
 
-        /* GPU-Driven Transition Light Flash */
         .glow-ball.flare-active {
             animation: flash-flare-vignette 0.4s var(--ease-snap) forwards;
         }
         @keyframes flash-flare-vignette {
-            0% { opacity: 0.8; transform: scale(1.5); }
-            100% { opacity: 0.3; transform: scale(1); }
+            0% { opacity: 0.75; transform: scale(1.4); }
+            100% { opacity: 0.25; transform: scale(1); }
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           04. INTERACTIVE START SCREEN GATEWAY OVERLAY
-           Clean, stark interactive gateway to enable audio and fullscreen safely.
+           04. GATEWAY INTERFACE
            ═══════════════════════════════════════════════════════════════ */
         #start-overlay {
             position: fixed;
@@ -232,37 +215,45 @@
             visibility: hidden;
             pointer-events: none;
         }
+        .start-card {
+            text-align: center;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(2, 2, 10, 0.8);
+            backdrop-filter: blur(20px);
+            max-width: 500px;
+            width: 90%;
+        }
         .start-btn {
             background: transparent;
             border: 2px solid var(--bright-red);
             color: var(--white);
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 900;
-            font-size: clamp(16px, 3.5vw, 22px);
-            padding: 1.5rem 4rem;
-            letter-spacing: 0.35em;
+            font-size: clamp(14px, 2.5vw, 18px);
+            padding: 1.2rem 3rem;
+            letter-spacing: 0.3em;
             cursor: pointer;
             transition: all 0.4s var(--ease-snap);
-            box-shadow: 0 0 35px rgba(255, 0, 51, 0.15);
             text-transform: uppercase;
+            width: 100%;
         }
         .start-btn:hover {
             background: var(--bright-red);
             color: var(--black);
-            box-shadow: 0 0 60px rgba(255, 0, 51, 0.5);
-            transform: scale3d(1.05, 1.05, 1);
+            box-shadow: 0 0 40px rgba(255, 0, 51, 0.4);
+            transform: scale3d(1.02, 1.02, 1);
         }
         .start-hint {
-            margin-top: 2rem;
-            font-size: 11px;
-            letter-spacing: 0.25em;
+            margin-top: 1.5rem;
+            font-size: 10px;
+            letter-spacing: 0.2em;
             color: rgba(255, 255, 255, 0.4);
             text-transform: uppercase;
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           05. GLOBAL MOTION GRAPHIC CLASSES & CORE SCENE SPECS
-           The base presentation layer structure for all 25 viewport scenes.
+           05. GLOBAL MOTION GRAPHIC CLASSES & SPECS
            ═══════════════════════════════════════════════════════════════ */
         .scene {
             position: absolute;
@@ -284,12 +275,12 @@
             z-index: 10;
         }
 
-        /* ─── TYPOGRAPHIC LOCKUP CONFIGURATIONS ─── */
         .heavy-title {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(48px, 14vw, 15vh);
-            line-height: 0.83;
-            letter-spacing: -0.04em;
+            font-size: clamp(38px, 11vw, 14vh);
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
             text-align: center;
         }
         .heavy-title.white-outline {
@@ -301,9 +292,40 @@
             -webkit-text-stroke: 2px var(--bright-red);
         }
 
+        .ghost-bg-text {
+            position: absolute;
+            font-family: 'Anton', sans-serif;
+            font-size: 32vw;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.03);
+            letter-spacing: -0.05em;
+            line-height: 0.8;
+            white-space: nowrap;
+            user-select: none;
+            z-index: 0;
+            pointer-events: none;
+            will-change: transform;
+            transform: scale(0.9);
+            transition: transform 1.5s var(--ease-fluid);
+        }
+        .scene.active .ghost-bg-text {
+            transform: scale(1.05);
+        }
+
+        .vector-shape {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.2;
+            transition: transform 1.2s var(--ease-fluid);
+        }
+        .scene.active .vector-shape {
+            transform: rotate(45deg) scale(1.1);
+        }
+
         /* ─── CHROMATIC NEON GLITCH ENTRY ─── */
         .chromatic-glitch {
-            animation: chromatic-snap-fringe-action 0.35s var(--fast-easing) forwards;
+            animation: chromatic-snap-fringe-action 0.35s var(--ease-snap) forwards;
         }
         @keyframes chromatic-snap-fringe-action {
             0% { text-shadow: -5px 0px 0 var(--neon-cyan), 5px 0px 0 var(--neon-magenta); }
@@ -312,26 +334,38 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           06. SCENE-SPECIFIC VISUAL ARCHITECTURE (SCENE 1 TO 25)
-           Custom geometry, layouts, offsets, and technical assets per slide.
+           06. SCENE SPECIFIC ARCHITECTURE
            ═══════════════════════════════════════════════════════════════ */
-
-        /* ─── SCENE 1: WHAT IF ─── */
-        #scene-1 { background-color: var(--black); }
-
-        /* ─── SCENE 2: ONE ROOM ─── */
-        #scene-2 { background-color: var(--red); }
+        
+        /* SCENE 2 & 3: BLOCKS */
+        .s1-block {
+            position: absolute;
+            inset: 0;
+            background: var(--white);
+            z-index: 5;
+            transform: translate3d(-130%, -130%, 0) rotate(-30deg) scale(0.2);
+            transition: transform 0.9s var(--ease-snap);
+            will-change: transform;
+        }
         .scene.active#scene-2 .s1-block {
             transform: translate3d(0, 0, 0) rotate(0deg) scale(2.5);
         }
 
-        /* ─── SCENE 3: CAN CHANGE ─── */
-        #scene-3 { background-color: var(--white); }
+        .s2-slam {
+            position: absolute;
+            inset: 0;
+            background: var(--red);
+            z-index: 5;
+            transform: translate3d(100%, 0, 0);
+            transition: transform 0.45s var(--ease-snap);
+            will-change: transform;
+        }
         .scene.active#scene-3 .s2-slam {
             transform: translate3d(0%, 0, 0);
         }
+
         .s2-change-font-target {
-            font-size: clamp(40px, 13vw, 14vh);
+            font-size: clamp(40px, 12vw, 13vh);
             display: block;
             margin: 1.5vw 0;
             font-family: 'Space Grotesk', sans-serif;
@@ -344,31 +378,123 @@
             text-align: center;
         }
 
-        /* ─── SCENE 4: YOUR FUTURE ─── */
-        #scene-4 { background-color: var(--black); }
+        /* STACCATO SERIES GLOBAL CLASSES */
+        .s5-phrase {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(32px, 9vw, 11vh);
+            font-family: 'Anton', sans-serif;
+            color: var(--white);
+            line-height: 0.9;
+            opacity: 0;
+            filter: blur(12px) scale(0.8);
+            transition: opacity 0.08s ease, filter 0.08s ease;
+        }
+        .s5-phrase.visible {
+            opacity: 1;
+            filter: blur(0) scale(1);
+        }
+        .s5-plus {
+            position: absolute;
+            font-size: 3vw;
+            color: rgba(255, 255, 255, 0.15);
+            font-weight: 100;
+        }
+        .s5-ring {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        .s5-flash-bar {
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 8px; width: 0;
+            background: var(--red);
+            z-index: 20;
+        }
+        .s5-flash-bar.fire { animation: bar-fire-flash 0.08s ease forwards; }
+        @keyframes bar-fire-flash { 0% { width: 0; } 50% { width: 100%; } 100% { width: 0; } }
 
-        /* ─── SCENE 5, 6, 7: SWISS STACCATO SERIES 1 ─── */
-        #scene-5, #scene-6, #scene-7 { background-color: var(--black); }
+        /* SCENE 8, 9, 10: REVEALS */
+        #scene-8 .word-wrap, #scene-24 .word-wrap {
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        #scene-8 h1 {
+            padding: 0 5vw;
+        }
+        #scene-8 .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--ease-fluid); text-align: left; }
+        #scene-8 .w2 { color: var(--red); transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--ease-fluid) 0.08s; text-align: right; display: block; }
+        #scene-8 .w3 { transform: translateY(100%); transition: transform 0.5s var(--ease-fluid) 0.15s; text-align: center; }
+        .scene.active#scene-8 .w1, 
+        .scene.active#scene-8 .w2, 
+        .scene.active#scene-8 .w3 { transform: translate3d(0, 0, 0); }
 
-        /* ─── SCENE 8: AMBASSADORS ─── */
-        #scene-8 { background-color: var(--white); color: var(--black); }
+        /* VIDEO IN TEXT GLOBAL */
+        .video-text-container {
+            font-family: 'Anton', sans-serif;
+            text-align: center;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .vit-sub-label {
+            position: absolute; bottom: 6%; left: 6%; z-index: 10;
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(9px, 1.1vw, 13px); letter-spacing: 0.5em; color: rgba(255,255,255,0.3);
+            opacity: 0; transition: opacity 0.5s var(--ease-fluid) 0.5s;
+        }
+        .scene.active .vit-sub-label { opacity: 1; }
 
-        /* ─── SCENE 9: NATIONAL YOUTH ─── */
-        #scene-9 { background-color: var(--black); }
+        #scene-11 .vit-word {
+            font-size: 155vw;
+            line-height: 0.7;
+            background: linear-gradient(135deg, #FF0033 0%, #7A0012 50%, #FF6688 100%);
+            background-size: 200% 200%;
+            animation: vit-breath 4s ease-in-out infinite alternate, gradient-move-loop 3s ease infinite;
+        }
+        #scene-12 .vit-word {
+            font-size: 34vw;
+            line-height: 0.8;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FF0033 50%, #111111 100%);
+            background-size: 100% 200%;
+            animation: vit-breath-reverse 4s ease-in-out infinite alternate;
+        }
+        #scene-13 .vit-word {
+            font-size: 55vw;
+            line-height: 0.75;
+            background: linear-gradient(45deg, #FF0033 0%, #1c0005 100%);
+            animation: vit-bounce 3s infinite alternate;
+        }
+        @keyframes vit-breath {
+            0% { transform: translate(-50%, -50%) scale(0.96); }
+            100% { transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @keyframes vit-breath-reverse {
+            0% { transform: translate(-50%, -50%) scale(1.04); }
+            100% { transform: translate(-50%, -50%) scale(0.96); }
+        }
+        @keyframes vit-bounce {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            100% { transform: translate(-50%, -50%) translateY(-20px); }
+        }
+        @keyframes gradient-move-loop {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        /* ─── SCENE 10: SUMMIT 8.0 ─── */
-        #scene-10 { background-color: var(--black); }
-
-        /* ─── SCENE 11, 12, 13: VIDEO-IN-TEXT TRILOGY ─── */
-        #scene-11, #scene-12, #scene-13 { background-color: var(--black); }
-
-        /* ─── SCENE 14: ICONIC SCANLINE PORTRAIT ─── */
-        #scene-14 { background-color: var(--black); }
+        /* SCENE 14: PORTRAIT & SCANLINE */
         .portrait-bg {
             position: absolute; inset: 0;
             background: linear-gradient(160deg, #1c0005 0%, #040000 50%, #000000 100%);
             clip-path: inset(100% 0 0 0);
-            transition: clip-path 0.9s var(--fast-easing) 0.1s;
+            transition: clip-path 0.9s var(--ease-snap) 0.1s;
             z-index: 1;
         }
         .scene.active#scene-14 .portrait-bg { clip-path: inset(0% 0 0 0); }
@@ -378,13 +504,13 @@
             box-shadow: 0 0 30px 8px rgba(255, 0, 51, 0.8);
             top: 0; z-index: 20;
             transform: translate3d(0, 0, 0);
-            transition: transform 0.9s var(--fast-easing) 0.1s;
+            transition: transform 0.9s var(--ease-snap) 0.1s;
         }
         .scene.active#scene-14 .scan-line { transform: translate3d(0, 100vh, 0); }
         .stamp-word {
             position: relative; z-index: 15;
             font-family: 'Anton', sans-serif;
-            font-size: clamp(36px, 18vw, 20vh);
+            font-size: 18vw;
             color: var(--white);
             letter-spacing: -0.05em;
             opacity: 0;
@@ -396,80 +522,244 @@
         .stamp-sub {
             position: absolute; z-index: 14;
             font-family: 'Anton', sans-serif;
-            font-size: clamp(36px, 18vw, 20vh);
+            font-size: 18vw;
             color: var(--red);
             letter-spacing: -0.05em;
             opacity: 0;
             transform: translate3d(0, 30px, 0) scale3d(0.9, 0.9, 1);
             filter: blur(5px);
-            transition: opacity 0.5s ease 1.1s, transform 0.6s var(--fast-easing) 1.1s;
+            transition: opacity 0.5s ease 1.1s, transform 0.6s var(--ease-snap) 1.1s;
         }
         .scene.active#scene-14 .stamp-sub { opacity: 0.45; transform: translate3d(0, 10px, 0) scale3d(1, 1, 1); filter: blur(0); }
 
-        /* ─── SCENE 15: DATE SPLIT GRID ─── */
-        #scene-15 { background-color: var(--red); }
+        /* SCENE 15: DATE TIME GRID */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            height: 100%;
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5vw;
+        }
+        .grid-item.left { border-right: 2px solid var(--black); align-items: flex-end; text-align: right; }
+        .grid-item.right { align-items: flex-start; text-align: left; }
+        #scene-15 h1 { font-family: 'Anton', sans-serif; font-size: clamp(36px, 9vw, 11vh); color: var(--black); transform: translate3d(0, 50px, 0); opacity: 0; transition: all 0.6s var(--ease-fluid); }
+        #scene-15 h2 { font-weight: 300; font-size: clamp(12px, 2.2vw, 3vh); color: var(--white); transform: translate3d(0, 20px, 0); opacity: 0; transition: all 0.6s var(--ease-fluid) 0.12s; letter-spacing: 5px; }
+        .scene.active#scene-15 h1, .scene.active#scene-15 h2 { transform: translate3d(0, 0, 0); opacity: 1; }
 
-        /* ─── SCENE 16: VENUE BILLBOARD ─── */
-        #scene-16 { background-color: var(--black); }
+        /* SCENE 16: VENUE */
+        .loc-billboard-wrap {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 4vw;
+        }
+        .loc-banner {
+            background: var(--bright-red);
+            color: var(--black);
+            padding: 2vw 6vw;
+            transform: rotate(-3deg) scale(0.6);
+            opacity: 0;
+            box-shadow: 12px 12px 0 var(--white);
+            transition: transform 0.6s var(--ease-elastic) 0.3s, opacity 0.5s ease 0.3s;
+            will-change: transform;
+            margin-bottom: 3vh;
+        }
+        .scene.active#scene-16 .loc-banner {
+            transform: rotate(-3deg) scale(1);
+            opacity: 1;
+        }
+        .loc-banner h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: min(8vw, 7vh);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+        .loc-city {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: min(6vw, 5vh);
+            color: var(--white);
+            letter-spacing: 0.1em;
+            opacity: 0;
+            transform: translate3d(0, 50px, 0) scale(0.9);
+            transition: all 0.6s var(--ease-elastic) 0.6s;
+        }
+        .scene.active#scene-16 .loc-city {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+        .loc-crosshair {
+            position: absolute;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5vw;
+            color: var(--bright-red);
+            opacity: 0;
+            transition: opacity 0.8s ease 0.8s, transform 1s var(--ease-elastic) 0.8s;
+        }
+        .loc-crosshair.tl { top: 10%; left: 10%; transform: translate3d(-20px, -20px, 0); }
+        .loc-crosshair.br { bottom: 10%; right: 10%; transform: translate3d(20px, 20px, 0); }
+        .scene.active#scene-16 .loc-crosshair {
+            opacity: 0.8;
+            transform: translate3d(0, 0, 0) rotate(180deg);
+        }
 
-        /* ─── SCENE 17, 18: VIDEO CANVAS MODULES ─── */
-        #scene-17, #scene-18 { background-color: var(--black); }
+        /* SCENE 17 & 18: PREMIUM CINEMATIC VIDEO CANVAS */
+        .video-placeholder-container {
+            width: 85vw;
+            height: 60vh;
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            background: #020205;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+        .video-placeholder-crop {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-color: var(--bright-red);
+            border-style: solid;
+            opacity: 0.8;
+        }
+        .video-placeholder-crop.tl { top: -2px; left: -2px; border-width: 4px 0 0 4px; }
+        .video-placeholder-crop.tr { top: -2px; right: -2px; border-width: 4px 4px 0 0; }
+        .video-placeholder-crop.bl { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; }
+        .video-placeholder-crop.br { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; }
+        
+        .video-placeholder-badge {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            background: var(--bright-red);
+            color: var(--black);
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(9px, 1.2vw, 13px);
+            font-weight: bold;
+            padding: 4px 12px;
+            letter-spacing: 2px;
+        }
+        .video-placeholder-badge.right {
+            left: auto;
+            right: 5%;
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .video-narrative-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: clamp(16px, 3.8vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-align: center;
+            text-transform: uppercase;
+            max-width: 80%;
+            z-index: 5;
+            opacity: 0;
+            transform: scale(0.9) translate3d(0, 20px, 0);
+            transition: opacity 0.6s var(--ease-fluid) 0.2s, transform 0.6s var(--ease-fluid) 0.2s;
+        }
+        .scene.active .video-narrative-text {
+            opacity: 1;
+            transform: scale(1) translate3d(0, 0, 0);
+        }
 
-        /* ─── SCENE 19: PRIZE 1 - GRANTS ─── */
-        #scene-19 { background-color: var(--red); }
+        /* SCENE 19: GRANTS */
+        .prize-wireframe {
+            position: absolute;
+            width: min(45vw, 400px);
+            height: min(45vw, 400px);
+            z-index: 3;
+            opacity: 0;
+            transform: scale(0.8) rotate(-10deg);
+            transition: opacity 1s var(--ease-fluid) 0.5s, transform 1.2s var(--ease-elastic) 0.4s;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+        .scene.active .prize-wireframe {
+            opacity: 0.25;
+            transform: scale(1) rotate(0deg);
+        }
+        .prize-wireframe path, .prize-wireframe rect, .prize-wireframe polygon, .prize-wireframe circle {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-wireframe-loop 2.5s var(--ease-snap) forwards 0.3s;
+        }
+        @keyframes draw-wireframe-loop {
+            to { stroke-dashoffset: 0; }
+        }
+        .floating-blueprint {
+            animation: technical-float-loop 6s ease-in-out infinite alternate;
+        }
+        @keyframes technical-float-loop {
+            0% { transform: translate3d(0, -10px, 0) rotate(0deg); }
+            100% { transform: translate3d(0, 10px, 0) rotate(3deg); }
+        }
+
         .prize-bg-wrap {
             position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
-            opacity: 0.05; color: var(--black); font-size: 18vw; font-family: 'Anton', sans-serif;
+            opacity: 0.04; color: var(--black); font-size: 18vw; font-family: 'Anton', sans-serif;
             line-height: 0.8; white-space: nowrap; transform: rotate(-8deg) scale(1.3);
             pointer-events: none;
         }
         .prize-name {
-            font-size: clamp(40px, 24vw, 25vh); color: var(--black); font-family: 'Anton', sans-serif;
+            font-size: clamp(38px, 16vw, 18vh); color: var(--black); font-family: 'Anton', sans-serif;
             letter-spacing: -0.05em; line-height: 0.85;
             overflow: hidden; display: block; z-index: 5;
             text-shadow: 4px 4px 0 rgba(255,255,255,0.25);
         }
         .prize-name span {
             display: block; transform: translate3d(0, 110%, 0);
-            transition: transform 0.6s var(--fast-easing) 0.2s;
+            transition: transform 0.6s var(--ease-snap) 0.2s;
         }
         .scene.active .prize-name span { transform: translate3d(0, 0, 0); }
         .prize-sub {
-            font-size: clamp(12px, 1.8vw, 1.8vh); color: rgba(0, 0, 0, 0.6); letter-spacing: 0.3em;
+            font-size: clamp(9px, 1.5vw, 15px); color: rgba(0, 0, 0, 0.6); letter-spacing: 0.3em;
             margin-top: 2vh; opacity: 0; transform: translate3d(0, 20px, 0);
-            transition: all 0.5s var(--fast-easing) 0.4s; z-index: 10;
+            transition: all 0.5s var(--ease-snap) 0.4s; z-index: 10;
         }
         .scene.active .prize-sub { opacity: 1; transform: translate3d(0, 0, 0); }
 
-        /* ─── SCENE 20: PRIZE 2 - DEVICES ─── */
-        #scene-20 { background-color: var(--black); }
+        /* SCENE 20: LAPTOPS */
         .s12-dots {
             position: absolute; inset: 0;
             background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 3vw 3vw;
+            background-size: min(3vw,3vh) min(3vw,3vh);
         }
         .s12-outline-wrap { position: relative; z-index: 5; text-align: center; }
         .s12-outline {
-            font-size: clamp(36px, 24vw, 22vh); color: transparent;
+            font-size: min(24vw,22vh); color: transparent;
             font-family: 'Anton', sans-serif;
             -webkit-text-stroke: min(0.4vw, 0.35vh) var(--white);
             letter-spacing: -0.06em; line-height: 0.85;
-            transform: scale3d(0.8, 0.8, 1); opacity: 0;
+            transform: scale(0.8); opacity: 0;
             transition: transform 1.2s var(--ease-elastic), opacity 0.8s ease;
         }
         .s12-solid {
-            font-size: clamp(36px, 24vw, 22vh); color: var(--red);
+            font-size: min(24vw,22vh); color: var(--red);
             font-family: 'Anton', sans-serif;
             letter-spacing: -0.06em; line-height: 0.85; position: absolute;
             top: 0; left: 0; width: 100%;
             clip-path: inset(0 100% 0 0);
-            transition: clip-path 1.2s var(--fast-easing) 0.6s;
+            transition: clip-path 1.2s var(--ease-snap) 0.6s;
         }
-        .scene.active#scene-20 .s12-outline { transform: scale3d(1, 1, 1); opacity: 1; }
+        .scene.active#scene-20 .s12-outline { transform: scale(1); opacity: 1; }
         .scene.active#scene-20 .s12-solid { clip-path: inset(0 0% 0 0); }
 
-        /* ─── SCENE 21: PRIZE 3 - CASH SCRAMBLE ─── */
-        #scene-21 { background-color: var(--white); }
+        /* SCENE 21: CASH SCRAMBLE */
         .s13-ghost {
             position: absolute; font-size: 32vw; font-family: 'Anton', sans-serif;
             color: rgba(0,0,0,0.05); letter-spacing: -0.05em;
@@ -477,41 +767,108 @@
         }
         .s13-row { display: flex; align-items: baseline; justify-content: center; overflow: hidden; z-index: 5; }
         .s13-currency {
-            font-size: clamp(24px, 12vw, 12vh); color: var(--red); font-family: 'Anton', sans-serif;
+            font-size: clamp(32px, 12vw, 14vh); color: var(--red); font-family: 'Anton', sans-serif;
             transform: translate3d(-120%, 0, 0); opacity: 0;
-            transition: transform 0.6s var(--fast-easing), opacity 0.3s ease;
+            transition: transform 0.6s var(--ease-snap), opacity 0.3s ease;
         }
         .s13-word {
-            font-size: clamp(36px, 18vw, 18vh); color: var(--black); font-family: 'Anton', sans-serif;
+            font-size: clamp(38px, 18vw, 20vh); color: var(--black); font-family: 'Anton', sans-serif;
             letter-spacing: -0.04em; transform: translate3d(120%, 0, 0); opacity: 0;
-            transition: transform 0.6s var(--fast-easing) 0.05s, opacity 0.3s ease 0.05s;
+            transition: transform 0.6s var(--ease-snap) 0.05s, opacity 0.3s ease 0.05s;
             min-width: 50vw; text-align: left; margin-left: 2vw;
         }
         .scene.active#scene-21 .s13-currency,
         .scene.active#scene-21 .s13-word { transform: translate3d(0, 0, 0); opacity: 1; }
         .s13-underline {
             height: 6px; background: var(--black); width: 0;
-            transition: width 0.7s var(--fast-easing) 0.5s; z-index: 5; position: relative;
+            transition: width 0.7s var(--ease-snap) 0.5s; z-index: 5; position: relative;
             margin-top: 1rem;
         }
         .scene.active#scene-21 .s13-underline { width: 70%; }
 
-        /* ─── SCENE 22: ONE DECISION ─── */
-        #scene-22 { background-color: var(--white); color: var(--black); }
+        /* SCENE 22: ONE DECISION */
+        .spotlight-lens {
+            position: absolute;
+            width: 15vw;
+            height: 15vw;
+            background: rgba(219, 0, 34, 0.4);
+            filter: blur(50px);
+            border-radius: 50%;
+            transform: scale(0.1);
+            transition: transform 1.2s var(--ease-elastic);
+            z-index: 1;
+        }
+        .scene.active#scene-22 .spotlight-lens {
+            transform: scale(4);
+        }
 
-        /* ─── SCENE 23: Swiss STACCATO SERIES 2 ─── */
-        #scene-23 { background-color: var(--black); }
+        /* SCENE 24, 25, 26: SWISS STACCATO 2 */
+        #scene-24, #scene-25, #scene-26 { background-color: var(--black); }
 
-        /* ─── SCENE 24: BLUEPRINT CARD SUMMIT ─── */
-        #scene-24 { background-color: var(--white); color: var(--black); }
+        /* SCENE 27: GRAND RE-TITLE */
+        #scene-27 { background-color: var(--white); color: var(--black); }
+        #scene-27 h1 { font-family: 'Anton', sans-serif; font-size: 11vw; line-height: 0.85; text-align: left; width: 100%; padding: 0 5vw; }
+        #scene-27 .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--ease-fluid); }
+        #scene-27 .w2 { color: var(--red); transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--ease-fluid) 0.08s; text-align: right; display: block; font-size: 13vw; }
+        #scene-27 .w3 { transform: translateY(100%); transition: transform 0.5s var(--ease-fluid) 0.15s; font-size: 14vw; }
+        .scene.active#scene-27 .w1, 
+        .scene.active#scene-27 .w2, 
+        .scene.active#scene-27 .w3 { transform: translate3d(0, 0, 0); }
 
-        /* ─── SCENE 25: OUTRO ─── */
-        #scene-25 { background-color: var(--black); }
+        /* SCENE 28: CALL TO ACTION */
+        #scene-28 { background: radial-gradient(circle at center, #0e0205 0%, #020208 100%); }
+        .night-glow-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+        }
+        .cta-summit-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 5vw;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        .cta-summit-edition {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 300;
+            font-size: 1.8vw;
+            color: var(--red);
+            letter-spacing: 0.4em;
+            margin-bottom: 2.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5vw;
+            letter-spacing: 0.2em;
+            padding: 1.2rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s var(--ease-fluid);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: button-ambient-glow 2s infinite alternate;
+        }
+        @keyframes button-ambient-glow {
+            0% { box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
+            100% { box-shadow: 0 15px 35px rgba(255, 0, 51, 0.3); }
+        }
+        .cta-button:hover {
+            transform: translate3d(0, -5px, 0);
+            background: var(--bright-red);
+            color: var(--white);
+        }
 
-        /* ═══════════════════════════════════════════════════════════════
-           07. PROGRESS INDICATOR & GENERAL LAYOUT SCALING
-           Clean structural line system displaying progress.
-           ═══════════════════════════════════════════════════════════════ */
+        /* PROGRESS FILLER */
         .cinematic-progress {
             position: fixed;
             bottom: 30px;
@@ -519,7 +876,7 @@
             transform: translate3d(-50%, 0, 0);
             width: 160px;
             height: 3px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             z-index: 100;
             border-radius: 4px;
             overflow: hidden;
@@ -530,13 +887,47 @@
             background: var(--bright-red);
             box-shadow: 0 0 8px var(--bright-red);
         }
+
+        /* ═══════════════════════════════════════════════════════════════
+           07. VIEWPORT COMPATIBILITY MATRIX
+           ═══════════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .heavy-title { font-size: clamp(34px, 12vw, 8vh); }
+            #scene-27 h1 { font-size: 11vw; }
+            #scene-27 .w2 { font-size: 13vw; }
+            #scene-27 .w3 { font-size: 14vw; }
+            .s5-phrase { font-size: 12vw; }
+            .video-text-container { font-size: 210vw; }
+            #scene-12 .vit-word { font-size: 55vw; }
+            #scene-13 .vit-word { font-size: 85vw; }
+            .stamp-word, .stamp-sub { font-size: 20vw; }
+            #scene-15 h1 { font-size: 12vw; }
+            #scene-15 h2 { font-size: 4vw; }
+            .split-grid { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+            .grid-item.left { border-right: none; border-bottom: 2px solid var(--black); align-items: center; text-align: center; }
+            .grid-item.right { align-items: center; text-align: center; }
+            .prize-name { font-size: 26vw; }
+            .prize-sub { font-size: 3vw; }
+            .s13-word { font-size: 22vw; }
+            .s13-currency { font-size: 16vw; }
+            .cta-summit-title { font-size: 8vw; }
+            .cta-summit-edition { font-size: 3.5vw; }
+            .cta-button { font-size: 3.5vw; padding: 1rem 2.5rem; }
+            .prize-wireframe { width: 65vw; height: 65vw; }
+            .loc-banner h1 { font-size: 10vw; }
+            .loc-city { font-size: 7vw; }
+            .video-placeholder-container { width: 90vw; height: 50vh; padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
+
     <!-- START OVERLAY GATEWAY -->
     <div id="start-overlay">
-        <button class="start-btn" id="start-action">Enter Immersive Experience</button>
-        <p class="start-hint">Touch screen to wake audio &amp; start presentation</p>
+        <div class="start-card">
+            <button class="start-btn" id="start-action">Launch Presentation</button>
+            <p class="start-hint">Double tap to toggle full screen inside experience</p>
+        </div>
     </div>
 
     <div class="noise"></div>
@@ -556,10 +947,10 @@
         <div class="scene" id="scene-1">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text">ROOM</div>
-            <div class="stacked-container">
-                <h1 class="heavy-title">WHAT</h1>
-                <h1 class="heavy-title white-outline">IF</h1>
-            </div>
+            <svg class="vector-shape" style="top:12%; right:12%;" viewBox="0 0 100 100" width="60" height="60">
+                <path d="M50 0 L55 45 L100 50 L55 55 L50 100 L45 55 L0 50 L45 45 Z" fill="rgba(255,255,255,0.35)"/>
+            </svg>
+            <h1 class="heavy-title">WHAT IF</h1>
         </div>
 
         <!-- SCENE 2: ONE ROOM -->
@@ -567,115 +958,88 @@
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text">ROOM</div>
             <div class="s1-block"></div>
-            <div class="stacked-container" style="position:relative; z-index:10;">
-                <h1 class="heavy-title">ONE</h1>
-                <h1 class="heavy-title white-outline">ROOM...</h1>
-            </div>
+            <h1 class="heavy-title" style="position: relative; z-index:10; color: transparent; -webkit-text-stroke: 2px var(--red);">ONE ROOM...</h1>
         </div>
 
-        <!-- SCENE 3: CAN CHANGE -->
+        <!-- SCENE 3: CAN -->
         <div class="scene" id="scene-3">
             <div class="s2-slam"></div>
-            <div class="stacked-container" style="position:relative; z-index:10; width: 100%;">
-                <h1 class="heavy-title" style="color:var(--black);">CAN</h1>
-                <span class="s2-change-font-target" id="change-font-target">CHANGE</span>
-            </div>
+            <h1 class="heavy-title" style="position: relative; z-index:10; color: var(--black);">CAN</h1>
         </div>
 
-        <!-- SCENE 4: YOUR FUTURE -->
+        <!-- SCENE 4: CHANGE -->
         <div class="scene" id="scene-4">
-            <svg class="vector-shape" style="bottom:10%; left:5%; opacity:0.1;" viewBox="0 0 100 100" width="150" height="150">
+            <span class="s2-change-font-target" id="change-font-target">CHANGE</span>
+        </div>
+
+        <!-- SCENE 5: YOUR FUTURE -->
+        <div class="scene" id="scene-5">
+            <svg class="vector-shape" style="bottom:12%; left:8%; opacity:0.1;" viewBox="0 0 100 100" width="130" height="130">
                 <circle cx="50" cy="50" r="40" stroke="white" stroke-width="8" fill="none" />
                 <line x1="0" y1="100" x2="100" y2="0" stroke="white" stroke-width="8" />
             </svg>
-            <div class="stacked-container">
-                <h1 class="heavy-title">YOUR</h1>
-                <h1 class="heavy-title red-outline">FUTURE</h1>
-            </div>
+            <h1 class="heavy-title white-outline">YOUR FUTURE</h1>
         </div>
 
-        <!-- SCENE 5: STACCATO 1A - ONE OPPORTUNITY -->
-        <div class="scene" id="scene-5">
-            <div class="ghost-bg-text">01</div>
-            <div class="stacked-container">
-                <h1 class="heavy-title" style="color:var(--bright-red);">ONE</h1>
-                <h1 class="heavy-title">OPPORTUNITY.</h1>
-            </div>
-        </div>
-
-        <!-- SCENE 6: STACCATO 1B - ONE CONNECTION -->
+        <!-- SCENE 6: STACCATO 1A - ONE OPPORTUNITY -->
         <div class="scene" id="scene-6">
-            <div class="ghost-bg-text">02</div>
-            <div class="stacked-container">
-                <h1 class="heavy-title">ONE</h1>
-                <h1 class="heavy-title" style="color:transparent; -webkit-text-stroke:2px var(--bright-red);">CONNECTION.</h1>
-            </div>
+            <div class="s5-plus" style="top:15%; left:10%;">+</div>
+            <div class="s5-ring" style="width:10vw;height:10vw;top:15%;right:15%;"></div>
+            <h1 class="s5-phrase" id="s5-p1">ONE OPPORTUNITY.</h1>
+            <div class="s5-flash-bar" id="s5-bar1"></div>
         </div>
 
-        <!-- SCENE 7: STACCATO 1C - ONE MOMENT -->
+        <!-- SCENE 7: STACCATO 1B - ONE CONNECTION -->
         <div class="scene" id="scene-7">
-            <div class="ghost-bg-text">03</div>
-            <div class="stacked-container">
-                <h1 class="heavy-title">ONE</h1>
-                <h1 class="heavy-title">MOMENT.</h1>
-            </div>
+            <div class="s5-plus" style="top:25%; right:12%;">+</div>
+            <h1 class="s5-phrase" id="s5-p2" style="color:var(--bright-red);">ONE CONNECTION.</h1>
+            <div class="s5-flash-bar" id="s5-bar2"></div>
         </div>
 
-        <!-- SCENE 8: AMBASSADORS -->
+        <!-- SCENE 8: STACCATO 1C - ONE MOMENT -->
         <div class="scene" id="scene-8">
-            <div class="chess-pattern"></div>
-            <div class="stacked-container">
-                <h1 class="heavy-title">AMBASSADORS</h1>
-                <h1 class="heavy-title white-outline">NATIONAL</h1>
-            </div>
+            <div class="s5-plus" style="bottom:15%; left:12%;">+</div>
+            <div class="s5-ring" style="width:7vw;height:7vw;bottom:15%;right:15%;"></div>
+            <h1 class="s5-phrase" id="s5-p3" style="color:transparent;-webkit-text-stroke:2px white;">ONE MOMENT.</h1>
+            <div class="s5-flash-bar" id="s5-bar3"></div>
         </div>
 
-        <!-- SCENE 9: NATIONAL YOUTH -->
+        <!-- SCENE 9: AMBASSADORS -->
         <div class="scene" id="scene-9">
-            <div class="ghost-bg-text" style="font-size:24vw;">YOUTH</div>
-            <div class="stacked-container">
-                <h1 class="heavy-title red-outline">YOUTH</h1>
-                <h1 class="heavy-title">SUMMIT</h1>
-            </div>
-        </div>
-
-        <!-- SCENE 10: SUMMIT 8.0 -->
-        <div class="scene" id="scene-10">
             <div class="chess-pattern"></div>
-            <div class="stacked-container">
-                <h1 class="heavy-title">EDITION</h1>
-                <h1 class="heavy-title" style="color:var(--bright-red);">8.0</h1>
-            </div>
+            <div class="ghost-bg-text" style="font-size:24vw;">SUMMIT</div>
+            <div class="word-wrap"><h1 class="w1">AMBASSADORS</h1></div>
+            <div class="word-wrap"><h1 class="w2" style="color:var(--red);">NATIONAL YOUTH</h1></div>
+            <div class="word-wrap"><h1 class="w3">SUMMIT 8.0</h1></div>
         </div>
 
-        <!-- SCENE 11: "AM" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-11">
+        <!-- SCENE 10: "AM" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-10">
             <svg class="vector-shape" style="top:15%; left:15%;" viewBox="0 0 100 100" width="80" height="80">
                 <path d="M50 0 L55 45 L100 50 L55 55 L50 100 L45 55 L0 50 L45 45 Z" fill="var(--red)"/>
             </svg>
-            <div class="video-text-container vit-word" style="font-size:155vw; line-height:0.7; background:linear-gradient(135deg, #FF0033 0%, #7A0012 50%, #FF6688 100%); background-size:200% 200%; -webkit-background-clip:text; background-clip:text; color:transparent;">AM</div>
+            <div class="video-text-container vit-word">AM</div>
             <div class="vit-sub-label">THE AMBASSADORS — SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 12: "SUMMIT" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-12">
+        <!-- SCENE 11: "SUMMIT" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-11">
             <svg class="vector-shape" style="bottom:15%; right:15%;" viewBox="0 0 100 100" width="80" height="80">
                 <line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="2"/>
                 <line x1="90" y1="10" x2="10" y2="90" stroke="white" stroke-width="2"/>
             </svg>
-            <div class="video-text-container vit-word" style="font-size:34vw; line-height:0.8; background:linear-gradient(180deg, #FFFFFF 0%, #FF0033 50%, #111111 100%); background-size:100% 200%; -webkit-background-clip:text; background-clip:text; color:transparent;">SUMMIT</div>
+            <div class="video-text-container vit-word">SUMMIT</div>
             <div class="vit-sub-label">THE RECONSTRUCTION — EDIT 2026</div>
         </div>
 
-        <!-- SCENE 13: "8.0" VIDEO-IN-TEXT -->
-        <div class="scene" id="scene-13">
-            <div class="shape-bauhaus vector-shape" style="top:20%; right:10%;"></div>
-            <div class="video-text-container vit-word" style="font-size:55vw; line-height:0.75; background:linear-gradient(45deg, #FF0033 0%, #1c0005 100%); -webkit-background-clip:text; background-clip:text; color:transparent;">8.0</div>
+        <!-- SCENE 12: "8.0" VIDEO-IN-TEXT -->
+        <div class="scene" id="scene-12">
+            <div class="video-text-container vit-word">8.0</div>
             <div class="vit-sub-label">EDITION OVERLOAD — POWER FLOW</div>
         </div>
 
-        <!-- SCENE 14: "ICONIC" SCAN-LINE PORTRAIT -->
-        <div class="scene" id="scene-14">
+        <!-- SCENE 13: "ICONIC" SCAN-LINE PORTRAIT -->
+        <div class="scene" id="scene-13">
             <div class="ghost-bg-text">ICONIC</div>
             <div class="portrait-bg"></div>
             <div class="scan-line"></div>
@@ -683,8 +1047,8 @@
             <div class="stamp-word">ICONIC</div>
         </div>
 
-        <!-- SCENE 15: DATE / TIME GRID -->
-        <div class="scene" id="scene-15">
+        <!-- SCENE 14: DATE / TIME GRID -->
+        <div class="scene" id="scene-14">
             <div class="split-grid">
                 <div class="grid-item left">
                     <h1>August</h1>
@@ -697,8 +1061,8 @@
             </div>
         </div>
 
-        <!-- SCENE 16: VENUE BILLBOARD SCENE -->
-        <div class="scene" id="scene-16">
+        <!-- SCENE 15: VENUE BILLBOARD SCENE -->
+        <div class="scene" id="scene-15">
             <div class="chess-pattern"></div>
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.03);">VENUE</div>
             <div class="loc-crosshair tl">[ + ]</div>
@@ -711,31 +1075,33 @@
             </div>
         </div>
 
-        <!-- SCENE 17: VIDEO PLACEHOLDER (1:08-1:12) -->
+        <!-- SCENE 16: VIDEO PLACEHOLDER (1:08-1:12) - POWERFUL CONVERSATIONS -->
+        <div class="scene" id="scene-16">
+            <div class="video-placeholder-container">
+                <div class="video-placeholder-crop tl"></div>
+                <div class="video-placeholder-crop tr"></div>
+                <div class="video-placeholder-crop bl"></div>
+                <div class="video-placeholder-crop br"></div>
+                <div class="video-placeholder-badge">[ NARRATIVE FEED A ]</div>
+                <div class="video-placeholder-badge right">TC // 01:08:12:04</div>
+                <p class="video-narrative-text">POWERFUL CONVERSATIONS &amp; TRANSFORMATIONAL INSIGHTS</p>
+            </div>
+        </div>
+
+        <!-- SCENE 17: VIDEO PLACEHOLDER (1:12-1:17) - HIGH LEVEL NETWORKING -->
         <div class="scene" id="scene-17">
             <div class="video-placeholder-container">
                 <div class="video-placeholder-crop tl"></div>
                 <div class="video-placeholder-crop tr"></div>
                 <div class="video-placeholder-crop bl"></div>
                 <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">VIDEO NARRATIVE &bull; PART A</div>
-                <p class="video-narrative-text">GET READY FOR POWERFUL CONVERSATIONS &amp; TRANSFORMATIONAL INSIGHTS</p>
+                <div class="video-placeholder-badge">[ NARRATIVE FEED B ]</div>
+                <div class="video-placeholder-badge right">TC // 01:14:03:22</div>
+                <p class="video-narrative-text">HIGH-LEVEL NETWORKING &amp; UNLOCKING YOUR NEXT LEVEL</p>
             </div>
         </div>
 
-        <!-- SCENE 18: VIDEO PLACEHOLDER (1:12-1:17) -->
-        <div class="scene" id="scene-18">
-            <div class="video-placeholder-container">
-                <div class="video-placeholder-crop tl"></div>
-                <div class="video-placeholder-crop tr"></div>
-                <div class="video-placeholder-crop bl"></div>
-                <div class="video-placeholder-crop br"></div>
-                <div class="video-placeholder-badge">VIDEO NARRATIVE &bull; PART B</div>
-                <p class="video-narrative-text">HIGH-LEVEL NETWORKING &amp; UNPRECEDENTED CAREER OPPORTUNITIES</p>
-            </div>
-        </div>
-
-        <!-- SCENE 19: GRANTS -->
+        <!-- SCENE 18: GRANTS -->
         <div class="scene" id="scene-19">
             <svg class="prize-wireframe floating-blueprint" style="right: 5%;" viewBox="0 0 100 100">
                 <polygon points="50,12 85,28 85,65 50,88 15,65 15,28" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none" />
@@ -749,7 +1115,7 @@
             <div class="prize-sub">AMBASSADORS SUMMIT 8.0 &nbsp;•&nbsp; FINANCIAL SUPPORT</div>
         </div>
 
-        <!-- SCENE 20: LAPTOPS & SMARTPHONES -->
+        <!-- SCENE 19: LAPTOPS -->
         <div class="scene" id="scene-20">
             <div class="s12-dots"></div>
             <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">GEAR</div>
@@ -760,15 +1126,15 @@
                 <rect class="draw-path" x="42" y="64" width="16" height="6" rx="1" stroke="var(--bright-red)" stroke-width="1.5" fill="none" />
             </svg>
             <div class="s12-outline-wrap">
-                <div class="s12-outline" style="font-size: min(15vw, 12vh);">DEVICES</div>
-                <div class="s12-solid" style="font-size: min(15vw, 12vh);">DEVICES</div>
+                <div class="s12-outline">LAPTOPS</div>
+                <div class="s12-solid">LAPTOPS</div>
             </div>
-            <div class="prize-sub" style="color:rgba(255,255,255,0.3);">LAPTOPS &amp; SMARTPHONES</div>
+            <div class="prize-sub" style="color:rgba(255,255,255,0.3);">AMBASSADORS SUMMIT 8.0</div>
         </div>
 
-        <!-- SCENE 21: CASH SCRAMBLE -->
+        <!-- SCENE 20: CASH SCRAMBLE -->
         <div class="scene" id="scene-21">
-            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.035);">REWARDS</div>
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(0,0,0,0.035);">MILLIONS</div>
             <svg class="prize-wireframe floating-blueprint" style="right: 8%; opacity:0.25;" viewBox="0 0 100 100">
                 <polygon points="20,48 65,34 85,50 40,64" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" fill="none" />
                 <polygon points="15,40 60,26 80,42 35,56" stroke="var(--red)" stroke-width="2.5" fill="none" />
@@ -783,40 +1149,47 @@
                 <span class="s13-word" id="cash-scramble">1,000,000</span>
             </div>
             <div class="s13-underline"></div>
-            <div class="prize-sub" style="color:rgba(0,0,0,0.4); margin-top:2vh;">AND EXCITING REWARDS</div>
+            <div class="prize-sub" style="color:rgba(0,0,0,0.4); margin-top:2vh;">AMBASSADORS SUMMIT 8.0 &bull; CASH PRIZES</div>
         </div>
 
-        <!-- SCENE 22: ONE DECISION -->
+        <!-- SCENE 21: ONE DECISION -->
         <div class="scene" id="scene-22">
-            <div class="s22-circle"></div>
-            <div class="s22-text">
-                YOUR FUTURE BEGINS WITH
-                <span class="s22-accent">ONE DECISION</span>
-            </div>
+            <div class="spotlight-lens"></div>
+            <h1 class="heavy-title" style="position:relative; z-index:10; font-size: clamp(34px, 8vw, 10vh);">ONE DECISION</h1>
         </div>
 
-        <!-- SCENE 23: STACCATO PART 2 - ONE SUMMIT / ONE PLATFORM / ONE TO RISE -->
+        <!-- SCENE 22: RISE STACCATO 2A - ONE SUMMIT -->
         <div class="scene" id="scene-23">
-            <div class="s5-plus" style="top:10%; left:12%;">+</div>
-            <div class="s5-plus" style="bottom:10%; right:12%;">+</div>
+            <div class="s5-plus" style="top:12%; left:12%;">+</div>
             <h1 class="s5-phrase" id="s23-p1">ONE SUMMIT.</h1>
-            <h1 class="s5-phrase" id="s23-p2" style="color:var(--bright-red);">ONE PLATFORM.</h1>
-            <h1 class="s5-phrase" id="s23-p3" style="color:transparent;-webkit-text-stroke:2px white;">ONE TO RISE.</h1>
-            <div class="s5-flash-bar" id="s23-bar"></div>
+            <div class="s5-flash-bar" id="s23-bar1"></div>
         </div>
 
-        <!-- SCENE 24: RE-TITLE CARD -->
+        <!-- SCENE 23: RISE STACCATO 2B - ONE PLATFORM -->
         <div class="scene" id="scene-24">
-            <div class="chess-pattern"></div>
-            <div class="s24-cross" style="top:15%; left:10%;">+</div>
-            <div class="s24-cross" style="bottom:15%; right:10%;">+</div>
-            <div class="word-wrap"><h1 class="w1" style="font-size: 8vw;">THE AMBASSADORS</h1></div>
-            <div class="word-wrap"><h1 class="w2" style="font-size: 11vw;">SUMMIT</h1></div>
-            <div class="word-wrap"><h1 class="w3" style="font-size: 15vw; color: var(--red);">8.0</h1></div>
+            <div class="s5-plus" style="bottom:12%; right:12%;">+</div>
+            <h1 class="s5-phrase" id="s23-p2" style="color:var(--bright-red);">ONE PLATFORM.</h1>
+            <div class="s5-flash-bar" id="s23-bar2"></div>
         </div>
 
-        <!-- SCENE 25: THE NIGHTTIME CTA OUTRO -->
+        <!-- SCENE 24: RISE STACCATO 2C - ONE OPPORTUNITY TO RISE -->
         <div class="scene" id="scene-25">
+            <div class="s5-ring" style="width:8vw;height:8vw;top:20%;left:20%;"></div>
+            <h1 class="s5-phrase" id="s23-p3" style="color:transparent;-webkit-text-stroke:2px white;">ONE TO RISE.</h1>
+            <div class="s5-flash-bar" id="s23-bar3"></div>
+        </div>
+
+        <!-- SCENE 25: GRAND RE-TITLE CARD -->
+        <div class="scene" id="scene-26">
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="font-size:24vw;">SUMMIT</div>
+            <div class="word-wrap"><h1 class="w1" style="font-size: 8vw;">THE AMBASSADORS</h1></div>
+            <div class="word-wrap"><h1 class="w2" style="font-size: 11vw; color: var(--red);">SUMMIT</h1></div>
+            <div class="word-wrap"><h1 class="w3" style="font-size: 15vw;">8.0</h1></div>
+        </div>
+
+        <!-- SCENE 26: THE NIGHTTIME CTA OUTRO -->
+        <div class="scene" id="scene-27">
             <div class="night-glow-wrap">
                 <h1 class="cta-summit-title">AMBASSADORS NATIONAL YOUTH SUMMIT</h1>
                 <h2 class="cta-summit-edition"> 8.0</h2>
@@ -827,8 +1200,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-       08. PRODUCTION-GRADE JAVASCRIPT ANIMATION ENGINE
-       Handles sync, synthesizer, fullscreen API, and transition frames.
+       08. PRODUCTION GRADE JAVASCRIPT ANIMATION ENGINE
        ═══════════════════════════════════════════════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -843,33 +1215,34 @@
             let currentScene = 0;
             let presentationStarted = false;
 
-            /* BESPOKE DURATION COEFFICIENTS FOR ALL 25 SCENES */
+            /* ACCURATE SCRIPT COEFFICIENTS PER SCENE */
             const sceneDurations = [
-                2000, // 1: WHAT
+                2000, // 1: WHAT IF
                 2200, // 2: ONE ROOM
-                2100, // 3: CAN CHANGE
-                2400, // 4: YOUR FUTURE
-                1000, // 5: STACCATO 1A
-                1000, // 6: STACCATO 1B
-                1000, // 7: STACCATO 1C
-                2400, // 8: AMBASSADORS
-                2400, // 9: NATIONAL YOUTH
-                2400, // 10: SUMMIT 8.0
-                2200, // 11: AM Video Text
-                2200, // 12: SUMMIT Video Text
-                2200, // 13: 8.0 Video Text
-                2400, // 14: Scan-line Portrait
-                2700, // 15: Date Split Grid
-                2800, // 16: Location Billboard Map
-                4000, // 17: Video Frame (1:08-1:12)
-                4000, // 18: Video Frame (1:12-1:17)
-                2400, // 19: Grants
-                2500, // 20: Devices
-                2800, // 21: Cash Scramble
-                3000, // 22: One Decision
-                2100, // 23: Staccato 2
-                2600, // 24: Summit 8.0 Re-Title
-                4500  // 25: Nighttime CTA Outro
+                1800, // 3: CAN
+                2100, // 4: CHANGE (Cycling font weight slider)
+                2400, // 5: YOUR FUTURE
+                1000, // 6: STACCATO 1A - ONE OPPORTUNITY
+                1000, // 7: STACCATO 1B - ONE CONNECTION
+                1200, // 8: STACCATO 1C - ONE MOMENT
+                3200, // 9: TITLE: AMBASSADORS NATIONAL YOUTH SUMMIT 8.0
+                2200, // 10: AM Video Text
+                2200, // 11: SUMMIT Video Text
+                2200, // 12: 8.0 Video Text
+                2400, // 13: Scan-line Portrait
+                2700, // 14: Date Split Grid
+                2800, // 15: Location Billboard Map
+                4200, // 16: Narrative Canvas Part A (Powerful Conversations)
+                4200, // 17: Narrative Canvas Part B (Networking & Opportunity)
+                2500, // 18: Grants
+                2500, // 19: Laptops & Smartphones
+                2800, // 20: Cash Scramble
+                3000, // 21: One Decision
+                1000, // 22: Staccato 2A - ONE SUMMIT
+                1000, // 23: Staccato 2B - ONE PLATFORM
+                1200, // 24: Staccato 2C - ONE TO RISE
+                2800, // 25: Grand Re-Title Card
+                5000  // 26: Nighttime CTA Outro
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -924,7 +1297,7 @@
                 } catch(e) {}
             }
 
-            // ─── FULLSCREEN CONTROL SYSTEM ───
+            // ─── FULLSCREEN CONTROLS ───
             function requestFullscreen(element) {
                 if (element.requestFullscreen) {
                     element.requestFullscreen();
@@ -942,10 +1315,6 @@
                     document.exitFullscreen();
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
                 }
             }
 
@@ -981,7 +1350,7 @@
             function startFontCycling() {
                 fontWeightInterval = setInterval(() => {
                     currentWeight += weightDirection;
-                    if (currentWeight >= 700 || currentWeight <= 300) {
+                    if (currentWeight >= 900 || currentWeight <= 300) {
                         weightDirection = -weightDirection;
                     }
                     changeTarget.style.fontWeight = currentWeight;
@@ -993,49 +1362,17 @@
                 changeTarget.style.fontWeight = '300';
             }
 
-            // ─── STACCATO SYSTEM Part 2 (Scene 23) ───
-            const phrases2 = ['s23-p1', 's23-p2', 's23-p3'];
-            const flashBar2 = document.getElementById('s23-bar');
-            let staccatoTimeouts2 = [];
-
-            function startStaccato2() {
-                phrases2.forEach(id => document.getElementById(id).classList.remove('visible'));
-                staccatoTimeouts2.forEach(t => clearTimeout(t));
-                staccatoTimeouts2 = [];
-
-                document.getElementById(phrases2[0]).classList.add('visible');
+            // ─── DYNAMIC SWISS STACCATO SCHEDULERS ───
+            function triggerStaccatoSlide(phraseId, barId) {
+                const phrase = document.getElementById(phraseId);
+                const bar = document.getElementById(barId);
+                if (phrase) phrase.classList.add('visible');
                 playGlitchTick();
-
-                staccatoTimeouts2.push(setTimeout(() => {
-                    document.getElementById(phrases2[0]).classList.remove('visible');
-                    document.getElementById(phrases2[1]).classList.add('visible');
-                    playGlitchTick();
-                    if (flashBar2) {
-                        flashBar2.classList.remove('fire');
-                        void flashBar2.offsetWidth;
-                        flashBar2.classList.add('fire');
-                    }
-                    container.classList.add('transition-glitch');
-                    setTimeout(() => container.classList.remove('transition-glitch'), 100);
-                }, 700));
-
-                staccatoTimeouts2.push(setTimeout(() => {
-                    document.getElementById(phrases2[1]).classList.remove('visible');
-                    document.getElementById(phrases2[2]).classList.add('visible');
-                    playGlitchTick();
-                    if (flashBar2) {
-                        flashBar2.classList.remove('fire');
-                        void flashBar2.offsetWidth;
-                        flashBar2.classList.add('fire');
-                    }
-                    container.classList.add('transition-glitch');
-                    setTimeout(() => container.classList.remove('transition-glitch'), 100);
-                }, 1400));
-            }
-
-            function stopStaccato2() {
-                staccatoTimeouts2.forEach(t => clearTimeout(t));
-                phrases2.forEach(id => document.getElementById(id).classList.remove('visible'));
+                if (bar) {
+                    bar.classList.remove('fire');
+                    void bar.offsetWidth;
+                    bar.classList.add('fire');
+                }
             }
 
             // ─── TEXT SCRAMBLER ───
@@ -1072,8 +1409,7 @@
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
                     scenes[prev].classList.remove('chromatic-glitch');
-                    if (prev === 2) stopFontCycling(); 
-                    if (prev === 22) stopStaccato2();
+                    if (prev === 3) stopFontCycling();
                 }
 
                 if (currentScene >= scenes.length) {
@@ -1082,14 +1418,16 @@
 
                 const randomTransition = transitions[Math.floor(Math.random() * transitions.length)];
 
-                // Sound sweeps
+                // Sound sweeps synchronized dynamically
                 if (randomTransition === 'transition-whip') playSweep(400, 100, 0.4, 'triangle');
                 if (randomTransition === 'transition-slam') playSweep(150, 45, 0.6, 'sawtooth');
                 if (randomTransition === 'transition-zoom') playSweep(800, 200, 0.3, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
-                // Specific Sub Sweep on "One Decision"
-                if (currentScene === 21) playSweep(120, 35, 1.2, 'sawtooth');
+                // Specific Sub Drop on "One Decision"
+                if (currentScene === 20) {
+                    playSweep(120, 30, 1.4, 'sawtooth');
+                }
 
                 // Clear prior flare transitions on GPU
                 glowBall1.classList.remove('flare-active');
@@ -1114,11 +1452,29 @@
                     progressFill.style.width = '100%';
                 }, 50);
 
-                if (currentScene === 2) startFontCycling();
-                if (currentScene === 20) startCashScramble(); 
-                if (currentScene === 22) startStaccato2();
+                // Initialize structural interactions
+                if (currentScene === 3) startFontCycling();
+                
+                // Staccato triggers
+                if (currentScene === 5) triggerStaccatoSlide('s5-p1', 's5-bar1');
+                if (currentScene === 6) triggerStaccatoSlide('s5-p2', 's5-bar2');
+                if (currentScene === 7) triggerStaccatoSlide('s5-p3', 's5-bar3');
+
+                if (currentScene === 19) startCashScramble(); 
+
+                if (currentScene === 21) triggerStaccatoSlide('s23-p1', 's23-bar1');
+                if (currentScene === 22) triggerStaccatoSlide('s23-p2', 's23-bar2');
+                if (currentScene === 23) triggerStaccatoSlide('s23-p3', 's23-bar3');
 
                 setTimeout(() => {
+                    // Reset single staccato elements before transition
+                    if (currentScene === 5) document.getElementById('s5-p1').classList.remove('visible');
+                    if (currentScene === 6) document.getElementById('s5-p2').classList.remove('visible');
+                    if (currentScene === 7) document.getElementById('s5-p3').classList.remove('visible');
+                    if (currentScene === 21) document.getElementById('s23-p1').classList.remove('visible');
+                    if (currentScene === 22) document.getElementById('s23-p2').classList.remove('visible');
+                    if (currentScene === 23) document.getElementById('s23-p3').classList.remove('visible');
+
                     currentScene++;
                     showNextScene();
                 }, duration);
