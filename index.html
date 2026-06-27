@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Ambassadors Summit 8.0 - The Theme</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --red: #D90022;
             --bright-red: #FF0033;
             --black: #000000;
             --white: #FFFFFF;
-            --dark-gray: #0B0B0F;
+            --dark-gray: #0F0F14;
             --neon-magenta: #FF00FF;
             --neon-cyan: #00FFFF;
             --easing: cubic-bezier(0.85, 0, 0.15, 1);
@@ -33,7 +33,7 @@
             -webkit-user-select: none;
         }
 
-        /* ─── FILM NOISE & TECHNICAL GRID BACKdrops ─── */
+        /* ─── FILMIC NOISE & TECH GRID OVERLAYS ─── */
         .noise {
             position: fixed;
             top: 0; left: 0;
@@ -121,7 +121,7 @@
             100% { transform: translate3d(0, 0, 0); }
         }
 
-        /* Ambient Fluid Glow backdrops */
+        /* Ambient Fluid Glow Backdrops */
         .ambient-glow-container {
             position: absolute;
             inset: 0;
@@ -249,70 +249,99 @@
         /* TYPOGRAPHIC HEADLINE STANDARDS */
         .theme-headline {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(45px, 12vw, 150px);
+            font-size: clamp(50px, 12vw, 155px);
             text-align: center;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
+            line-height: 0.82;
         }
         .theme-headline.white-outline {
             color: transparent;
-            -webkit-text-stroke: 2px var(--white);
+            -webkit-text-stroke: 3px var(--white);
         }
         .theme-headline.red-outline {
             color: transparent;
-            -webkit-text-stroke: 2px var(--bright-red);
+            -webkit-text-stroke: 3px var(--bright-red);
         }
 
         /* MONOSPACE METRIC STAMPS */
         .metric-bracket {
             font-family: 'Space Mono', monospace;
-            font-size: clamp(10px, 1.2vw, 16px);
+            font-size: clamp(11px, 1.3vw, 18px);
             color: var(--bright-red);
             letter-spacing: 0.3em;
-            margin-bottom: 2.5vh;
+            margin-bottom: 3vh;
             position: relative;
             z-index: 10;
         }
 
-        /* ─── KINETIC ELEMENT: RADAR COMPASS TARGET (SCENE 1) ─── */
-        .radar-compass-wrap {
-            position: absolute;
-            width: min(70vw, 550px);
-            height: min(70vw, 550px);
-            opacity: 0.15;
-            pointer-events: none;
-            will-change: transform;
-            transform: scale(0.8) rotate(0deg);
-            transition: transform 1.5s var(--easing);
-        }
-        .scene.active .radar-compass-wrap {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        /* ─── KINETIC ELEMENT: SLIDING VARIABLE HEADLINE (SCENE 2) ─── */
-        .variable-text-block {
+        /* ─── REWORKED SCENE 1: THE ROLE OF... (Stark Crimson Screen-Frame) ─── */
+        .crimson-screen-frame {
+            border: 8px solid var(--bright-red);
+            width: 90vw;
+            height: 75vh;
+            background: rgba(217, 0, 34, 0.05);
             display: flex;
             flex-direction: column;
-            width: 100%;
-            padding: 0 6vw;
+            justify-content: center;
+            align-items: center;
+            position: relative;
             z-index: 10;
         }
-        .variable-text-block .clip-box {
-            overflow: hidden;
-            display: block;
-            width: 100%;
+
+        /* ─── REWORKED SCENE 4: IN SECURING (Solid High-Contrast White Block Plate) ─── */
+        .securing-solid-plate {
+            background: var(--white);
+            border: 6px solid var(--bright-red);
+            width: 88vw;
+            padding: 8vh 4vw;
+            text-align: center;
+            box-shadow: 20px 20px 0 var(--red);
+            position: relative;
+            z-index: 10;
         }
-        .variable-text-block h1 {
+        .securing-solid-plate h1 {
+            color: var(--black);
             font-family: 'Anton', sans-serif;
-            font-size: clamp(40px, 10.5vw, 140px);
+            font-size: clamp(55px, 12vw, 160px);
             line-height: 0.8;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
         }
-        .variable-text-block .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--easing); text-align: left; }
-        .variable-text-block .w2 { transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--easing) 0.08s; text-align: right; }
-        
-        .scene.active .variable-text-block .w1,
-        .scene.active .variable-text-block .w2 {
-            transform: translate3d(0, 0, 0);
+
+        /* ─── NEW SCENE 7: FULL COMPLETE THEME DISPLAY CARD ─── */
+        .complete-theme-panel {
+            border: 4px solid var(--white);
+            background: var(--dark-gray);
+            width: 88vw;
+            padding: 6vh 4vw;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+        }
+        .complete-theme-panel::before {
+            content: '[ EVENT CORE THEME ]';
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            background: var(--black);
+            padding: 0 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--bright-red);
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .complete-theme-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(20px, 3.8vw, 44px);
+            line-height: 1.15;
+            text-align: left;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+        .complete-theme-text span {
+            color: var(--bright-red);
         }
 
         /* ─── KINETIC ELEMENT: CATALYST BLOCK (SCENE 3) ─── */
@@ -331,112 +360,23 @@
             transform: scale3d(1, 1, 1) rotate(0deg);
             opacity: 1;
         }
-        .catalyst-title-morph {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(35px, 8.5vw, 110px);
-            font-weight: 300;
-            letter-spacing: -0.04em;
-            color: var(--white);
-            transition: font-weight 0.15s ease-out;
+
+        /* ─── ACTIVE TYPEWRITER STYLING ─── */
+        .typewriter-cursor {
+            display: inline-block;
+            background-color: var(--bright-red);
+            width: 10px;
+            height: 1em;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: cursor-blink 0.8s infinite steps(2);
+        }
+        @keyframes cursor-blink {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
-        /* ─── KINETIC ELEMENT: SWISS PARAMETER SPLIT (SCENE 4) ─── */
-        .swiss-split-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 88vw;
-            height: 55vh;
-            border-top: 2px solid var(--white);
-            border-bottom: 2px solid var(--white);
-            padding: 3vh 0;
-            position: relative;
-            z-index: 10;
-        }
-        .swiss-col {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .swiss-col.left-col {
-            border-right: 1px solid rgba(255, 255, 255, 0.15);
-            padding-right: 4vw;
-        }
-        .swiss-col.right-col {
-            padding-left: 4vw;
-            justify-content: flex-end;
-            align-items: flex-end;
-            text-align: right;
-        }
-        .swiss-huge-text {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(36px, 7vw, 95px);
-            line-height: 0.82;
-            transform: translate3d(-40px, 0, 0);
-            opacity: 0;
-            transition: transform 0.6s var(--fast-easing) 0.2s, opacity 0.5s ease 0.2s;
-        }
-        .swiss-sub-descr {
-            font-size: clamp(14px, 2vw, 26px);
-            font-weight: 300;
-            line-height: 1.25;
-            color: rgba(255,255,255,0.7);
-            text-transform: none;
-            transform: translate3d(40px, 0, 0);
-            opacity: 0;
-            transition: transform 0.6s var(--fast-easing) 0.3s, opacity 0.5s ease 0.3s;
-        }
-        .scene.active .swiss-huge-text { transform: translate3d(0, 0, 0); opacity: 1; }
-        .scene.active .swiss-sub-descr { transform: translate3d(0, 0, 0); opacity: 1; }
-
-        /* ─── KINETIC ELEMENT: NIGERIA ROTATING STAR CROSS (SCENE 5) ─── */
-        .star-cross-vector {
-            position: absolute;
-            top: 15%;
-            left: 15%;
-            opacity: 0.18;
-            will-change: transform;
-            transform: rotate(0deg) scale(0.8);
-            transition: transform 1.6s var(--easing);
-        }
-        .scene.active .star-cross-vector {
-            transform: rotate(180deg) scale(1.15);
-        }
-
-        /* ─── SCENE 6: PROSPERITY METRIC PANEL ─── */
-        .prosperity-block-box {
-            position: absolute;
-            inset: 0;
-            background: var(--red);
-            transform: translate3d(-100%, 0, 0);
-            transition: transform 0.5s var(--fast-easing);
-            z-index: 1;
-        }
-        .scene.active .prosperity-block-box {
-            transform: translate3d(0%, 0, 0);
-        }
-        .prosperity-title-wrap {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
-        .prosperity-headline {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(40px, 11vw, 140px);
-            line-height: 0.8;
-            color: transparent;
-            -webkit-text-stroke: 3px var(--white);
-            transform: scale(0.6) rotate(-4deg);
-            opacity: 0;
-            transition: transform 0.7s var(--elastic) 0.4s, opacity 0.5s ease 0.4s;
-        }
-        .scene.active .prosperity-headline {
-            color: var(--white);
-            -webkit-text-stroke: 0px transparent;
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
-
-        /* ─── PROGRESS INDEX SYSTEM ─── */
+        /* ─── CINEMATIC PROGRESS INDEX SYSTEM ─── */
         .cinematic-progress {
             position: fixed;
             bottom: 30px;
@@ -458,11 +398,11 @@
 
         /* Responsive Matrix Adjustments */
         @media (max-width: 768px) {
-            .variable-text-block h1 { font-size: clamp(36px, 9vw, 85px); }
-            .swiss-split-container { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; height: 60vh; }
-            .swiss-col.left-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-right: 0; padding-bottom: 2vh; }
-            .swiss-col.right-col { padding-left: 0; padding-top: 2vh; align-items: flex-start; text-align: left; }
-            .prosperity-headline { -webkit-text-stroke: 1.5px var(--white); }
+            .theme-headline { -webkit-text-stroke: 1.5px var(--white); }
+            .securing-solid-plate h1 { -webkit-text-stroke: 0px; }
+            .crimson-screen-frame { height: 65vh; width: 92vw; border-width: 5px; }
+            .securing-solid-plate { width: 92vw; padding: 6vh 3vw; border-width: 4px; }
+            .complete-theme-panel { width: 92vw; padding: 5vh 3vw; border-width: 3px; }
         }
     </style>
 </head>
@@ -470,7 +410,7 @@
 
     <!-- START OVERLAY GATEWAY -->
     <div id="start-overlay">
-        <button class="start-btn" id="start-action">LAUNCH SEQUENCE</button>
+        <button class="start-btn" id="start-action">LAUNCH PRESENTATION</button>
         <p style="margin-top: 1.5rem; font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); text-transform: uppercase;">Wake Audio Engine &amp; Full Screen</p>
     </div>
 
@@ -487,78 +427,61 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: THE ROLE OF -->
+        <!-- SCENE 1: THE ROLE OF [Reworked Stark Screen-Frame Block] -->
         <div class="scene" id="scene-1">
-            <!-- Concentric spinning radar vector -->
-            <svg class="radar-compass-wrap" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" stroke="var(--bright-red)" stroke-width="0.75" fill="none" stroke-dasharray="3 3"/>
-                <circle cx="50" cy="50" r="35" stroke="var(--white)" stroke-width="1" fill="none" />
-                <line x1="50" y1="0" x2="50" y2="100" stroke="var(--white)" stroke-width="0.5" opacity="0.3" />
-                <line x1="0" y1="50" x2="100" y2="50" stroke="var(--white)" stroke-width="0.5" opacity="0.3" />
-            </svg>
-            <p class="metric-bracket">[ STAGE_01 // THE IDENTIFICATION ]</p>
-            <h1 class="theme-headline white-outline">THE ROLE</h1>
-            <h1 class="theme-headline" style="font-size: 11vw;">OF...</h1>
+            <div class="crimson-screen-frame">
+                <p class="metric-bracket">[ STAGE_01 // THE INITIAL MODULE ]</p>
+                <h1 class="theme-headline typewriter-target" data-text="THE ROLE OF"></h1>
+            </div>
         </div>
 
-        <!-- SCENE 2: EMERGING LEADERS (Modular Sliding Block Layout) -->
+        <!-- SCENE 2: EMERGING LEADERS -->
         <div class="scene" id="scene-2">
             <div class="chess-pattern"></div>
-            <p class="metric-bracket">[ STAGE_02 // COHORT IDENTIFICATION ]</p>
-            <div class="variable-text-block">
-                <div class="clip-box"><h1 class="w1">EMERGING</h1></div>
-                <div class="clip-box"><h1 class="w2" style="color: var(--bright-red);">LEADERS</h1></div>
-            </div>
+            <p class="metric-bracket">[ STAGE_02 // GENERATIONAL FOCUS ]</p>
+            <h1 class="theme-headline red-outline typewriter-target" data-text="EMERGING LEADERS"></h1>
         </div>
 
-        <!-- SCENE 3: AS CATALYSTS (Expanding Variable Font Blueprint Frame) -->
+        <!-- SCENE 3: AS CATALYSTS -->
         <div class="scene" id="scene-3">
             <div class="catalyst-frame">
-                <p class="metric-bracket" style="margin-bottom: 4vh;">[ AGENT OF RECONSTRUCTION ]</p>
-                <div class="catalyst-title-morph" id="catalyst-target">AS CATALYSTS</div>
+                <p class="metric-bracket" style="margin-bottom: 4vh;">[ INTERACTION AGENT // TRANSFORMATION ]</p>
+                <h1 class="theme-headline typewriter-target" data-text="AS CATALYSTS" style="font-size: 9.5vw;"></h1>
             </div>
         </div>
 
-        <!-- SCENE 4: IN SECURING (Swiss split metrics column layout) -->
-        <div class="scene" id="scene-4" style="background: var(--dark-gray);">
-            <div class="swiss-split-container">
-                <div class="swiss-col left-col">
-                    <p class="metric-bracket" style="margin:0;">[ TRANSITION DIRECTION // 04 ]</p>
-                    <h1 class="swiss-huge-text" style="color: var(--white);">IN</h1>
-                </div>
-                <div class="grid-item right arena-canvas-column">
-                    <p class="editorial-para" style="font-size: clamp(14px, 2.2vw, 32px); font-weight: 300; text-transform: none; text-align: right;">
-                        Establishing structural measures capable of safeguarding and...
-                    </p>
-                    <h1 class="giant-headline red-outline" style="font-size: clamp(38px, 6.5vw, 90px); line-height: 0.85;">SECURING</h1>
-                </div>
+        <!-- SCENE 4: IN SECURING [Reworked Solid High-Contrast White Block Plate] -->
+        <div class="scene" id="scene-4">
+            <div class="securing-solid-plate">
+                <p class="metric-bracket" style="color: var(--black); font-weight: 700; margin-bottom: 2.5vh;">[ STAGE_04 // DEFENSIVE SYSTEM ]</p>
+                <h1 class="typewriter-target" data-text="IN SECURING"></h1>
             </div>
         </div>
 
         <!-- SCENE 5: NIGERIA'S -->
         <div class="scene" id="scene-5">
-            <!-- 8-Point Star Cross vector -->
-            <svg class="star-cross-vector" viewBox="0 0 100 100" width="130" height="130">
-                <path d="M50 0 L55 35 L90 10 L65 45 L100 50 L65 55 L90 90 L55 65 L50 100 L45 65 L10 90 L35 55 L0 50 L35 45 L10 10 L45 35 Z" fill="var(--bright-red)"/>
-            </svg>
-            <p class="metric-bracket">[ GEOPOLITICAL SCOPE // TARGET ]</p>
-            <h1 class="theme-headline" style="font-size: 13vw;">NIGERIA'S</h1>
+            <p class="metric-bracket">[ GEOPOLITICAL TARGET COHORT ]</p>
+            <h1 class="theme-headline red-outline typewriter-target" data-text="NIGERIA'S"></h1>
         </div>
 
         <!-- SCENE 6: ECONOMIC PROSPERITY -->
         <div class="scene" id="scene-6">
-            <div class="prosperity-block-box"></div>
-            <div class="prosperity-title-wrap">
-                <p class="metric-bracket" style="color: var(--white); font-weight: 700;">[ ULTIMATE OBJECTIVE // PROSPERITY ]</p>
-                <h1 class="prosperity-headline">ECONOMIC</h1>
-                <h1 class="prosperity-headline white-outline">PROSPERITY.</h1>
+            <p class="metric-bracket">[ EXPECTED TARGET OUTCOME ]</p>
+            <h1 class="theme-headline white-outline typewriter-target" data-text="ECONOMIC PROSPERITY"></h1>
+        </div>
+
+        <!-- SCENE 7: FULL COMPLETE THEME DISPLAY [New Ending Scene] -->
+        <div class="scene" id="scene-7">
+            <div class="chess-pattern"></div>
+            <div class="complete-theme-panel">
+                <p class="complete-theme-text typewriter-target" data-text="The role of emerging leaders as catalysts in securing Nigeria's economic prosperity."></p>
             </div>
         </div>
 
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-       12. MOTION ENGINE & SYNC CONTROLLER
+       12. MOTION ENGINE & AUDIO SYNTHESIZER
        ═══════════════════════════════════════════════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -570,15 +493,17 @@
 
             let currentScene = 0;
             let presentationStarted = false;
+            let currentTypingTimer = null;
 
-            /* ACCURATE SCRIPT COEFFICIENTS PER STAGE */
+            /* TIMELINE SEQUENCE SCRIPT COEFFICIENTS */
             const sceneDurations = [
-                2800, // 1: THE ROLE OF... (radar target)
-                3200, // 2: EMERGING LEADERS (sliding variable blocks)
-                3500, // 3: AS CATALYSTS (font morph block)
-                3500, // 4: IN SECURING... (swiss split indicators)
-                2800, // 5: NIGERIA'S (rotating star cross)
-                4800  // 6: ECONOMIC PROSPERITY (red block slam and sound explosion)
+                3000, // 1: THE ROLE OF
+                3200, // 2: EMERGING LEADERS
+                3500, // 3: AS CATALYSTS
+                3200, // 4: IN SECURING
+                2800, // 5: NIGERIA'S
+                3200, // 6: ECONOMIC PROSPERITY
+                6500  // 7: FULL Theme statement complete render
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -633,25 +558,46 @@
                 } catch(e) {}
             }
 
-            // ─── VARIABLE WEIGHT CYCLING (SCENE 3) ───
-            const changeTarget = document.getElementById('catalyst-target');
-            let fontWeightInterval = null;
-            let currentWeight = 300;
-            let weightDirection = 25;
+            // ─── KINETIC CHARACTER TYPEWRITER ENGINE ───
+            function runTypewriter(sceneElement) {
+                // Clear any running typewriter intervals
+                if (currentTypingTimer) clearInterval(currentTypingTimer);
+                
+                const target = sceneElement.querySelector('.typewriter-target');
+                if (!target) return;
 
-            function startFontCycling() {
-                fontWeightInterval = setInterval(() => {
-                    currentWeight += weightDirection;
-                    if (currentWeight >= 700 || currentWeight <= 300) {
-                        weightDirection = -weightDirection;
+                const fullText = target.getAttribute('data-text');
+                target.innerHTML = ''; // Reset node content
+
+                // Append the blinking cursor block element
+                const cursor = document.createElement('span');
+                cursor.className = 'typewriter-cursor';
+                
+                let charIndex = 0;
+                // Double typing speed for the longer final statement
+                const speed = (currentScene === 6) ? 22 : 45; 
+
+                currentTypingTimer = setInterval(() => {
+                    if (charIndex < fullText.length) {
+                        // Append text safely character by character
+                        const nextChar = fullText.charAt(charIndex);
+                        target.insertBefore(document.createTextNode(nextChar), cursor);
+                        
+                        // Append cursor if not present
+                        if (!target.contains(cursor)) {
+                            target.appendChild(cursor);
+                        }
+                        
+                        // Emit mechanical sound clicks while writing
+                        if (charIndex % 2 === 0) playGlitchTick();
+                        
+                        charIndex++;
+                    } else {
+                        clearInterval(currentTypingTimer);
+                        // Briefly blink cursor then fade out
+                        setTimeout(() => { if (target.contains(cursor)) cursor.remove(); }, 1200);
                     }
-                    if (changeTarget) changeTarget.style.fontWeight = currentWeight;
-                }, 40);
-            }
-
-            function stopFontCycling() {
-                clearInterval(fontWeightInterval);
-                if (changeTarget) changeTarget.style.fontWeight = '300';
+                }, speed);
             }
 
             // ─── FULLSCREEN RUNNER ───
@@ -670,7 +616,8 @@
 
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
-                    if (prev === 2) stopFontCycling();
+                    const oldTarget = scenes[prev].querySelector('.typewriter-target');
+                    if (oldTarget) oldTarget.innerHTML = ''; // Wipe content on disable
                 }
 
                 if (currentScene >= scenes.length) {
@@ -679,21 +626,23 @@
 
                 const randomTransition = transitions[Math.floor(Math.random() * transitions.length)];
 
-                // Sound synchronization patterns
+                // Sound synchronization sweeps
                 if (randomTransition === 'transition-whip') playSweep(450, 120, 0.4, 'triangle');
                 if (randomTransition === 'transition-slam') playSweep(180, 50, 0.6, 'sawtooth');
                 if (randomTransition === 'transition-zoom') playSweep(750, 250, 0.35, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
-                if (currentScene === 5) {
-                    playSweep(120, 30, 1.5, 'sawtooth'); // Climax Sub-bass Drop
+                if (currentScene === 6) {
+                    playSweep(120, 30, 1.6, 'sawtooth'); // Climax Sub-bass drop on final full statement
                 }
 
                 container.className = '';
                 void container.offsetWidth;
                 container.classList.add(randomTransition);
 
-                scenes[currentScene].classList.add('active');
+                const activeScene = scenes[currentScene];
+                activeScene.classList.add('active');
+                
                 const duration = sceneDurations[currentScene];
 
                 progressFill.style.transition = 'none';
@@ -703,7 +652,8 @@
                     progressFill.style.width = '100%';
                 }, 50);
 
-                if (currentScene === 2) startFontCycling();
+                // Run kinetic character typewriter
+                runTypewriter(activeScene);
 
                 setTimeout(() => {
                     currentScene++;
