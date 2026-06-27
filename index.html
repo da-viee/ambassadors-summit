@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Ambassadors Summit 8.0 - The Vision & Launch</title>
+    <title>Ambassadors Summit 8.0 - The Theme</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -34,7 +33,7 @@
             -webkit-user-select: none;
         }
 
-        /* ─── TECHNICAL INDUSTRIAL FRAMEWORK ─── */
+        /* ─── FILM NOISE & TECHNICAL GRID BACKdrops ─── */
         .noise {
             position: fixed;
             top: 0; left: 0;
@@ -54,25 +53,45 @@
         .tech-grid-overlay {
             position: absolute;
             inset: 0;
-            background-size: 40px 40px;
+            background-size: 50px 50px;
             background-image: 
-                linear-gradient(to right, rgba(217, 0, 34, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(217, 0, 34, 0.03) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
             z-index: 2;
             pointer-events: none;
-            animation: grid-drift-diagonal 20s linear infinite;
+            animation: grid-drift-diagonal 22s linear infinite;
         }
         @keyframes grid-drift-diagonal {
             0% { background-position: 0px 0px; }
-            100% { background-position: 80px 80px; }
+            100% { background-position: 100px 100px; }
         }
 
-        /* ─── HARDWARE ACCELERATED TRANSITIONS ─── */
+        /* Chess Pattern Background */
+        .chess-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.8s var(--easing);
+        }
+        .scene.active .chess-pattern {
+            opacity: 1;
+        }
+
+        /* ─── GPU ACCELERATED TRANSITIONS ─── */
         .transition-whip {
-            animation: whip-pan-animation 0.4s var(--easing) both;
+            animation: whip-pan-animation 0.45s var(--easing) both;
         }
         @keyframes whip-pan-animation {
-            0% { transform: translate3d(100vw, 0, 0) scaleX(1.3); }
+            0% { transform: translate3d(100vw, 0, 0) scaleX(1.4); }
             100% { transform: translate3d(0, 0, 0) scaleX(1); }
         }
 
@@ -80,17 +99,17 @@
             animation: glitch-flash-animation 0.35s steps(2) both;
         }
         @keyframes glitch-flash-animation {
-            0% { transform: translate3d(10px, -5px, 0) scale(0.98); }
-            50% { transform: translate3d(-10px, 5px, 0) scale(1.02); }
+            0% { transform: translate3d(12px, -6px, 0) scale(0.97); }
+            50% { transform: translate3d(-12px, 6px, 0) scale(1.03); }
             100% { transform: translate3d(0, 0, 0) scale(1); }
         }
 
         .transition-zoom {
-            animation: zoom-snap-animation 0.45s var(--elastic) both;
+            animation: zoom-snap-animation 0.48s var(--elastic) both;
         }
         @keyframes zoom-snap-animation {
-            0% { transform: scale3d(0.4, 0.4, 1); opacity: 0; }
-            100% { transform: scale3d(1, 1, 1); opacity: 1; }
+            0% { transform: scale3d(0.3, 0.3, 1) rotate(-8deg); opacity: 0; }
+            100% { transform: scale3d(1, 1, 1) rotate(0deg); opacity: 1; }
         }
 
         .transition-slam {
@@ -102,7 +121,7 @@
             100% { transform: translate3d(0, 0, 0); }
         }
 
-        /* ─── DYNAMIC LIQUID GLOW BACKSTAGE ─── */
+        /* Ambient Fluid Glow backdrops */
         .ambient-glow-container {
             position: absolute;
             inset: 0;
@@ -112,30 +131,30 @@
         }
         .glow-ball {
             position: absolute;
-            width: 80vw;
-            height: 80vw;
+            width: 85vw;
+            height: 85vw;
             border-radius: 50%;
-            filter: blur(130px);
-            opacity: 0.22;
+            filter: blur(140px);
+            opacity: 0.25;
             will-change: transform;
         }
-        .glow-ball-red {
+        .glow-ball-1 {
             background: var(--red);
             top: -20%; left: -10%;
-            animation: slow-drift-left 15s ease-in-out infinite alternate;
+            animation: slow-drift-left 12s ease-in-out infinite alternate;
         }
-        .glow-ball-crimson {
+        .glow-ball-2 {
             background: var(--bright-red);
             bottom: -20%; right: -10%;
-            animation: slow-drift-right 15s ease-in-out infinite alternate;
+            animation: slow-drift-right 12s ease-in-out infinite alternate;
         }
         @keyframes slow-drift-left {
             0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(15vw, 10vh, 0) scale(1.2); }
+            100% { transform: translate3d(10vw, 15vh, 0) scale(1.2); }
         }
         @keyframes slow-drift-right {
             0% { transform: translate3d(0, 0, 0) scale(1.2); }
-            100% { transform: translate3d(-15vw, -10vh, 0) scale(0.9); }
+            100% { transform: translate3d(-10vw, -15vh, 0) scale(0.95); }
         }
 
         /* ─── INTERACTIVE GATEWAY OVERLAY ─── */
@@ -201,167 +220,249 @@
             z-index: 10;
         }
 
-        h1, h2, h3 {
+        h1, h2, p {
             text-transform: uppercase;
             font-weight: 900;
             line-height: 0.85;
         }
 
-        /* ─── NEW REWORKED MACRO STACKED HEADLINES (SCENE 1) ─── */
-        .macro-text-wrap {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            padding: 0 6vw;
-            position: relative;
-            z-index: 10;
-        }
-        .macro-text-wrap .word-wrap {
-            overflow: hidden;
-            display: block;
-            width: 100%;
-        }
-        .macro-text-wrap h1 {
+        .ghost-bg-text {
+            position: absolute;
             font-family: 'Anton', sans-serif;
-            font-size: clamp(45px, 10vw, 135px);
-            line-height: 0.82;
-            letter-spacing: -0.02em;
+            font-size: 32vw;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.03);
+            letter-spacing: -0.05em;
+            line-height: 0.8;
+            white-space: nowrap;
+            user-select: none;
+            z-index: 0;
+            pointer-events: none;
+            will-change: transform;
+            transform: scale(0.9);
+            transition: transform 1.5s var(--easing);
         }
-        .macro-text-wrap .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--easing); text-align: left; }
-        .macro-text-wrap .w2 { transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--easing) 0.08s; text-align: right; }
-        .macro-text-wrap .w3 { transform: translateY(100%); transition: transform 0.5s var(--easing) 0.15s; text-align: center; }
-        
-        .scene.active .macro-text-wrap .w1,
-        .scene.active .macro-text-wrap .w2,
-        .scene.active .macro-text-wrap .w3 {
-            transform: translate3d(0, 0, 0);
+        .scene.active .ghost-bg-text {
+            transform: scale(1.05);
         }
 
-        /* ─── TYPOGRAPHIC CORE LOCKUPS ─── */
-        .giant-headline {
+        /* TYPOGRAPHIC HEADLINE STANDARDS */
+        .theme-headline {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(40px, 11vw, 130px);
+            font-size: clamp(45px, 12vw, 150px);
             text-align: center;
+            letter-spacing: -0.02em;
         }
-        .giant-headline.white-outline {
+        .theme-headline.white-outline {
             color: transparent;
             -webkit-text-stroke: 2px var(--white);
         }
-        .giant-headline.red-outline {
+        .theme-headline.red-outline {
             color: transparent;
             -webkit-text-stroke: 2px var(--bright-red);
         }
 
-        /* ─── SPLIT SECTION CARD (SCENE 2) ─── */
-        .vision-card-wrap {
-            width: 85vw;
-            border: 2px solid var(--red);
-            background: rgba(217, 0, 34, 0.03);
-            padding: 4vw;
-            position: relative;
-        }
-        .vision-card-wrap::before {
-            content: '[ VISION STATEMENT ]';
-            position: absolute;
-            top: -12px;
-            left: 30px;
-            background: var(--black);
-            padding: 0 10px;
+        /* MONOSPACE METRIC STAMPS */
+        .metric-bracket {
             font-family: 'Space Mono', monospace;
-            font-size: 11px;
+            font-size: clamp(10px, 1.2vw, 16px);
             color: var(--bright-red);
-            letter-spacing: 2px;
-        }
-        .vision-card-text {
-            font-size: clamp(18px, 3vw, 36px);
-            line-height: 1.2;
-            text-align: left;
-            font-weight: 700;
-        }
-        .vision-card-accent {
-            color: var(--bright-red);
-            font-family: 'Anton', sans-serif;
-            text-transform: uppercase;
-        }
-
-        /* ─── MONOSPACE TECHNICAL SPEC LABELS ─── */
-        .param-bracket {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(10px, 1.2vw, 15px);
-            color: var(--bright-red);
-            letter-spacing: 0.2em;
-            margin-bottom: 2vh;
-        }
-
-        /* ─── DELEGATES ACTIVE COUNTER MODULE (SCENE 7) ─── */
-        .counter-layout {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .counter-big-number {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(65px, 18vw, 220px);
-            line-height: 0.8;
-            color: var(--white);
-            letter-spacing: -0.03em;
-            will-change: content;
-        }
-        .counter-label {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(11px, 1.8vw, 20px);
-            letter-spacing: 0.4em;
-            color: var(--bright-red);
-            margin-top: 2vh;
-        }
-
-        /* ─── NEW REWORKED MACRO BILLBOARD VENUE (SCENE 8) ─── */
-        .ballroom-container {
-            text-align: center;
+            letter-spacing: 0.3em;
+            margin-bottom: 2.5vh;
             position: relative;
             z-index: 10;
         }
-        .ballroom-title {
+
+        /* ─── KINETIC ELEMENT: RADAR COMPASS TARGET (SCENE 1) ─── */
+        .radar-compass-wrap {
+            position: absolute;
+            width: min(70vw, 550px);
+            height: min(70vw, 550px);
+            opacity: 0.15;
+            pointer-events: none;
+            will-change: transform;
+            transform: scale(0.8) rotate(0deg);
+            transition: transform 1.5s var(--easing);
+        }
+        .scene.active .radar-compass-wrap {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        /* ─── KINETIC ELEMENT: SLIDING VARIABLE HEADLINE (SCENE 2) ─── */
+        .variable-text-block {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 6vw;
+            z-index: 10;
+        }
+        .variable-text-block .clip-box {
+            overflow: hidden;
+            display: block;
+            width: 100%;
+        }
+        .variable-text-block h1 {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(55px, 13vw, 175px);
+            font-size: clamp(40px, 10.5vw, 140px);
             line-height: 0.8;
             letter-spacing: -0.03em;
-            transform: scale(0.6) rotate(-3deg);
-            opacity: 0;
-            transition: transform 0.7s var(--elastic) 0.2s, opacity 0.5s ease 0.2s;
         }
-        .ballroom-title.white-outline {
+        .variable-text-block .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--easing); text-align: left; }
+        .variable-text-block .w2 { transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--easing) 0.08s; text-align: right; }
+        
+        .scene.active .variable-text-block .w1,
+        .scene.active .variable-text-block .w2 {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* ─── KINETIC ELEMENT: CATALYST BLOCK (SCENE 3) ─── */
+        .catalyst-frame {
+            border: 4px solid var(--bright-red);
+            background: rgba(217, 0, 34, 0.02);
+            width: 85vw;
+            padding: 6vh 4vw;
+            text-align: center;
+            position: relative;
+            transform: scale3d(0.8, 0.8, 1) rotate(-2deg);
+            opacity: 0;
+            transition: transform 0.8s var(--elastic) 0.2s, opacity 0.6s ease 0.2s;
+        }
+        .scene.active .catalyst-frame {
+            transform: scale3d(1, 1, 1) rotate(0deg);
+            opacity: 1;
+        }
+        .catalyst-title-morph {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(35px, 8.5vw, 110px);
+            font-weight: 300;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            transition: font-weight 0.15s ease-out;
+        }
+
+        /* ─── KINETIC ELEMENT: SWISS PARAMETER SPLIT (SCENE 4) ─── */
+        .swiss-split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 88vw;
+            height: 55vh;
+            border-top: 2px solid var(--white);
+            border-bottom: 2px solid var(--white);
+            padding: 3vh 0;
+            position: relative;
+            z-index: 10;
+        }
+        .swiss-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .swiss-col.left-col {
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            padding-right: 4vw;
+        }
+        .swiss-col.right-col {
+            padding-left: 4vw;
+            justify-content: flex-end;
+            align-items: flex-end;
+            text-align: right;
+        }
+        .swiss-huge-text {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(36px, 7vw, 95px);
+            line-height: 0.82;
+            transform: translate3d(-40px, 0, 0);
+            opacity: 0;
+            transition: transform 0.6s var(--fast-easing) 0.2s, opacity 0.5s ease 0.2s;
+        }
+        .swiss-sub-descr {
+            font-size: clamp(14px, 2vw, 26px);
+            font-weight: 300;
+            line-height: 1.25;
+            color: rgba(255,255,255,0.7);
+            text-transform: none;
+            transform: translate3d(40px, 0, 0);
+            opacity: 0;
+            transition: transform 0.6s var(--fast-easing) 0.3s, opacity 0.5s ease 0.3s;
+        }
+        .scene.active .swiss-huge-text { transform: translate3d(0, 0, 0); opacity: 1; }
+        .scene.active .swiss-sub-descr { transform: translate3d(0, 0, 0); opacity: 1; }
+
+        /* ─── KINETIC ELEMENT: NIGERIA ROTATING STAR CROSS (SCENE 5) ─── */
+        .star-cross-vector {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            opacity: 0.18;
+            will-change: transform;
+            transform: rotate(0deg) scale(0.8);
+            transition: transform 1.6s var(--easing);
+        }
+        .scene.active .star-cross-vector {
+            transform: rotate(180deg) scale(1.15);
+        }
+
+        /* ─── SCENE 6: PROSPERITY METRIC PANEL ─── */
+        .prosperity-block-box {
+            position: absolute;
+            inset: 0;
+            background: var(--red);
+            transform: translate3d(-100%, 0, 0);
+            transition: transform 0.5s var(--fast-easing);
+            z-index: 1;
+        }
+        .scene.active .prosperity-block-box {
+            transform: translate3d(0%, 0, 0);
+        }
+        .prosperity-title-wrap {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        .prosperity-headline {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(40px, 11vw, 140px);
+            line-height: 0.8;
             color: transparent;
             -webkit-text-stroke: 3px var(--white);
-            transform: scale(0.6) rotate(3deg);
-            transition: transform 0.7s var(--elastic) 0.3s, opacity 0.5s ease 0.3s;
-        }
-        .ballroom-sub {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(12px, 2.5vw, 26px);
-            color: var(--bright-red);
-            letter-spacing: 0.45em;
-            margin-top: 3.5vh;
+            transform: scale(0.6) rotate(-4deg);
             opacity: 0;
-            transform: translate3d(0, 30px, 0);
-            transition: transform 0.6s var(--fast-easing) 0.5s, opacity 0.5s ease 0.5s;
+            transition: transform 0.7s var(--elastic) 0.4s, opacity 0.5s ease 0.4s;
         }
-        
-        .scene.active .ballroom-title {
+        .scene.active .prosperity-headline {
+            color: var(--white);
+            -webkit-text-stroke: 0px transparent;
             transform: scale(1) rotate(0deg);
             opacity: 1;
         }
-        .scene.active .ballroom-sub {
-            transform: translate3d(0, 0, 0);
-            opacity: 1;
+
+        /* ─── PROGRESS INDEX SYSTEM ─── */
+        .cinematic-progress {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translate3d(-50%, 0, 0);
+            width: 160px;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            z-index: 100;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .cinematic-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--bright-red);
+            box-shadow: 0 0 8px var(--bright-red);
         }
 
-        /* Responsive Configuration Overrides */
+        /* Responsive Matrix Adjustments */
         @media (max-width: 768px) {
-            .macro-text-wrap h1 { font-size: clamp(38px, 9vw, 90px); }
-            .ballroom-title { font-size: clamp(48px, 12vw, 110px); }
-            .ballroom-sub { font-size: clamp(10px, 2vw, 18px); margin-top: 2vh; }
+            .variable-text-block h1 { font-size: clamp(36px, 9vw, 85px); }
+            .swiss-split-container { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; height: 60vh; }
+            .swiss-col.left-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-right: 0; padding-bottom: 2vh; }
+            .swiss-col.right-col { padding-left: 0; padding-top: 2vh; align-items: flex-start; text-align: left; }
+            .prosperity-headline { -webkit-text-stroke: 1.5px var(--white); }
         }
     </style>
 </head>
@@ -376,8 +477,8 @@
     <div class="noise"></div>
     <div class="tech-grid-overlay"></div>
     <div class="ambient-glow-container">
-        <div class="glow-ball glow-ball-red"></div>
-        <div class="glow-ball glow-ball-crimson"></div>
+        <div class="glow-ball glow-ball-1"></div>
+        <div class="glow-ball glow-ball-2"></div>
     </div>
 
     <div class="cinematic-progress">
@@ -386,86 +487,78 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) [Reworked with Large Stacked Titles] -->
+        <!-- SCENE 1: THE ROLE OF -->
         <div class="scene" id="scene-1">
-            <div class="chess-pattern"></div>
-            <div class="ghost-bg-text" style="font-size: 24vw;">LEADERS</div>
-            <div class="macro-text-wrap">
-                <div class="word-wrap"><h1 class="w1">NIGERIAN LEADERS</h1></div>
-                <div class="word-wrap"><h1 class="w2" style="color: var(--bright-red);">ENTREPRENEURS</h1></div>
-                <div class="word-wrap"><h1 class="w3">CHANGEMAKERS</h1></div>
-            </div>
-        </div>
-
-        <!-- SCENE 2: THE VISION REVEAL STATEMENT -->
-        <div class="scene" id="scene-2">
-            <div class="vision-card-wrap">
-                <p class="vision-card-text">
-                    That is the <span class="vision-card-accent">vision</span> behind the most influential gathering of youth leaders on the African continent.
-                </p>
-            </div>
-        </div>
-
-        <!-- SCENE 3: pillar 1 - LEADERSHIP DEVELOPMENT -->
-        <div class="scene" id="scene-3" style="background: var(--dark-gray);">
-            <div class="chess-pattern"></div>
-            <p class="param-bracket">[ PILLAR 01 // GROWTH ]</p>
-            <h1 class="giant-headline red-outline">LEADERSHIP</h1>
-            <h1 class="giant-headline" style="font-size: 9vw;">DEVELOPMENT</h1>
-        </div>
-
-        <!-- SCENE 4: pillar 2 - ENTERPRISE OPPORTUNITIES -->
-        <div class="scene" id="scene-4">
-            <!-- Rotating crosshair vector -->
-            <svg class="vector-shape" style="top:10%; right:15%; opacity:0.15;" viewBox="0 0 100 100" width="120" height="120">
-                <circle cx="50" cy="50" r="40" stroke="var(--bright-red)" stroke-width="2" fill="none" />
-                <line x1="50" y1="0" x2="50" y2="100" stroke="var(--bright-red)" stroke-width="2" />
-                <line x1="0" y1="50" x2="100" y2="50" stroke="var(--bright-red)" stroke-width="2" />
+            <!-- Concentric spinning radar vector -->
+            <svg class="radar-compass-wrap" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke="var(--bright-red)" stroke-width="0.75" fill="none" stroke-dasharray="3 3"/>
+                <circle cx="50" cy="50" r="35" stroke="var(--white)" stroke-width="1" fill="none" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="var(--white)" stroke-width="0.5" opacity="0.3" />
+                <line x1="0" y1="50" x2="100" y2="50" stroke="var(--white)" stroke-width="0.5" opacity="0.3" />
             </svg>
-            <p class="param-bracket">[ PILLAR 02 // ACTION ]</p>
-            <h1 class="giant-headline" style="font-size: 10vw;">ENTERPRISE</h1>
-            <h1 class="giant-headline white-outline">OPPORTUNITIES</h1>
+            <p class="metric-bracket">[ STAGE_01 // THE IDENTIFICATION ]</p>
+            <h1 class="theme-headline white-outline">THE ROLE</h1>
+            <h1 class="theme-headline" style="font-size: 11vw;">OF...</h1>
         </div>
 
-        <!-- SCENE 5: pillar 3 - VOICES SHAPING THE FUTURE -->
-        <div class="scene" id="scene-5" style="background: var(--dark-gray);">
-            <p class="param-bracket">[ PILLAR 03 // VISION ]</p>
-            <h1 class="giant-headline" style="color: var(--bright-red); font-size: 8.5vw;">ACCESS TO VOICES</h1>
-            <h1 class="giant-headline white-outline" style="font-size: 8.5vw;">SHAPING THE FUTURE</h1>
-        </div>
-
-        <!-- SCENE 6: TRANSITION - A NEW CHAPTER BEGINS -->
-        <div class="scene" id="scene-6">
+        <!-- SCENE 2: EMERGING LEADERS (Modular Sliding Block Layout) -->
+        <div class="scene" id="scene-2">
             <div class="chess-pattern"></div>
-            <p class="param-bracket" style="color: var(--white);">STATUS // TRANSITION SHIFT</p>
-            <h1 class="giant-headline" style="font-size: 11vw; letter-spacing: -0.04em;">A NEW CHAPTER</h1>
-            <h1 class="giant-headline" style="color: var(--bright-red); font-size: 13vw; letter-spacing: -0.04em;">BEGINS!</h1>
-        </div>
-
-        <!-- SCENE 7: SCALE INDICATOR (3,500+ Delegates) -->
-        <div class="scene" id="scene-7">
-            <div class="counter-layout">
-                <p class="param-bracket">[ EXPECTED AUDIENCE MATRIX ]</p>
-                <div class="counter-big-number" id="delegate-counter">0</div>
-                <p class="counter-label">DELEGATES CONVERGING</p>
+            <p class="metric-bracket">[ STAGE_02 // COHORT IDENTIFICATION ]</p>
+            <div class="variable-text-block">
+                <div class="clip-box"><h1 class="w1">EMERGING</h1></div>
+                <div class="clip-box"><h1 class="w2" style="color: var(--bright-red);">LEADERS</h1></div>
             </div>
         </div>
 
-        <!-- SCENE 8: THE ARENA CONVERGENCE [Reworked Large Billboard Layout - No Date/Time] -->
-        <div class="scene" id="scene-8">
-            <div class="chess-pattern"></div>
-            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">LAGOS</div>
-            <div class="ballroom-container">
-                <h1 class="ballroom-title">GRAND</h1>
-                <h1 class="ballroom-title white-outline">BALL ROOM</h1>
-                <h2 class="ballroom-sub">ORIENTAL HOTEL // LAGOS</h2>
+        <!-- SCENE 3: AS CATALYSTS (Expanding Variable Font Blueprint Frame) -->
+        <div class="scene" id="scene-3">
+            <div class="catalyst-frame">
+                <p class="metric-bracket" style="margin-bottom: 4vh;">[ AGENT OF RECONSTRUCTION ]</p>
+                <div class="catalyst-title-morph" id="catalyst-target">AS CATALYSTS</div>
+            </div>
+        </div>
+
+        <!-- SCENE 4: IN SECURING (Swiss split metrics column layout) -->
+        <div class="scene" id="scene-4" style="background: var(--dark-gray);">
+            <div class="swiss-split-container">
+                <div class="swiss-col left-col">
+                    <p class="metric-bracket" style="margin:0;">[ TRANSITION DIRECTION // 04 ]</p>
+                    <h1 class="swiss-huge-text" style="color: var(--white);">IN</h1>
+                </div>
+                <div class="grid-item right arena-canvas-column">
+                    <p class="editorial-para" style="font-size: clamp(14px, 2.2vw, 32px); font-weight: 300; text-transform: none; text-align: right;">
+                        Establishing structural measures capable of safeguarding and...
+                    </p>
+                    <h1 class="giant-headline red-outline" style="font-size: clamp(38px, 6.5vw, 90px); line-height: 0.85;">SECURING</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 5: NIGERIA'S -->
+        <div class="scene" id="scene-5">
+            <!-- 8-Point Star Cross vector -->
+            <svg class="star-cross-vector" viewBox="0 0 100 100" width="130" height="130">
+                <path d="M50 0 L55 35 L90 10 L65 45 L100 50 L65 55 L90 90 L55 65 L50 100 L45 65 L10 90 L35 55 L0 50 L35 45 L10 10 L45 35 Z" fill="var(--bright-red)"/>
+            </svg>
+            <p class="metric-bracket">[ GEOPOLITICAL SCOPE // TARGET ]</p>
+            <h1 class="theme-headline" style="font-size: 13vw;">NIGERIA'S</h1>
+        </div>
+
+        <!-- SCENE 6: ECONOMIC PROSPERITY -->
+        <div class="scene" id="scene-6">
+            <div class="prosperity-block-box"></div>
+            <div class="prosperity-title-wrap">
+                <p class="metric-bracket" style="color: var(--white); font-weight: 700;">[ ULTIMATE OBJECTIVE // PROSPERITY ]</p>
+                <h1 class="prosperity-headline">ECONOMIC</h1>
+                <h1 class="prosperity-headline white-outline">PROSPERITY.</h1>
             </div>
         </div>
 
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-       11. MOTION ENGINE & AUDIO SYNTHESIZER
+       12. MOTION ENGINE & SYNC CONTROLLER
        ═══════════════════════════════════════════════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -478,15 +571,14 @@
             let currentScene = 0;
             let presentationStarted = false;
 
+            /* ACCURATE SCRIPT COEFFICIENTS PER STAGE */
             const sceneDurations = [
-                3800, // 1: Stacked Titles
-                3200, // 2: Vision panel card hook
-                2600, // 3: Pillar 1: Leadership development
-                2600, // 4: Pillar 2: Enterprise Opportunities
-                2800, // 5: Pillar 3: Access to voices shaping the future
-                3000, // 6: Transition: A new chapter begins!
-                3500, // 7: Delegates numerical counter stage
-                4500  // 8: Large Billboard Layout
+                2800, // 1: THE ROLE OF... (radar target)
+                3200, // 2: EMERGING LEADERS (sliding variable blocks)
+                3500, // 3: AS CATALYSTS (font morph block)
+                3500, // 4: IN SECURING... (swiss split indicators)
+                2800, // 5: NIGERIA'S (rotating star cross)
+                4800  // 6: ECONOMIC PROSPERITY (red block slam and sound explosion)
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -541,6 +633,27 @@
                 } catch(e) {}
             }
 
+            // ─── VARIABLE WEIGHT CYCLING (SCENE 3) ───
+            const changeTarget = document.getElementById('catalyst-target');
+            let fontWeightInterval = null;
+            let currentWeight = 300;
+            let weightDirection = 25;
+
+            function startFontCycling() {
+                fontWeightInterval = setInterval(() => {
+                    currentWeight += weightDirection;
+                    if (currentWeight >= 700 || currentWeight <= 300) {
+                        weightDirection = -weightDirection;
+                    }
+                    if (changeTarget) changeTarget.style.fontWeight = currentWeight;
+                }, 40);
+            }
+
+            function stopFontCycling() {
+                clearInterval(fontWeightInterval);
+                if (changeTarget) changeTarget.style.fontWeight = '300';
+            }
+
             // ─── FULLSCREEN RUNNER ───
             function requestFullscreen(element) {
                 if (element.requestFullscreen) {
@@ -550,26 +663,6 @@
                 }
             }
 
-            // ─── RAPID NUMERICAL COUNTER ENGINE ───
-            function runDelegatesCounter(targetVal, duration) {
-                const el = document.getElementById('delegate-counter');
-                if (!el) return;
-                
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const currentVal = Math.floor(progress * targetVal);
-                    el.textContent = currentVal.toLocaleString() + "+";
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        el.textContent = targetVal.toLocaleString() + "+";
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
-
             // ─── SCENE ENGINE RUNNER ───
             function showNextScene() {
                 if (!presentationStarted) return;
@@ -577,6 +670,7 @@
 
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
+                    if (prev === 2) stopFontCycling();
                 }
 
                 if (currentScene >= scenes.length) {
@@ -585,14 +679,14 @@
 
                 const randomTransition = transitions[Math.floor(Math.random() * transitions.length)];
 
-                // Synchronized sweep triggers
+                // Sound synchronization patterns
                 if (randomTransition === 'transition-whip') playSweep(450, 120, 0.4, 'triangle');
                 if (randomTransition === 'transition-slam') playSweep(180, 50, 0.6, 'sawtooth');
                 if (randomTransition === 'transition-zoom') playSweep(750, 250, 0.35, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
                 if (currentScene === 5) {
-                    playSweep(120, 35, 1.4, 'sawtooth'); // Deep dramatic drop on transition scene
+                    playSweep(120, 30, 1.5, 'sawtooth'); // Climax Sub-bass Drop
                 }
 
                 container.className = '';
@@ -609,13 +703,7 @@
                     progressFill.style.width = '100%';
                 }, 50);
 
-                // Trigger delegates counter
-                if (currentScene === 6) {
-                    setTimeout(() => {
-                        runDelegatesCounter(3500, 2200);
-                        playSweep(150, 800, 2.2, 'sine');
-                    }, 200);
-                }
+                if (currentScene === 2) startFontCycling();
 
                 setTimeout(() => {
                     currentScene++;
