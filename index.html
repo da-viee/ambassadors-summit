@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Ambassadors Summit 8.0 - The Theme</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <title>Ambassadors Summit 8.0 - The Vision & Launch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --red: #D90022;
             --bright-red: #FF0033;
             --black: #000000;
             --white: #FFFFFF;
-            --dark-gray: #0F0F14;
+            --dark-gray: #0B0B0F;
             --neon-magenta: #FF00FF;
             --neon-cyan: #00FFFF;
             --easing: cubic-bezier(0.85, 0, 0.15, 1);
@@ -33,7 +33,7 @@
             -webkit-user-select: none;
         }
 
-        /* ─── FILMIC NOISE & TECH GRID OVERLAYS ─── */
+        /* ─── TECHNICAL INDUSTRIAL FRAMEWORK ─── */
         .noise {
             position: fixed;
             top: 0; left: 0;
@@ -53,17 +53,17 @@
         .tech-grid-overlay {
             position: absolute;
             inset: 0;
-            background-size: 50px 50px;
+            background-size: 40px 40px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+                linear-gradient(to right, rgba(217, 0, 34, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(217, 0, 34, 0.03) 1px, transparent 1px);
             z-index: 2;
             pointer-events: none;
-            animation: grid-drift-diagonal 22s linear infinite;
+            animation: grid-drift-diagonal 20s linear infinite;
         }
         @keyframes grid-drift-diagonal {
             0% { background-position: 0px 0px; }
-            100% { background-position: 100px 100px; }
+            100% { background-position: 80px 80px; }
         }
 
         /* Chess Pattern Background */
@@ -71,10 +71,10 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.01) 75%);
+                linear-gradient(45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.012) 75%);
             background-size: 60px 60px;
             background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
             pointer-events: none;
@@ -86,12 +86,12 @@
             opacity: 1;
         }
 
-        /* ─── GPU ACCELERATED TRANSITIONS ─── */
+        /* ─── HARDWARE ACCELERATED TRANSITIONS ─── */
         .transition-whip {
-            animation: whip-pan-animation 0.45s var(--easing) both;
+            animation: whip-pan-animation 0.4s var(--easing) both;
         }
         @keyframes whip-pan-animation {
-            0% { transform: translate3d(100vw, 0, 0) scaleX(1.4); }
+            0% { transform: translate3d(100vw, 0, 0) scaleX(1.3); }
             100% { transform: translate3d(0, 0, 0) scaleX(1); }
         }
 
@@ -99,17 +99,17 @@
             animation: glitch-flash-animation 0.35s steps(2) both;
         }
         @keyframes glitch-flash-animation {
-            0% { transform: translate3d(12px, -6px, 0) scale(0.97); }
-            50% { transform: translate3d(-12px, 6px, 0) scale(1.03); }
+            0% { transform: translate3d(10px, -5px, 0) scale(0.98); }
+            50% { transform: translate3d(-10px, 5px, 0) scale(1.02); }
             100% { transform: translate3d(0, 0, 0) scale(1); }
         }
 
         .transition-zoom {
-            animation: zoom-snap-animation 0.48s var(--elastic) both;
+            animation: zoom-snap-animation 0.45s var(--elastic) both;
         }
         @keyframes zoom-snap-animation {
-            0% { transform: scale3d(0.3, 0.3, 1) rotate(-8deg); opacity: 0; }
-            100% { transform: scale3d(1, 1, 1) rotate(0deg); opacity: 1; }
+            0% { transform: scale3d(0.4, 0.4, 1); opacity: 0; }
+            100% { transform: scale3d(1, 1, 1); opacity: 1; }
         }
 
         .transition-slam {
@@ -121,7 +121,7 @@
             100% { transform: translate3d(0, 0, 0); }
         }
 
-        /* Ambient Fluid Glow Backdrops */
+        /* ─── DYNAMIC LIQUID GLOW BACKSTAGE ─── */
         .ambient-glow-container {
             position: absolute;
             inset: 0;
@@ -131,30 +131,30 @@
         }
         .glow-ball {
             position: absolute;
-            width: 85vw;
-            height: 85vw;
+            width: 80vw;
+            height: 80vw;
             border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.25;
+            filter: blur(130px);
+            opacity: 0.22;
             will-change: transform;
         }
-        .glow-ball-1 {
+        .glow-ball-red {
             background: var(--red);
             top: -20%; left: -10%;
-            animation: slow-drift-left 12s ease-in-out infinite alternate;
+            animation: slow-drift-left 15s ease-in-out infinite alternate;
         }
-        .glow-ball-2 {
+        .glow-ball-crimson {
             background: var(--bright-red);
             bottom: -20%; right: -10%;
-            animation: slow-drift-right 12s ease-in-out infinite alternate;
+            animation: slow-drift-right 15s ease-in-out infinite alternate;
         }
         @keyframes slow-drift-left {
             0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(10vw, 15vh, 0) scale(1.2); }
+            100% { transform: translate3d(15vw, 10vh, 0) scale(1.2); }
         }
         @keyframes slow-drift-right {
             0% { transform: translate3d(0, 0, 0) scale(1.2); }
-            100% { transform: translate3d(-10vw, -15vh, 0) scale(0.95); }
+            100% { transform: translate3d(-15vw, -10vh, 0) scale(0.9); }
         }
 
         /* ─── INTERACTIVE GATEWAY OVERLAY ─── */
@@ -220,155 +220,167 @@
             z-index: 10;
         }
 
-        h1, h2, p {
+        h1, h2, h3 {
             text-transform: uppercase;
             font-weight: 900;
             line-height: 0.85;
         }
 
-        .ghost-bg-text {
-            position: absolute;
-            font-family: 'Anton', sans-serif;
-            font-size: 32vw;
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.03);
-            letter-spacing: -0.05em;
-            line-height: 0.8;
-            white-space: nowrap;
-            user-select: none;
-            z-index: 0;
-            pointer-events: none;
-            will-change: transform;
-            transform: scale(0.9);
-            transition: transform 1.5s var(--easing);
-        }
-        .scene.active .ghost-bg-text {
-            transform: scale(1.05);
-        }
-
-        /* TYPOGRAPHIC HEADLINE STANDARDS */
-        .theme-headline {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(50px, 12vw, 155px);
-            text-align: center;
-            letter-spacing: -0.01em;
-            line-height: 0.82;
-        }
-        .theme-headline.white-outline {
-            color: transparent;
-            -webkit-text-stroke: 3px var(--white);
-        }
-        .theme-headline.red-outline {
-            color: transparent;
-            -webkit-text-stroke: 3px var(--bright-red);
-        }
-
-        /* MONOSPACE METRIC STAMPS */
-        .metric-bracket {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(11px, 1.3vw, 18px);
-            color: var(--bright-red);
-            letter-spacing: 0.3em;
-            margin-bottom: 3vh;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* ─── REWORKED SCENE 1: THE ROLE OF... (Stark Crimson Screen-Frame) ─── */
-        .crimson-screen-frame {
-            border: 8px solid var(--bright-red);
-            width: 90vw;
-            height: 75vh;
-            background: rgba(217, 0, 34, 0.05);
+        /* ─── NEW REWORKED MACRO STACKED HEADLINES (SCENE 1) ─── */
+        .macro-text-wrap {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            padding: 0 6vw;
             position: relative;
             z-index: 10;
         }
-
-        /* ─── REWORKED SCENE 4: IN SECURING (Solid High-Contrast White Block Plate) ─── */
-        .securing-solid-plate {
-            background: var(--white);
-            border: 6px solid var(--bright-red);
-            width: 88vw;
-            padding: 8vh 4vw;
-            text-align: center;
-            box-shadow: 20px 20px 0 var(--red);
-            position: relative;
-            z-index: 10;
+        .macro-text-wrap .word-wrap {
+            overflow: hidden;
+            display: block;
+            width: 100%;
         }
-        .securing-solid-plate h1 {
-            color: var(--black);
+        .macro-text-wrap h1 {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(55px, 12vw, 160px);
-            line-height: 0.8;
+            font-size: clamp(45px, 10vw, 135px);
+            line-height: 0.82;
             letter-spacing: -0.02em;
         }
-
-        /* ─── NEW SCENE 7: FULL COMPLETE THEME DISPLAY CARD ─── */
-        .complete-theme-panel {
-            border: 4px solid var(--white);
-            background: var(--dark-gray);
-            width: 88vw;
-            padding: 6vh 4vw;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+        .macro-text-wrap .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--easing); text-align: left; }
+        .macro-text-wrap .w2 { transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--easing) 0.08s; text-align: right; }
+        .macro-text-wrap .w3 { transform: translateY(100%); transition: transform 0.5s var(--easing) 0.15s; text-align: center; }
+        
+        .scene.active .macro-text-wrap .w1,
+        .scene.active .macro-text-wrap .w2,
+        .scene.active .macro-text-wrap .w3 {
+            transform: translate3d(0, 0, 0);
         }
-        .complete-theme-panel::before {
-            content: '[ EVENT CORE THEME ]';
+
+        /* ─── TYPOGRAPHIC CORE LOCKUPS ─── */
+        .giant-headline {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(40px, 11vw, 130px);
+            text-align: center;
+        }
+        .giant-headline.white-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--white);
+        }
+        .giant-headline.red-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--bright-red);
+        }
+
+        /* ─── SPLIT SECTION CARD (SCENE 2) ─── */
+        .vision-card-wrap {
+            width: 85vw;
+            border: 2px solid var(--red);
+            background: rgba(217, 0, 34, 0.03);
+            padding: 4vw;
+            position: relative;
+        }
+        .vision-card-wrap::before {
+            content: '[ VISION STATEMENT ]';
             position: absolute;
             top: -12px;
             left: 30px;
             background: var(--black);
             padding: 0 10px;
             font-family: 'Space Mono', monospace;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--bright-red);
             letter-spacing: 2px;
+        }
+        .vision-card-text {
+            font-size: clamp(18px, 3vw, 36px);
+            line-height: 1.2;
+            text-align: left;
             font-weight: 700;
         }
-        .complete-theme-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(20px, 3.8vw, 44px);
-            line-height: 1.15;
-            text-align: left;
-            font-weight: 900;
-            letter-spacing: -0.01em;
-            color: var(--white);
+        .vision-card-accent {
+            color: var(--bright-red);
+            font-family: 'Anton', sans-serif;
             text-transform: uppercase;
         }
-        .complete-theme-text span {
+
+        /* ─── MONOSPACE TECHNICAL SPEC LABELS ─── */
+        .param-bracket {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(10px, 1.2vw, 15px);
             color: var(--bright-red);
+            letter-spacing: 0.2em;
+            margin-bottom: 2vh;
         }
 
-        /* ─── KINETIC ELEMENT: CATALYST BLOCK (SCENE 3) ─── */
-        .catalyst-frame {
-            border: 4px solid var(--bright-red);
-            background: rgba(217, 0, 34, 0.02);
-            width: 85vw;
-            padding: 6vh 4vw;
+        /* ─── DELEGATES ACTIVE COUNTER MODULE (SCENE 7) ─── */
+        .counter-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .counter-big-number {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(65px, 18vw, 220px);
+            line-height: 0.8;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            will-change: content;
+        }
+        .counter-label {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(11px, 1.8vw, 20px);
+            letter-spacing: 0.4em;
+            color: var(--bright-red);
+            margin-top: 2vh;
+        }
+
+        /* ─── NEW REWORKED MACRO BILLBOARD VENUE (SCENE 8) ─── */
+        .ballroom-container {
             text-align: center;
             position: relative;
-            transform: scale3d(0.8, 0.8, 1) rotate(-2deg);
-            opacity: 0;
-            transition: transform 0.8s var(--elastic) 0.2s, opacity 0.6s ease 0.2s;
+            z-index: 10;
         }
-        .scene.active .catalyst-frame {
-            transform: scale3d(1, 1, 1) rotate(0deg);
+        .ballroom-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(55px, 13vw, 175px);
+            line-height: 0.8;
+            letter-spacing: -0.03em;
+            transform: scale(0.6) rotate(-3deg);
+            opacity: 0;
+            transition: transform 0.7s var(--elastic) 0.2s, opacity 0.5s ease 0.2s;
+        }
+        .ballroom-title.white-outline {
+            color: transparent;
+            -webkit-text-stroke: 3px var(--white);
+            transform: scale(0.6) rotate(3deg);
+            transition: transform 0.7s var(--elastic) 0.3s, opacity 0.5s ease 0.3s;
+        }
+        .ballroom-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(12px, 2.5vw, 26px);
+            color: var(--bright-red);
+            letter-spacing: 0.45em;
+            margin-top: 3.5vh;
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: transform 0.6s var(--fast-easing) 0.5s, opacity 0.5s ease 0.5s;
+        }
+        
+        .scene.active .ballroom-title {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+        .scene.active .ballroom-sub {
+            transform: translate3d(0, 0, 0);
             opacity: 1;
         }
 
-        /* ─── ACTIVE TYPEWRITER STYLING ─── */
+        /* ─── ACTIVE TYPEWRITER CURSOR STYLING ─── */
         .typewriter-cursor {
+            color: var(--bright-red);
             display: inline-block;
-            background-color: var(--bright-red);
-            width: 10px;
-            height: 1em;
-            margin-left: 5px;
-            vertical-align: middle;
+            margin-left: 2px;
             animation: cursor-blink 0.8s infinite steps(2);
         }
         @keyframes cursor-blink {
@@ -376,33 +388,11 @@
             100% { opacity: 0; }
         }
 
-        /* ─── CINEMATIC PROGRESS INDEX SYSTEM ─── */
-        .cinematic-progress {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translate3d(-50%, 0, 0);
-            width: 160px;
-            height: 3px;
-            background: rgba(255,255,255,0.15);
-            z-index: 100;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .cinematic-progress-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--bright-red);
-            box-shadow: 0 0 8px var(--bright-red);
-        }
-
-        /* Responsive Matrix Adjustments */
+        /* Responsive Configuration Overrides */
         @media (max-width: 768px) {
-            .theme-headline { -webkit-text-stroke: 1.5px var(--white); }
-            .securing-solid-plate h1 { -webkit-text-stroke: 0px; }
-            .crimson-screen-frame { height: 65vh; width: 92vw; border-width: 5px; }
-            .securing-solid-plate { width: 92vw; padding: 6vh 3vw; border-width: 4px; }
-            .complete-theme-panel { width: 92vw; padding: 5vh 3vw; border-width: 3px; }
+            .macro-text-wrap h1 { font-size: clamp(38px, 9vw, 90px); }
+            .ballroom-title { font-size: clamp(48px, 12vw, 110px); }
+            .ballroom-sub { font-size: clamp(10px, 2vw, 18px); margin-top: 2vh; }
         }
     </style>
 </head>
@@ -417,8 +407,8 @@
     <div class="noise"></div>
     <div class="tech-grid-overlay"></div>
     <div class="ambient-glow-container">
-        <div class="glow-ball glow-ball-1"></div>
-        <div class="glow-ball glow-ball-2"></div>
+        <div class="glow-ball glow-ball-red"></div>
+        <div class="glow-ball glow-ball-crimson"></div>
     </div>
 
     <div class="cinematic-progress">
@@ -427,61 +417,86 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: THE ROLE OF [Reworked Stark Screen-Frame Block] -->
+        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) [Reworked with Large Stacked Titles] -->
         <div class="scene" id="scene-1">
-            <div class="crimson-screen-frame">
-                <p class="metric-bracket">[ STAGE_01 // THE INITIAL MODULE ]</p>
-                <h1 class="theme-headline typewriter-target" data-text="THE ROLE OF"></h1>
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="font-size: 24vw;">LEADERS</div>
+            <div class="macro-text-wrap">
+                <div class="word-wrap"><h1 class="w1 typewriter-target" data-text="NIGERIAN LEADERS">NIGERIAN LEADERS</h1></div>
+                <div class="word-wrap"><h1 class="w2 typewriter-target" data-text="ENTREPRENEURS" style="color: var(--bright-red);">ENTREPRENEURS</h1></div>
+                <div class="word-wrap"><h1 class="w3 typewriter-target" data-text="CHANGEMAKERS">CHANGEMAKERS</h1></div>
             </div>
         </div>
 
-        <!-- SCENE 2: EMERGING LEADERS -->
+        <!-- SCENE 2: THE VISION REVEAL STATEMENT -->
         <div class="scene" id="scene-2">
-            <div class="chess-pattern"></div>
-            <p class="metric-bracket">[ STAGE_02 // GENERATIONAL FOCUS ]</p>
-            <h1 class="theme-headline red-outline typewriter-target" data-text="EMERGING LEADERS"></h1>
-        </div>
-
-        <!-- SCENE 3: AS CATALYSTS -->
-        <div class="scene" id="scene-3">
-            <div class="catalyst-frame">
-                <p class="metric-bracket" style="margin-bottom: 4vh;">[ INTERACTION AGENT // TRANSFORMATION ]</p>
-                <h1 class="theme-headline typewriter-target" data-text="AS CATALYSTS" style="font-size: 9.5vw;"></h1>
+            <div class="vision-card-wrap">
+                <p class="vision-card-text typewriter-target" data-text="That is the vision behind the most influential gathering of youth leaders on the African continent.">
+                    That is the vision behind the most influential gathering of youth leaders on the African continent.
+                </p>
             </div>
         </div>
 
-        <!-- SCENE 4: IN SECURING [Reworked Solid High-Contrast White Block Plate] -->
+        <!-- SCENE 3: pillar 1 - LEADERSHIP DEVELOPMENT -->
+        <div class="scene" id="scene-3" style="background: var(--dark-gray);">
+            <div class="chess-pattern"></div>
+            <p class="param-bracket">[ PILLAR 01 // GROWTH ]</p>
+            <h1 class="giant-headline red-outline typewriter-target" data-text="LEADERSHIP">LEADERSHIP</h1>
+            <h1 class="giant-headline typewriter-target" data-text="DEVELOPMENT" style="font-size: 9vw;">DEVELOPMENT</h1>
+        </div>
+
+        <!-- SCENE 4: pillar 2 - ENTERPRISE OPPORTUNITIES -->
         <div class="scene" id="scene-4">
-            <div class="securing-solid-plate">
-                <p class="metric-bracket" style="color: var(--black); font-weight: 700; margin-bottom: 2.5vh;">[ STAGE_04 // DEFENSIVE SYSTEM ]</p>
-                <h1 class="typewriter-target" data-text="IN SECURING"></h1>
+            <!-- Rotating crosshair vector -->
+            <svg class="vector-shape" style="top:10%; right:15%; opacity:0.15;" viewBox="0 0 100 100" width="120" height="120">
+                <circle cx="50" cy="50" r="40" stroke="var(--bright-red)" stroke-width="2" fill="none" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="var(--bright-red)" stroke-width="2" />
+                <line x1="0" y1="50" x2="100" y2="50" stroke="var(--bright-red)" stroke-width="2" />
+            </svg>
+            <p class="param-bracket">[ PILLAR 02 // ACTION ]</p>
+            <h1 class="giant-headline typewriter-target" data-text="ENTERPRISE" style="font-size: 10vw;">ENTERPRISE</h1>
+            <h1 class="giant-headline white-outline typewriter-target" data-text="OPPORTUNITIES">OPPORTUNITIES</h1>
+        </div>
+
+        <!-- SCENE 5: pillar 3 - VOICES SHAPING THE FUTURE -->
+        <div class="scene" id="scene-5" style="background: var(--dark-gray);">
+            <p class="param-bracket">[ PILLAR 03 // VISION ]</p>
+            <h1 class="giant-headline typewriter-target" data-text="ACCESS TO VOICES" style="color: var(--bright-red); font-size: 8.5vw;">ACCESS TO VOICES</h1>
+            <h1 class="giant-headline white-outline typewriter-target" data-text="SHAPING THE FUTURE" style="font-size: 8.5vw;">SHAPING THE FUTURE</h1>
+        </div>
+
+        <!-- SCENE 6: TRANSITION - A NEW CHAPTER BEGINS -->
+        <div class="scene" id="scene-6">
+            <div class="chess-pattern"></div>
+            <p class="param-bracket" style="color: var(--white);">STATUS // TRANSITION SHIFT</p>
+            <h1 class="giant-headline typewriter-target" data-text="A NEW CHAPTER" style="font-size: 11vw; letter-spacing: -0.04em;">A NEW CHAPTER</h1>
+            <h1 class="giant-headline typewriter-target" data-text="BEGINS!" style="color: var(--bright-red); font-size: 13vw; letter-spacing: -0.04em;">BEGINS!</h1>
+        </div>
+
+        <!-- SCENE 7: SCALE INDICATOR (3,500+ Delegates) -->
+        <div class="scene" id="scene-7">
+            <div class="counter-layout">
+                <p class="param-bracket">[ EXPECTED AUDIENCE MATRIX ]</p>
+                <div class="counter-big-number" id="delegate-counter">0</div>
+                <p class="counter-label typewriter-target" data-text="DELEGATES CONVERGING">DELEGATES CONVERGING</p>
             </div>
         </div>
 
-        <!-- SCENE 5: NIGERIA'S -->
-        <div class="scene" id="scene-5">
-            <p class="metric-bracket">[ GEOPOLITICAL TARGET COHORT ]</p>
-            <h1 class="theme-headline red-outline typewriter-target" data-text="NIGERIA'S"></h1>
-        </div>
-
-        <!-- SCENE 6: ECONOMIC PROSPERITY -->
-        <div class="scene" id="scene-6">
-            <p class="metric-bracket">[ EXPECTED TARGET OUTCOME ]</p>
-            <h1 class="theme-headline white-outline typewriter-target" data-text="ECONOMIC PROSPERITY"></h1>
-        </div>
-
-        <!-- SCENE 7: FULL COMPLETE THEME DISPLAY [New Ending Scene] -->
-        <div class="scene" id="scene-7">
+        <!-- SCENE 8: THE ARENA CONVERGENCE [Reworked Large Billboard Layout - No Date/Time] -->
+        <div class="scene" id="scene-8">
             <div class="chess-pattern"></div>
-            <div class="complete-theme-panel">
-                <p class="complete-theme-text typewriter-target" data-text="The role of emerging leaders as catalysts in securing Nigeria's economic prosperity."></p>
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">LAGOS</div>
+            <div class="ballroom-container">
+                <h1 class="ballroom-title typewriter-target" data-text="GRAND">GRAND</h1>
+                <h1 class="ballroom-title white-outline typewriter-target" data-text="BALL ROOM">BALL ROOM</h1>
+                <h2 class="ballroom-sub typewriter-target" data-text="ORIENTAL HOTEL // LAGOS">ORIENTAL HOTEL // LAGOS</h2>
             </div>
         </div>
 
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-       12. MOTION ENGINE & AUDIO SYNTHESIZER
+       11. MOTION ENGINE & AUDIO SYNTHESIZER
        ═══════════════════════════════════════════════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -493,17 +508,17 @@
 
             let currentScene = 0;
             let presentationStarted = false;
-            let currentTypingTimer = null;
+            let typingIntervals = [];
 
-            /* TIMELINE SEQUENCE SCRIPT COEFFICIENTS */
             const sceneDurations = [
-                3000, // 1: THE ROLE OF
-                3200, // 2: EMERGING LEADERS
-                3500, // 3: AS CATALYSTS
-                3200, // 4: IN SECURING
-                2800, // 5: NIGERIA'S
-                3200, // 6: ECONOMIC PROSPERITY
-                6500  // 7: FULL Theme statement complete render
+                3800, // 1: Stacked Titles
+                3200, // 2: Vision panel card hook
+                2600, // 3: Pillar 1: Leadership development
+                2600, // 4: Pillar 2: Enterprise Opportunities
+                2800, // 5: Pillar 3: Access to voices shaping the future
+                3000, // 6: Transition: A new chapter begins!
+                3500, // 7: Delegates numerical counter stage
+                4500  // 8: Large Billboard Layout
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -558,46 +573,48 @@
                 } catch(e) {}
             }
 
-            // ─── KINETIC CHARACTER TYPEWRITER ENGINE ───
+            // ─── KINETIC CHARACTER TYPEWRITER ENGINE (Error-Free) ───
             function runTypewriter(sceneElement) {
-                // Clear any running typewriter intervals
-                if (currentTypingTimer) clearInterval(currentTypingTimer);
+                // Clear any previous running intervals to prevent overlapping letters
+                typingIntervals.forEach(interval => clearInterval(interval));
+                typingIntervals = [];
+
+                const targets = sceneElement.querySelectorAll('.typewriter-target');
                 
-                const target = sceneElement.querySelector('.typewriter-target');
-                if (!target) return;
-
-                const fullText = target.getAttribute('data-text');
-                target.innerHTML = ''; // Reset node content
-
-                // Append the blinking cursor block element
-                const cursor = document.createElement('span');
-                cursor.className = 'typewriter-cursor';
-                
-                let charIndex = 0;
-                // Double typing speed for the longer final statement
-                const speed = (currentScene === 6) ? 22 : 45; 
-
-                currentTypingTimer = setInterval(() => {
-                    if (charIndex < fullText.length) {
-                        // Append text safely character by character
-                        const nextChar = fullText.charAt(charIndex);
-                        target.insertBefore(document.createTextNode(nextChar), cursor);
-                        
-                        // Append cursor if not present
-                        if (!target.contains(cursor)) {
-                            target.appendChild(cursor);
-                        }
-                        
-                        // Emit mechanical sound clicks while writing
-                        if (charIndex % 2 === 0) playGlitchTick();
-                        
-                        charIndex++;
-                    } else {
-                        clearInterval(currentTypingTimer);
-                        // Briefly blink cursor then fade out
-                        setTimeout(() => { if (target.contains(cursor)) cursor.remove(); }, 1200);
+                targets.forEach(target => {
+                    let originalText = target.getAttribute('data-text');
+                    if (!originalText) {
+                        originalText = target.innerText.trim();
+                        target.setAttribute('data-text', originalText);
                     }
-                }, speed);
+                    
+                    target.innerHTML = ''; // Clear for typing
+                    
+                    // Append blink cursor
+                    const cursor = document.createElement('span');
+                    cursor.className = 'typewriter-cursor';
+                    cursor.innerText = '█';
+                    target.appendChild(cursor);
+                    
+                    let charIndex = 0;
+                    const speed = 35; // Snappy typing speed
+                    
+                    const interval = setInterval(() => {
+                        if (charIndex < originalText.length) {
+                            const nextChar = originalText.charAt(charIndex);
+                            target.insertBefore(document.createTextNode(nextChar), cursor);
+                            if (charIndex % 2 === 0) playGlitchTick();
+                            charIndex++;
+                        } else {
+                            clearInterval(interval);
+                            setTimeout(() => {
+                                if (target.contains(cursor)) cursor.remove();
+                            }, 800);
+                        }
+                    }, speed);
+                    
+                    typingIntervals.push(interval);
+                });
             }
 
             // ─── FULLSCREEN RUNNER ───
@@ -609,6 +626,26 @@
                 }
             }
 
+            // ─── RAPID NUMERICAL COUNTER ENGINE ───
+            function runDelegatesCounter(targetVal, duration) {
+                const el = document.getElementById('delegate-counter');
+                if (!el) return;
+                
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const currentVal = Math.floor(progress * targetVal);
+                    el.textContent = currentVal.toLocaleString() + "+";
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        el.textContent = targetVal.toLocaleString() + "+";
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
             // ─── SCENE ENGINE RUNNER ───
             function showNextScene() {
                 if (!presentationStarted) return;
@@ -616,8 +653,6 @@
 
                 if (prev >= 0) {
                     scenes[prev].classList.remove('active');
-                    const oldTarget = scenes[prev].querySelector('.typewriter-target');
-                    if (oldTarget) oldTarget.innerHTML = ''; // Wipe content on disable
                 }
 
                 if (currentScene >= scenes.length) {
@@ -626,14 +661,14 @@
 
                 const randomTransition = transitions[Math.floor(Math.random() * transitions.length)];
 
-                // Sound synchronization sweeps
+                // Synchronized sweep triggers
                 if (randomTransition === 'transition-whip') playSweep(450, 120, 0.4, 'triangle');
                 if (randomTransition === 'transition-slam') playSweep(180, 50, 0.6, 'sawtooth');
                 if (randomTransition === 'transition-zoom') playSweep(750, 250, 0.35, 'sine');
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
-                if (currentScene === 6) {
-                    playSweep(120, 30, 1.6, 'sawtooth'); // Climax Sub-bass drop on final full statement
+                if (currentScene === 5) {
+                    playSweep(120, 35, 1.4, 'sawtooth'); // Deep dramatic drop on transition scene
                 }
 
                 container.className = '';
@@ -654,6 +689,14 @@
 
                 // Run kinetic character typewriter
                 runTypewriter(activeScene);
+
+                // Trigger delegates counter
+                if (currentScene === 6) {
+                    setTimeout(() => {
+                        runDelegatesCounter(3500, 2200);
+                        playSweep(150, 800, 2.2, 'sine');
+                    }, 200);
+                }
 
                 setTimeout(() => {
                     currentScene++;
