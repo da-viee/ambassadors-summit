@@ -207,50 +207,34 @@
             line-height: 0.85;
         }
 
-        /* ─── REWORKED HIGH-VISIBILITY EDITORIAL SWISS GRID (SCENE 1) ─── */
-        .asymmetric-swiss-grid {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            width: 90vw;
-            height: 75vh;
-            border-top: 4px solid var(--white);
-            border-bottom: 4px solid var(--white);
-            padding: 4vh 0;
-            background: rgba(255, 255, 255, 0.01);
-        }
-        .grid-left-editorial {
+        /* ─── NEW REWORKED MACRO STACKED HEADLINES (SCENE 1) ─── */
+        .macro-text-wrap {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            border-right: 2px solid var(--white);
-            padding-right: 4vw;
+            width: 100%;
+            padding: 0 6vw;
+            position: relative;
+            z-index: 10;
         }
-        .editorial-pre {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(11px, 1.3vw, 18px);
-            color: var(--bright-red);
-            letter-spacing: 0.35em;
-            font-weight: 700;
+        .macro-text-wrap .word-wrap {
+            overflow: hidden;
+            display: block;
+            width: 100%;
         }
-        .editorial-title {
+        .macro-text-wrap h1 {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(40px, 7vw, 95px);
-            line-height: 0.8;
-            color: var(--white);
+            font-size: clamp(45px, 10vw, 135px);
+            line-height: 0.82;
             letter-spacing: -0.02em;
         }
-        .grid-right-editorial {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding-left: 4vw;
-        }
-        .editorial-para {
-            font-size: clamp(16px, 2vw, 26px);
-            line-height: 1.25;
-            font-weight: 400;
-            color: var(--white);
-            text-transform: none;
+        .macro-text-wrap .w1 { transform: translate3d(-100%, 0, 0); transition: transform 0.5s var(--easing); text-align: left; }
+        .macro-text-wrap .w2 { transform: translate3d(100%, 0, 0); transition: transform 0.5s var(--easing) 0.08s; text-align: right; }
+        .macro-text-wrap .w3 { transform: translateY(100%); transition: transform 0.5s var(--easing) 0.15s; text-align: center; }
+        
+        .scene.active .macro-text-wrap .w1,
+        .scene.active .macro-text-wrap .w2,
+        .scene.active .macro-text-wrap .w3 {
+            transform: translate3d(0, 0, 0);
         }
 
         /* ─── TYPOGRAPHIC CORE LOCKUPS ─── */
@@ -332,76 +316,52 @@
             margin-top: 2vh;
         }
 
-        /* ─── REWORKED HIGH-VISIBILITY BLUEPRINT ARENA (SCENE 8) ─── */
-        .blueprint-arena-wrap {
-            width: 90vw;
-            height: 72vh;
-            border: 3px solid var(--white);
+        /* ─── NEW REWORKED MACRO BILLBOARD VENUE (SCENE 8) ─── */
+        .ballroom-container {
+            text-align: center;
             position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: rgba(11, 11, 15, 0.9);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            z-index: 10;
         }
-        .arena-canvas-column {
-            position: relative;
-            border-right: 2px solid var(--white);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 4vw;
-        }
-        .arena-canvas-column.right {
-            border-right: none;
-            justify-content: flex-end;
-            background: linear-gradient(135deg, rgba(217,0,34,0.08) 0%, transparent 100%);
-        }
-        .arena-blueprint-line {
-            position: absolute;
-            height: 2px;
-            background: var(--bright-red);
-            opacity: 0.75;
-            width: 100%;
-            top: 50%; left: 0;
-            z-index: 2;
-        }
-        .arena-blueprint-target {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Space Mono', monospace;
-            font-size: 14px;
-            color: var(--bright-red);
-            background: var(--black);
-            padding: 4px 10px;
-            border: 1px solid var(--bright-red);
-            font-weight: 700;
-            letter-spacing: 2px;
-            z-index: 3;
-        }
-        .arena-headline {
+        .ballroom-title {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(28px, 6vw, 75px);
+            font-size: clamp(55px, 13vw, 175px);
             line-height: 0.8;
-            color: var(--white);
-            letter-spacing: -0.01em;
+            letter-spacing: -0.03em;
+            transform: scale(0.6) rotate(-3deg);
+            opacity: 0;
+            transition: transform 0.7s var(--elastic) 0.2s, opacity 0.5s ease 0.2s;
         }
-        .arena-sub {
+        .ballroom-title.white-outline {
+            color: transparent;
+            -webkit-text-stroke: 3px var(--white);
+            transform: scale(0.6) rotate(3deg);
+            transition: transform 0.7s var(--elastic) 0.3s, opacity 0.5s ease 0.3s;
+        }
+        .ballroom-sub {
             font-family: 'Space Mono', monospace;
-            font-size: clamp(11px, 1.4vw, 16px);
+            font-size: clamp(12px, 2.5vw, 26px);
             color: var(--bright-red);
-            letter-spacing: 4px;
-            font-weight: 700;
+            letter-spacing: 0.45em;
+            margin-top: 3.5vh;
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: transform 0.6s var(--fast-easing) 0.5s, opacity 0.5s ease 0.5s;
+        }
+        
+        .scene.active .ballroom-title {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+        .scene.active .ballroom-sub {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
         }
 
         /* Responsive Configuration Overrides */
         @media (max-width: 768px) {
-            .asymmetric-swiss-grid { grid-template-columns: 1fr; grid-template-rows: 1.1fr 0.9fr; }
-            .grid-left-editorial { border-right: none; border-bottom: 2px solid var(--white); padding-right: 0; padding-bottom: 2vh; }
-            .grid-right-editorial { padding-left: 0; padding-top: 2vh; }
-            .blueprint-arena-wrap { grid-template-columns: 1fr; grid-template-rows: 1.1fr 0.9fr; }
-            .arena-canvas-column { border-right: none; border-bottom: 2px solid var(--white); }
+            .macro-text-wrap h1 { font-size: clamp(38px, 9vw, 90px); }
+            .ballroom-title { font-size: clamp(48px, 12vw, 110px); }
+            .ballroom-sub { font-size: clamp(10px, 2vw, 18px); margin-top: 2vh; }
         }
     </style>
 </head>
@@ -426,16 +386,14 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) [Reworked for Visibility] -->
+        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) [Reworked with Large Stacked Titles] -->
         <div class="scene" id="scene-1">
-            <div class="asymmetric-swiss-grid">
-                <div class="grid-left-editorial">
-                    <p class="editorial-pre">// THE CATALYST PLATFORM</p>
-                    <h1 class="editorial-title">NIGERIAN<br><span style="color: var(--bright-red);">LEADERS</span></h1>
-                </div>
-                <div class="grid-right-editorial">
-                    <p class="editorial-para">A platform created to raise the next generation of visionaries, entrepreneurs, and active changemakers.</p>
-                </div>
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="font-size: 24vw;">LEADERS</div>
+            <div class="macro-text-wrap">
+                <div class="word-wrap"><h1 class="w1">NIGERIAN LEADERS</h1></div>
+                <div class="word-wrap"><h1 class="w2" style="color: var(--bright-red);">ENTREPRENEURS</h1></div>
+                <div class="word-wrap"><h1 class="w3">CHANGEMAKERS</h1></div>
             </div>
         </div>
 
@@ -493,19 +451,14 @@
             </div>
         </div>
 
-        <!-- SCENE 8: THE ARENA CONVERGENCE [Reworked for Visibility] -->
+        <!-- SCENE 8: THE ARENA CONVERGENCE [Reworked Large Billboard Layout - No Date/Time] -->
         <div class="scene" id="scene-8">
-            <div class="blueprint-arena-wrap">
-                <div class="arena-blueprint-line"></div>
-                <div class="arena-blueprint-target">[ CENTER_LOCK ]</div>
-                <div class="arena-canvas-column">
-                    <p class="arena-sub">// TARGET ARENA</p>
-                    <h1 class="arena-headline" style="color: var(--bright-red);">GRAND<br>BALL ROOM</h1>
-                </div>
-                <div class="arena-canvas-column right">
-                    <p class="arena-sub" style="margin-bottom: 1vh;">ORIENTAL HOTEL // LAGOS</p>
-                    <h1 class="arena-headline" style="font-size: clamp(18px, 4vw, 42px);">AUGUST 29, 2026</h1>
-                </div>
+            <div class="chess-pattern"></div>
+            <div class="ghost-bg-text" style="-webkit-text-stroke: 1.5px rgba(255,255,255,0.025);">LAGOS</div>
+            <div class="ballroom-container">
+                <h1 class="ballroom-title">GRAND</h1>
+                <h1 class="ballroom-title white-outline">BALL ROOM</h1>
+                <h2 class="ballroom-sub">ORIENTAL HOTEL // LAGOS</h2>
             </div>
         </div>
 
@@ -526,14 +479,14 @@
             let presentationStarted = false;
 
             const sceneDurations = [
-                3800, // 1: Reworked asymmetric grid
+                3800, // 1: Stacked Titles
                 3200, // 2: Vision panel card hook
                 2600, // 3: Pillar 1: Leadership development
                 2600, // 4: Pillar 2: Enterprise Opportunities
                 2800, // 5: Pillar 3: Access to voices shaping the future
                 3000, // 6: Transition: A new chapter begins!
                 3500, // 7: Delegates numerical counter stage
-                4500  // 8: Reworked blueprint map display
+                4500  // 8: Large Billboard Layout
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
