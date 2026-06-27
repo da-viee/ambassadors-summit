@@ -207,46 +207,49 @@
             line-height: 0.85;
         }
 
-        /* ─── SWISS EDITORIAL COLUMNS (SCENE 1) ─── */
+        /* ─── REWORKED HIGH-VISIBILITY EDITORIAL SWISS GRID (SCENE 1) ─── */
         .asymmetric-swiss-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            width: 88vw;
+            grid-template-columns: 1.25fr 0.75fr;
+            width: 90vw;
             height: 75vh;
-            border-top: 2px solid var(--white);
-            border-bottom: 2px solid var(--white);
-            padding: 3vh 0;
+            border-top: 4px solid var(--white);
+            border-bottom: 4px solid var(--white);
+            padding: 4vh 0;
+            background: rgba(255, 255, 255, 0.01);
         }
         .grid-left-editorial {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            padding-right: 3vw;
+            border-right: 2px solid var(--white);
+            padding-right: 4vw;
         }
         .editorial-pre {
             font-family: 'Space Mono', monospace;
-            font-size: clamp(10px, 1.2vw, 16px);
+            font-size: clamp(11px, 1.3vw, 18px);
             color: var(--bright-red);
-            letter-spacing: 0.3em;
+            letter-spacing: 0.35em;
+            font-weight: 700;
         }
         .editorial-title {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(38px, 6.5vw, 85px);
-            line-height: 0.85;
+            font-size: clamp(40px, 7vw, 95px);
+            line-height: 0.8;
             color: var(--white);
+            letter-spacing: -0.02em;
         }
         .grid-right-editorial {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding-left: 3vw;
+            padding-left: 4vw;
         }
         .editorial-para {
-            font-size: clamp(14px, 1.8vw, 24px);
-            line-height: 1.2;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(16px, 2vw, 26px);
+            line-height: 1.25;
+            font-weight: 400;
+            color: var(--white);
             text-transform: none;
         }
 
@@ -329,57 +332,76 @@
             margin-top: 2vh;
         }
 
-        /* ─── ARENA MAP OVERLAY BLUEPRINT (SCENE 8) ─── */
+        /* ─── REWORKED HIGH-VISIBILITY BLUEPRINT ARENA (SCENE 8) ─── */
         .blueprint-arena-wrap {
-            width: 88vw;
-            height: 70vh;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90vw;
+            height: 72vh;
+            border: 3px solid var(--white);
             position: relative;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: var(--dark-gray);
+            background: rgba(11, 11, 15, 0.9);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
         .arena-canvas-column {
             position: relative;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 2px solid var(--white);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 3vw;
+            padding: 4vw;
         }
         .arena-canvas-column.right {
             border-right: none;
             justify-content: flex-end;
-            background: linear-gradient(135deg, rgba(217,0,34,0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(217,0,34,0.08) 0%, transparent 100%);
         }
         .arena-blueprint-line {
             position: absolute;
-            height: 1px;
+            height: 2px;
             background: var(--bright-red);
-            opacity: 0.3;
+            opacity: 0.75;
             width: 100%;
             top: 50%; left: 0;
+            z-index: 2;
+        }
+        .arena-blueprint-target {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: var(--bright-red);
+            background: var(--black);
+            padding: 4px 10px;
+            border: 1px solid var(--bright-red);
+            font-weight: 700;
+            letter-spacing: 2px;
+            z-index: 3;
         }
         .arena-headline {
             font-family: 'Anton', sans-serif;
-            font-size: clamp(24px, 5.5vw, 65px);
-            line-height: 0.85;
+            font-size: clamp(28px, 6vw, 75px);
+            line-height: 0.8;
             color: var(--white);
+            letter-spacing: -0.01em;
         }
         .arena-sub {
             font-family: 'Space Mono', monospace;
-            font-size: clamp(10px, 1.3vw, 15px);
+            font-size: clamp(11px, 1.4vw, 16px);
             color: var(--bright-red);
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-weight: 700;
         }
 
         /* Responsive Configuration Overrides */
         @media (max-width: 768px) {
-            .asymmetric-swiss-grid { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
-            .grid-left-editorial { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-right: 0; padding-bottom: 2vh; }
+            .asymmetric-swiss-grid { grid-template-columns: 1fr; grid-template-rows: 1.1fr 0.9fr; }
+            .grid-left-editorial { border-right: none; border-bottom: 2px solid var(--white); padding-right: 0; padding-bottom: 2vh; }
             .grid-right-editorial { padding-left: 0; padding-top: 2vh; }
-            .blueprint-arena-wrap { grid-template-columns: 1fr; grid-template-rows: 1.2fr 0.8fr; }
-            .arena-canvas-column { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .blueprint-arena-wrap { grid-template-columns: 1fr; grid-template-rows: 1.1fr 0.9fr; }
+            .arena-canvas-column { border-right: none; border-bottom: 2px solid var(--white); }
         }
     </style>
 </head>
@@ -404,7 +426,7 @@
 
     <div id="slideshow-container">
 
-        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) -->
+        <!-- SCENE 1: THE MISSION HOOK (Leaders, Entrepreneurs, Changemakers) [Reworked for Visibility] -->
         <div class="scene" id="scene-1">
             <div class="asymmetric-swiss-grid">
                 <div class="grid-left-editorial">
@@ -471,10 +493,11 @@
             </div>
         </div>
 
-        <!-- SCENE 8: THE ARENA CONVERGENCE (Grand Ball Room, Oriental Hotel) -->
+        <!-- SCENE 8: THE ARENA CONVERGENCE [Reworked for Visibility] -->
         <div class="scene" id="scene-8">
             <div class="blueprint-arena-wrap">
                 <div class="arena-blueprint-line"></div>
+                <div class="arena-blueprint-target">[ CENTER_LOCK ]</div>
                 <div class="arena-canvas-column">
                     <p class="arena-sub">// TARGET ARENA</p>
                     <h1 class="arena-headline" style="color: var(--bright-red);">GRAND<br>BALL ROOM</h1>
@@ -503,14 +526,14 @@
             let presentationStarted = false;
 
             const sceneDurations = [
-                3800, // 1: Asymmetric grid: leaders, entrepreneurs, changemakers
+                3800, // 1: Reworked asymmetric grid
                 3200, // 2: Vision panel card hook
                 2600, // 3: Pillar 1: Leadership development
                 2600, // 4: Pillar 2: Enterprise Opportunities
                 2800, // 5: Pillar 3: Access to voices shaping the future
                 3000, // 6: Transition: A new chapter begins!
                 3500, // 7: Delegates numerical counter stage
-                4500  // 8: Target arena blueprint map display
+                4500  // 8: Reworked blueprint map display
             ];
 
             const transitions = ['transition-whip', 'transition-glitch', 'transition-zoom', 'transition-slam'];
@@ -616,7 +639,7 @@
                 if (randomTransition === 'transition-glitch') playGlitchTick();
 
                 if (currentScene === 5) {
-                    playSweep(120, 35, 1.4, 'sawtooth'); // Deep dramatic drop on Scene 6
+                    playSweep(120, 35, 1.4, 'sawtooth'); // Deep dramatic drop on transition scene
                 }
 
                 container.className = '';
@@ -633,7 +656,7 @@
                     progressFill.style.width = '100%';
                 }, 50);
 
-                // Custom trigger for the delegate counter on Scene 7
+                // Trigger delegates counter
                 if (currentScene === 6) {
                     setTimeout(() => {
                         runDelegatesCounter(3500, 2200);
